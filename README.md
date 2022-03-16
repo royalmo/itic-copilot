@@ -1,11 +1,14 @@
 # OpenCourseWare Anti-downloader
 
-<p align="center">
-  <em>A Chrome extension that blocks the forced download of the files.</em>
-</p>
+_Made by [royalmo](https://github.com/royalmo) (Eric Roy) following a YouTube tutorial._
+
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/49844173/158698760-a9dcbb61-3f0d-4b67-9af2-ef7eed17cdd1.png" alt="Logo iTIC" width="50%" />
+</p>
+
+<p align="center">
+  <em>A Chrome extension that blocks the forced download of the files.</em>
 </p>
 
 ## Contents
@@ -14,7 +17,7 @@
 - [Usage](#usage)
 
 ## What is it?
-This chrome extension replaces the `@@download` part of every link in the `ocwitic.epsem.upc.edu` for `@@display-file` automaticlly. In other words, thanks to this extension, when you click on a file link, the file shows itself in the Chrome browser instead of downloading it.
+This chrome extension replaces the `@@download` part of every link in the [ocwitic.epsem.upc.edu](https://ocwitic.epsem.upc.edu/) for `@@display-file` automaticlly. In other words, thanks to this extension, when you click on a file link, the file shows itself in the Chrome browser instead of downloading it.
 
 It is very useful if you want to see multiple files. You just need to click them instead of downloading them all.
 
