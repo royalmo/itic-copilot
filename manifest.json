@@ -1,0 +1,18 @@
+{
+    "name": "OpenCourseWare Anti-download",
+    "short_name": "OCW Anti-download",
+    "description": "Prevents OCW files from being forced to download.",
+    "version": "1.0",
+    "manifest_version": 3,
+    "author" : "Eric Roy",
+
+    "content_scripts" : 
+    [
+        {
+            "matches": ["*://ocwitic.epsem.upc.edu/*"],
+            "all_frames": true,
+            "js": ["replace_html.js"],
+            "run_at": "document_end"
+        }
+    ]
+}
