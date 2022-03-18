@@ -18,7 +18,7 @@
         {
             "matches": ["*://ocwitic.epsem.upc.edu/*"],
             "all_frames": true,
-            "js": ["replace_html.js"],
+            "js": ["include/jquery-3.4.1.min.js", "replace_html.js"],
             "run_at": "document_end"
         }
     ]
