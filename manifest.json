@@ -20,6 +20,12 @@
             "all_frames": true,
             "js": [
                 "include/jquery-3.4.1.min.js",
+                "include/jszip.min.js",
+                "include/FileSaver.js",
+                "include/turndown.js",
+                "js/download_subject.js",
+                "js/fetch_files.js",
+                "js/tree.js",
                 "js/replace_html.js"
                 ],
             "run_at": "document_end"

@@ -11,26 +11,30 @@ https://github.com/royalmo/ocw-anti-download .
 
 // FUNCTIONS TO DOWNLOAD OCW CONTENT
 
-function download_document(documentNode) {
+function download_document(documentNode, callback) {
     console.log("Downloading document: " + documentNode.url);
-}
 
-function download_link(linkNode) {
-    console.log("Downloading link: " + linkNode.url);
+    jQuery.ajax({
+        url:documentNode.url,
+        type:'get',
+        dataType:'html',
+        success: function(data) {
+            var webcontent = jQuery(data).find("#content-core").html();
 
-    var xhr = new XMLHttpRequest();
+            var turndownService = new TurndownService();
+            documentNode.data = turndownService.turndown(webcontent);
 
-    $.ajax({
-        url: linkNode.url,
-        type: 'get',
-        xhr: function() { return xhr; },
-        success: function () {
-            linkNode.data = xhr.responseURL;
+            callback();
         }
     });
 }
 
-function download_file(fileNode) {
+function download_ocw_file_link(linkNode) {
+    console.log("Downloading link: " + linkNode.url);
+    linkNode.data = '[InternetShortcut]\nURL=' + linkNode.url + '\n';
+}
+
+function download_file(fileNode, callback) {
     console.log("Downloading file: " + fileNode.url);
 
     var b = getBinary(fileNode.url);
@@ -38,6 +42,7 @@ function download_file(fileNode) {
     fileNode.data = b64;
 
     console.log("Saved file: " + fileNode.url);
+    callback();
 }
 
 
@@ -82,23 +87,30 @@ function base64Encode(str) {
 
 // FUNCTION TO CREATE ZIP
 
-function createArchive(rootNode){
+function createArchive(tree){
     // Use jszip
     var zip = new JSZip();
 
-    for (let node of rootNode.preOrderTraversal()) {
+    for (let node of tree.preOrderTraversal()) {
         if (node.nodeType == FOLDER) {
             let folder_root = node.isRoot? zip : node.parent.data;
             node.data =  folder_root.folder(node.name);
         }
-        else if (node.hasBeenDownloaded) {
-            let title = node.name + (node.name.includes('.')? '':'.pdf' );
+        else if (node.nodeType == FILE && node.hasBeenDownloaded) {
+            let prevtitle = node.url.substring(node.url.lastIndexOf('/')+1);
+            let title = prevtitle + (prevtitle.includes('.')? '':'.pdf' );
             node.parent.data.file(title, node.data, {base64: true});
+        }
+        else if (node.nodeType == DOCUMENT && node.hasBeenDownloaded) {
+            node.parent.data.file(node.name+'.md', node.data);
+        }
+        else if (node.nodeType == LINK) {
+            node.parent.data.file(node.name+'.url', node.data);
         }
     }
 
     zip.generateAsync({type:"blob"}).then(function(content) {
         // see FileSaver.js
-        saveAs(content, rootNode.root.name+".zip");
+        saveAs(content, tree.root.name+".zip");
     });
 }

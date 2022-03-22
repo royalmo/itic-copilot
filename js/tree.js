@@ -34,7 +34,7 @@ class OcwTreeNode {
     }
 
     get hasBeenDownloaded() {
-        return this.data == null;
+        return this.data != null;
     }
 
     get isRoot() {
@@ -51,7 +51,7 @@ class OcwTreeNode {
 
     // Used to say that a folder has been seen.
     folderChecked() {
-        this.data == 0;
+        this.data = 0;
     }
 }
   
@@ -81,17 +81,16 @@ class OcwTree {
     insert(parentNodeURL, newNodeURL, newNodeType, newNodeName = "Unknown") {
         for (let node of this.preOrderTraversal()) {
             if (node.url === parentNodeURL) {
-                this.insert_with_node(node, newNodeURL, newNodeType, newNodeName);
-                return true;
+                return this.insert_with_node(node, newNodeURL, newNodeType, newNodeName);
             }
         }
         return false;
     }
 
     insert_with_node(parentNode, newNodeURL, newNodeType, newNodeName = "Unknown") {
-        parentNode.children.push(
-            new OcwTreeNode(newNodeURL, newNodeType, newNodeName, node)
-            );
+        let newNodeObject = new OcwTreeNode(newNodeURL, newNodeType, newNodeName, parentNode)
+        parentNode.children.push(newNodeObject);
+        return newNodeObject            
     }
 
     remove(url) {
@@ -113,8 +112,16 @@ class OcwTree {
     }
 
     get length() {
-        i = 0;
+        var i = 0;
         for (let node of this.preOrderTraversal()) { i++; }
         return i;
+    }
+
+    get all_downloaded() {
+        for (let node of this.preOrderTraversal()) {
+            if (!node.hasBeenDownloaded) { return false; }
+        }
+
+        return true
     }
 }
