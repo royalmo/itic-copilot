@@ -10,8 +10,6 @@ by Eric Roy (royalmo). Find it and its liscence at
 https://github.com/royalmo/ocw-anti-download .
 */
 
-currently_downloading = false
-
 // Used to link 'Download subject' links into the function.
 $(function() {
     $('a.ocw-anti-d-lnk').click(download_subject);
@@ -20,9 +18,6 @@ $(function() {
 
 // Function called when we want to download a subject.
 function download_subject(e) {
-    if (currently_downloading) return;
-
-    currently_downloading = true;
 
     var link = e.currentTarget.parentElement.firstChild.href;
     var subject_name = e.currentTarget.parentElement.firstChild.innerHTML;
@@ -42,7 +37,6 @@ function download_subject_continuation() {
 
     // Downloading files
     createArchive(tree, function() {
-        currently_downloading = false;
         fnon_kill_wait();
         fnon_alert("The subject " + tree.root.name + " has been downloaded successfully.", "Done");
     });
@@ -51,6 +45,7 @@ function download_subject_continuation() {
 
 // Fetches all the contents of a folder. Half-recursive.
 function download_folder(folderNode) {
+    if(!fnon_is_downloading()) {return;}
     fnon_update_downloading(folderNode.url);
 
     // Getting html
@@ -58,6 +53,9 @@ function download_folder(folderNode) {
         url:folderNode.url,
         type:'get',
         dataType:'html',
+        error: function(data) {
+            fnon_panic("An error occurred while downloading " + folderNode.url);
+        },
         success: function(data){
 
             // Parsing
@@ -67,9 +65,7 @@ function download_folder(folderNode) {
             // Empty folder
             if(_navTree.html() == null) {
                 if (folderNode.isRoot) {
-                    fnon_alert("This subject has no files to download!", "Error");
-                    fnon_kill_wait();
-                    currently_downloading=false;
+                    fnon_panic("This subject has no files to download!");
                     return;
                 }
                 // Telling that we checked the folder
@@ -104,7 +100,9 @@ function download_folder(folderNode) {
                 }
                 else if (anchor.classList.contains('contenttype-link')) {
                     let new_element = tree.insert_with_node(folderNode, link, LINK, name);
-                    download_ocw_file_link(new_element);
+                    //fnon_update_downloading(linkNode.name);
+                    new_element.data = '[InternetShortcut]\nURL=' + link + '\n';
+                    //download_subject_continuation();
                 }
                 // Debug
                 else {console.log(anchor);}

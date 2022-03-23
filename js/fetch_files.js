@@ -12,12 +12,16 @@ https://github.com/royalmo/ocw-anti-download .
 // FUNCTIONS TO DOWNLOAD OCW CONTENT
 
 function download_document(documentNode, callback) {
+    if(!fnon_is_downloading()) {return;}
     fnon_update_downloading(documentNode.url);
 
     jQuery.ajax({
         url:documentNode.url,
         type:'get',
         dataType:'html',
+        error: function(data){
+            fnon_panic("An error occurred while downloading " + documentNode.url);
+        },
         success: function(data) {
             var webcontent = jQuery(data).find("#content-core").html();
 
@@ -29,64 +33,38 @@ function download_document(documentNode, callback) {
     });
 }
 
-function download_ocw_file_link(linkNode) {
-    fnon_update_downloading(linkNode.name);
-    linkNode.data = '[InternetShortcut]\nURL=' + linkNode.url + '\n';
-}
+function download_file(fileNode, callback){
+    if(!fnon_is_downloading()) {return;}
+    fnon_update_downloading(fileNode.name);
 
-function download_file(fileNode, callback) {
-    fnon_update_downloading(fileNode.url);
-
-    var b = getBinary(fileNode.url);
-    var b64 = base64Encode(b);
-    fileNode.data = b64;
-
-    callback();
-}
-
-
-// FUNCTIONS TO DOWNLOAD AND ENCODE BASE64 FILES
-
-function getBinary(file){
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", file, false);
-    xhr.overrideMimeType("text/plain; charset=x-user-defined");
-    xhr.send(null);
-    return xhr.responseText;
-}
-
-function base64Encode(str) {
-    var CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-    var out = "", i = 0, len = str.length, c1, c2, c3;
-    while (i < len) {
-        c1 = str.charCodeAt(i++) & 0xff;
-        if (i == len) {
-            out += CHARS.charAt(c1 >> 2);
-            out += CHARS.charAt((c1 & 0x3) << 4);
-            out += "==";
-            break;
+    $.ajax({
+        type: "GET",
+        url: fileNode.url,
+        beforeSend: function (xhr) {
+            xhr.overrideMimeType('text/plain; charset=x-user-defined');
+        },
+        error: function(data){
+            fnon_panic("An error occurred while downloading " + fileNode.url);
+        },
+        success: function (result, textStatus, jqXHR) {
+            var binary = "";
+            var responseText = jqXHR.responseText;
+            var responseTextLen = responseText.length;
+        
+            for ( i = 0; i < responseTextLen; i++ ) {
+                binary += String.fromCharCode(responseText.charCodeAt(i) & 255)
+            }
+        
+            fileNode.data = btoa(binary);
+            callback();
         }
-        c2 = str.charCodeAt(i++);
-        if (i == len) {
-            out += CHARS.charAt(c1 >> 2);
-            out += CHARS.charAt(((c1 & 0x3)<< 4) | ((c2 & 0xF0) >> 4));
-            out += CHARS.charAt((c2 & 0xF) << 2);
-            out += "=";
-            break;
-        }
-        c3 = str.charCodeAt(i++);
-        out += CHARS.charAt(c1 >> 2);
-        out += CHARS.charAt(((c1 & 0x3) << 4) | ((c2 & 0xF0) >> 4));
-        out += CHARS.charAt(((c2 & 0xF) << 2) | ((c3 & 0xC0) >> 6));
-        out += CHARS.charAt(c3 & 0x3F);
-    }
-    return out;
+      });
 }
-
 
 // FUNCTION TO CREATE ZIP
 
 function createArchive(tree, callback){
+    if(!fnon_is_downloading()) return;
     // Use jszip
     var zip = new JSZip();
     fnon_update_compressing(' file tree ...');

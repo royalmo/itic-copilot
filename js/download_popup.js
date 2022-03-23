@@ -14,9 +14,15 @@ PROGRESS_UPDATE_DOWNLOADING = '<p style="font-size:16px;" align="center"><em>Fet
 PROGRESS_UPDATE_COMPRESSING = '<p style="font-size:16px;" align="center"><em>Compressing {0}</em></p>';
 
 subject_title = 'Undefined'; // Placeholder
+__is_downloading = false;
+
+function fnon_is_downloading() {
+    return __is_downloading;
+}
 
 function fnon_init_wait(subjtitle, subjurl) {
     subject_title = subjtitle
+    __is_downloading = true;
 
     Fnon.Wait.CurveBar(
         PROGRESS_TITLE.replace("{0}", subject_title) + PROGRESS_UPDATE_DOWNLOADING.replace("{0}", subjurl), {
@@ -30,6 +36,7 @@ function fnon_init_wait(subjtitle, subjurl) {
 
 function fnon_kill_wait() {
     Fnon.Wait.Remove();
+    __is_downloading = false;
 }
 
 function fnon_update_downloading(url_or_name) {
@@ -47,4 +54,9 @@ function fnon_update_compressing(url_or_name) {
 
 function fnon_alert(msgstr, title, okstr="Close") {
     Fnon.Alert.Warning(msgstr, title, okstr);
+}
+
+function fnon_panic(msgstr, title="Error") {
+    fnon_alert(msgstr, title);
+    fnon_kill_wait();
 }
