@@ -2,7 +2,7 @@
     "name": "OpenCourseWare Anti-download",
     "short_name": "OCW Anti-download",
     "description": "Prevents OCW files from being forced to download.",
-    "version": "1.0",
+    "version": "1.2",
     "manifest_version": 3,
     "author" : "Eric Roy",
 
