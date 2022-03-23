@@ -23,11 +23,16 @@
                 "include/jszip.min.js",
                 "include/FileSaver.js",
                 "include/turndown.js",
+                "include/fnon.min.js",
+                "js/download_popup.js",
                 "js/download_subject.js",
                 "js/fetch_files.js",
                 "js/tree.js",
                 "js/replace_html.js"
                 ],
+            "css": [
+                "include/fnon.min.css"
+            ],
             "run_at": "document_end"
         }
     ]

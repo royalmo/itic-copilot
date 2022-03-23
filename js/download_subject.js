@@ -10,6 +10,8 @@ by Eric Roy (royalmo). Find it and its liscence at
 https://github.com/royalmo/ocw-anti-download .
 */
 
+currently_downloading = false
+
 // Used to link 'Download subject' links into the function.
 $(function() {
     $('a.ocw-anti-d-lnk').click(download_subject);
@@ -18,10 +20,15 @@ $(function() {
 
 // Function called when we want to download a subject.
 function download_subject(e) {
+    if (currently_downloading) return;
+
+    currently_downloading = true;
+
     var link = e.currentTarget.parentElement.firstChild.href;
     var subject_name = e.currentTarget.parentElement.firstChild.innerHTML;
 
     console.log("OCW-A-D: Downloading " + subject_name + ". Base link: " + link);
+    fnon_init_wait(subject_name, link);
 
     // Creating File Tree
     tree = new OcwTree(link, subject_name);
@@ -34,15 +41,17 @@ function download_subject_continuation() {
     console.log("OCW-A-D: Got tree with " + tree.length + " urls.");
 
     // Downloading files
-    createArchive(tree);
+    createArchive(tree, function() {
+        currently_downloading = false;
+        fnon_kill_wait();
+        fnon_alert("The subject " + tree.root.name + " has been downloaded successfully.", "Done");
+    });
 }
 
 
 // Fetches all the contents of a folder. Half-recursive.
 function download_folder(folderNode) {
-    if (folderNode.hasParent) {
-        console.log("Download folder (" + folderNode.navTreeLevel + "): " + folderNode.url);
-    }
+    fnon_update_downloading(folderNode.url);
 
     // Getting html
     jQuery.ajax({
@@ -58,7 +67,10 @@ function download_folder(folderNode) {
             // Empty folder
             if(_navTree.html() == null) {
                 if (folderNode.isRoot) {
-                    alert("This subject has no files to download!");
+                    fnon_alert("This subject has no files to download!", "Error");
+                    fnon_kill_wait();
+                    currently_downloading=false;
+                    return;
                 }
                 // Telling that we checked the folder
                 folderNode.folderChecked();

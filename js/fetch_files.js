@@ -12,7 +12,7 @@ https://github.com/royalmo/ocw-anti-download .
 // FUNCTIONS TO DOWNLOAD OCW CONTENT
 
 function download_document(documentNode, callback) {
-    console.log("Downloading document: " + documentNode.url);
+    fnon_update_downloading(documentNode.url);
 
     jQuery.ajax({
         url:documentNode.url,
@@ -30,18 +30,17 @@ function download_document(documentNode, callback) {
 }
 
 function download_ocw_file_link(linkNode) {
-    console.log("Downloading link: " + linkNode.url);
+    fnon_update_downloading(linkNode.name);
     linkNode.data = '[InternetShortcut]\nURL=' + linkNode.url + '\n';
 }
 
 function download_file(fileNode, callback) {
-    console.log("Downloading file: " + fileNode.url);
+    fnon_update_downloading(fileNode.url);
 
     var b = getBinary(fileNode.url);
     var b64 = base64Encode(b);
     fileNode.data = b64;
 
-    console.log("Saved file: " + fileNode.url);
     callback();
 }
 
@@ -87,9 +86,10 @@ function base64Encode(str) {
 
 // FUNCTION TO CREATE ZIP
 
-function createArchive(tree){
+function createArchive(tree, callback){
     // Use jszip
     var zip = new JSZip();
+    fnon_update_compressing(' file tree ...');
 
     for (let node of tree.preOrderTraversal()) {
         if (node.nodeType == FOLDER) {
@@ -109,8 +109,12 @@ function createArchive(tree){
         }
     }
 
+    fnon_update_compressing(tree.root.name+".zip");
+
     zip.generateAsync({type:"blob"}).then(function(content) {
         // see FileSaver.js
+        console.log("OCW-A-D: Saving file " + tree.root.name+".zip");
         saveAs(content, tree.root.name+".zip");
+        callback();
     });
 }
