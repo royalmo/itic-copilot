@@ -24,7 +24,6 @@
             "matches": ["*://ocwitic.epsem.upc.edu/*"],
             "all_frames": true,
             "js": [
-                "include/browser-polyfill.js",
                 "include/jquery-3.4.1.min.js",
                 "include/jszip.min.js",
                 "include/FileSaver.js",
