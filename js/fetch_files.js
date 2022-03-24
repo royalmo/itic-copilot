@@ -11,6 +11,26 @@ https://github.com/royalmo/ocw-anti-download .
 
 // FUNCTIONS TO DOWNLOAD OCW CONTENT
 
+LINK_TEMPLATE_WINDOWS = '[InternetShortcut]\nURL={0}\n';
+LINK_TEMPLATE_LINUX   = '[Desktop Entry]\nEncoding=UTF-8\nName={1}\nType=Link\nURL={0}'
+LINK_TEMPLATE_MACOS   = '<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">\n<plist version="1.0">\n<dict>\n    <key>URL</key>\n    <string>{0}</string>\n</dict>\n</plist>\n';
+
+function download_ocw_link(linkNode) {
+    let os = get_os();
+    if (os == "Windows") {
+        linkNode.data = LINK_TEMPLATE_WINDOWS.replace('{0}', linkNode.url);
+    }
+    else if (os == "Linux") {
+        linkNode.data = LINK_TEMPLATE_LINUX.replace('{0}', linkNode.url).replace('{1}', linkNode.name);
+    }
+    else if (os == "MacOS") {
+        linkNode.data = LINK_TEMPLATE_MACOS.replace('{0}', linkNode.url);
+    }
+    else {
+        linkNode.data = linkNode.url
+    }
+}
+
 function download_document(documentNode, callback) {
     if(!fnon_is_downloading()) {return;}
     fnon_update_downloading(documentNode.url);
@@ -83,7 +103,24 @@ function createArchive(tree, callback){
             node.parent.data.file(node.name+'.md', node.data);
         }
         else if (node.nodeType == LINK) {
-            node.parent.data.file(node.name+'.url', node.data);
+            switch (get_os()) {
+                case "Windows":
+                    var extension = ".url";
+                    break;
+
+                case "Linux":
+                    var extension = ".desktop";
+                    break;
+
+                case "MacOS":
+                    var extension = ".webloc";
+                    break;
+            
+                default:
+                    var extension = ".txt"
+                    break;
+            }
+            node.parent.data.file(node.name+extension, node.data);
         }
     }
 

@@ -45,5 +45,14 @@ function replace_html() {
     console.log("OCW-A-D: Done replacing links!");
 }
 
+function get_os() {
+    /* Returns "Windows", "Linux", "MacOS" */
+    /* Default value (if not found) is Windows */
+    let os_info = navigator.oscpu;
+    if (os_info.includes("Linux")) return "Linux";
+    if (os_info.includes("Mac")) return "MacOS";
+    return "Windows";
+}
+
 // For the moment this functionality is always active.
 replace_html();

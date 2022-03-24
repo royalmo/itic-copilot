@@ -100,9 +100,7 @@ function download_folder(folderNode) {
                 }
                 else if (anchor.classList.contains('contenttype-link')) {
                     let new_element = tree.insert_with_node(folderNode, link, LINK, name);
-                    //fnon_update_downloading(linkNode.name);
-                    new_element.data = '[InternetShortcut]\nURL=' + link + '\n';
-                    //download_subject_continuation();
+                    download_ocw_link(new_element);
                 }
                 // Debug
                 else {console.log(anchor);}
