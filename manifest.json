@@ -3,7 +3,7 @@
     "short_name": "OCW Anti-download",
     "description": "Prevents OCW files from being forced to download.",
     "version": "1.2",
-    "manifest_version": 3,
+    "manifest_version": 2,
     "author" : "Eric Roy",
 
     "icons": {
@@ -13,12 +13,18 @@
         "128": "assets/ocw-favicon128.png"
     },
 
+    "background": {
+        "scripts": [
+        ]
+    },
+
     "content_scripts" : 
     [
         {
             "matches": ["*://ocwitic.epsem.upc.edu/*"],
             "all_frames": true,
             "js": [
+                "include/browser-polyfill.js",
                 "include/jquery-3.4.1.min.js",
                 "include/jszip.min.js",
                 "include/FileSaver.js",
