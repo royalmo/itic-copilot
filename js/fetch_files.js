@@ -40,7 +40,7 @@ function download_document(documentNode, callback) {
         type:'get',
         dataType:'html',
         error: function(data){
-            fnon_panic("An error occurred while downloading " + documentNode.url);
+            fnon_panic(browser.i18n.getMessage('error_downloading_subject', documentNode.url));
         },
         success: function(data) {
             var webcontent = jQuery(data).find("#content-core").html();
@@ -64,7 +64,7 @@ function download_file(fileNode, callback){
             xhr.overrideMimeType('text/plain; charset=x-user-defined');
         },
         error: function(data){
-            fnon_panic("An error occurred while downloading " + fileNode.url);
+            fnon_panic(browser.i18n.getMessage('error_downloading_subject', fileNode.url));
         },
         success: function (result, textStatus, jqXHR) {
             var binary = "";
@@ -87,7 +87,7 @@ function createArchive(tree, callback){
     if(!fnon_is_downloading()) return;
     // Use jszip
     var zip = new JSZip();
-    fnon_update_compressing(' file tree ...');
+    fnon_update_compressing(tree.root.name+".zip");
 
     for (let node of tree.preOrderTraversal()) {
         if (node.nodeType == FOLDER) {
@@ -124,11 +124,9 @@ function createArchive(tree, callback){
         }
     }
 
-    fnon_update_compressing(tree.root.name+".zip");
-
     zip.generateAsync({type:"blob"}).then(function(content) {
         // see FileSaver.js
-        console.log("OCW-A-D: Saving file " + tree.root.name+".zip");
+        console.log(browser.i18n.getMessage("log_saving_zip", tree.root.name));
         saveAs(content, tree.root.name+".zip");
         callback();
     });

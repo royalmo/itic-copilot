@@ -17,7 +17,7 @@ function replace_html() {
 
     for (i = 0; i<links.length; i++) {
         if (links[i].href.includes("@@download")) {
-            links[i].parentElement.innerHTML = links[i].parentElement.innerHTML + '<a href="' + links[i].href.replace("@@download", "@@display-file") + '" style="color:grey;font-size:10px">[<em>View</em>]</a>';
+            links[i].parentElement.innerHTML = links[i].parentElement.innerHTML + '<a href="' + links[i].href.replace("@@download", "@@display-file") + '" style="color:grey;font-size:10px">[<em>' + browser.i18n.getMessage('replace_html_view') + '</em>]</a>';
         }
     }
 
@@ -26,10 +26,10 @@ function replace_html() {
 
     for (i = 0; i<spans.length; i++) {
         if (spans[i].classList.contains('summary') && spans[i].children[0].classList.contains('contenttype-file')) {
-            spans[i].innerHTML = spans[i].innerHTML + '<a href = "' + spans[i].children[0].href.replace('/view', '') + '" style="color:grey;font-size:10px">[<em>View</em>]</a>';
+            spans[i].innerHTML = spans[i].innerHTML + '<a href = "' + spans[i].children[0].href.replace('/view', '') + '" style="color:grey;font-size:10px">[<em>' + browser.i18n.getMessage('replace_html_view') + '</em>]</a>';
         }
         if (spans[i].classList.contains('summary') && spans[i].children[0].classList.contains('contenttype-assignatura')) {
-            spans[i].innerHTML = spans[i].innerHTML + '<a class="ocw-anti-d-lnk" style="color:#2F4F4F; font-size:10px;" href="#"> [<em>Download all</em>]</a>';
+            spans[i].innerHTML = spans[i].innerHTML + '<a class="ocw-anti-d-lnk" style="color:#2F4F4F; font-size:10px;" href="#"> [<em>' + browser.i18n.getMessage('replace_html_download_subject') + '</em>]</a>';
         }
     }
 
@@ -38,11 +38,11 @@ function replace_html() {
 
     for (i = 0; i<subjects.length; i++) {
         if (subjects[i].classList.contains('doormatSectionBody')) {
-            subjects[i].innerHTML = subjects[i].innerHTML + '<a class="ocw-anti-d-lnk" style="color:#2F4F4F; font-size:10px;" href="#"> [<em>Download all</em>]</a>';
+            subjects[i].innerHTML = subjects[i].innerHTML + '<a class="ocw-anti-d-lnk" style="color:#2F4F4F; font-size:10px;" href="#"> [<em>' + browser.i18n.getMessage('replace_html_download_subject') + '</em>]</a>';
         }
     }
 
-    console.log("OCW-A-D: Done replacing links!");
+    console.log(browser.i18n.getMessage('log_done_replace_html'));
 }
 
 function get_os() {

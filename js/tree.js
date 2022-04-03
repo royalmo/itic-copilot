@@ -16,7 +16,7 @@ LINK = 2;
 DOCUMENT = 3;
 
 class OcwTreeNode {
-    constructor(url, nodeType, name = "Unknown", parent = null) {
+    constructor(url, nodeType, name = browser.i18n.getMessage("unknown"), parent = null) {
         this.url = url;
         this.nodeType = nodeType;
         this.name = name;
@@ -56,7 +56,7 @@ class OcwTreeNode {
 }
   
 class OcwTree {
-    constructor(rootURL, rootName = "Unknown", rootNodeType = FOLDER) {
+    constructor(rootURL, rootName = browser.i18n.getMessage("unknown"), rootNodeType = FOLDER) {
         this.root = new OcwTreeNode(rootURL, rootNodeType, rootName);
     }
 
@@ -78,7 +78,7 @@ class OcwTree {
         yield node;
     }
 
-    insert(parentNodeURL, newNodeURL, newNodeType, newNodeName = "Unknown") {
+    insert(parentNodeURL, newNodeURL, newNodeType, newNodeName = browser.i18n.getMessage("unknown")) {
         for (let node of this.preOrderTraversal()) {
             if (node.url === parentNodeURL) {
                 return this.insert_with_node(node, newNodeURL, newNodeType, newNodeName);

@@ -22,7 +22,7 @@ function download_subject(e) {
     var link = e.currentTarget.parentElement.firstChild.href;
     var subject_name = e.currentTarget.parentElement.firstChild.innerHTML;
 
-    console.log("OCW-A-D: Downloading " + subject_name + ". Base link: " + link);
+    console.log(browser.i18n.getMessage("log_download_start", [subject_name, link]));
     fnon_init_wait(subject_name, link);
 
     // Creating File Tree
@@ -33,12 +33,12 @@ function download_subject(e) {
 function download_subject_continuation() {
     if (!tree.all_downloaded) {return;}
 
-    console.log("OCW-A-D: Got tree with " + tree.length + " urls.");
+    console.log(browser.i18n.getMessage("log_download_tree", String(tree.length)));
 
     // Downloading files
     createArchive(tree, function() {
         fnon_kill_wait();
-        fnon_alert("The subject " + tree.root.name + " has been downloaded successfully.", "Done");
+        fnon_alert(browser.i18n.getMessage("success_downloading_subject", tree.root.name), browser.i18n.getMessage("done"));
     });
 }
 
@@ -54,7 +54,7 @@ function download_folder(folderNode) {
         type:'get',
         dataType:'html',
         error: function(data) {
-            fnon_panic("An error occurred while downloading " + folderNode.url);
+            fnon_panic(browser.i18n.getMessage("error_downloading_subject", folderNode.url));
         },
         success: function(data){
 
@@ -65,7 +65,7 @@ function download_folder(folderNode) {
             // Empty folder
             if(_navTree.html() == null) {
                 if (folderNode.isRoot) {
-                    fnon_panic("This subject has no files to download!");
+                    fnon_panic(browser.i18n.getMessage("error_subject_empty"));
                     return;
                 }
                 // Telling that we checked the folder
