@@ -1,0 +1,9 @@
+{
+    "extension_name" : {
+        "message" : "iTIC Copilot",
+        "description" : "Le nom de l'éxtension. Si possible, ne pas le changer."
+    },
+    "extension_description" : {
+        "message" : "L'éxtension préférée des étudiants iTIC!"
+    }
+}

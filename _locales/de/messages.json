@@ -1,0 +1,9 @@
+{
+    "extension_name" : {
+        "message" : "iTIC Copilot",
+        "description" : "Das Names des AddOn."
+    },
+    "extension_description" : {
+        "message" : "Das Add-On alle iTIC-Studente muss haben!"
+    }
+}

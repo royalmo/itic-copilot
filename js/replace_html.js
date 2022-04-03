@@ -48,7 +48,7 @@ function replace_html() {
 function get_os() {
     /* Returns "Windows", "Linux", "MacOS" */
     /* Default value (if not found) is Windows */
-    let os_info = navigator.oscpu;
+    let os_info = jscd.os;
     if (os_info.includes("Linux")) return "Linux";
     if (os_info.includes("Mac")) return "MacOS";
     return "Windows";

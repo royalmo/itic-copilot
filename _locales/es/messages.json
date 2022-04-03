@@ -1,0 +1,9 @@
+{
+    "extension_name" : {
+        "message" : "iTIC Copilot",
+        "description" : "El nombre de la extensión. Mejor si no se cambia."
+    },
+    "extension_description" : {
+        "message" : "La extensión de navegador imprescindible para los estudiantes de iTIC."
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "extension_name" : {
+        "message" : "iTIC Copilot",
+        "description" : "The name of the extension. Better if not changed."
+    },
+    "extension_description" : {
+        "message" : "The browser extension every iTIC student should have!"
+    }
+}
