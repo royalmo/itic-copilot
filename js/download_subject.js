@@ -18,9 +18,8 @@ $(function() {
 
 // Function called when we want to download a subject.
 function download_subject(e) {
-
-    var link = e.currentTarget.parentElement.firstChild.href;
-    var subject_name = e.currentTarget.parentElement.firstChild.innerHTML;
+    var link = e.currentTarget.parentElement.children[0].href;
+    var subject_name = e.currentTarget.parentElement.children[0].innerHTML; // 0.413 0.161 0.087 0.248
 
     console.log(browser.i18n.getMessage("log_download_start", [subject_name, link]));
     fnon_init_wait(subject_name, link);
