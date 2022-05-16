@@ -8,7 +8,7 @@
   Get in on <a href="https://chrome.google.com/webstore/detail/opcjpngfgjgceflfdajgekochbmclgmh">Chrome</a>,
   <a href="https://addons.mozilla.org/firefox/addon/itic-copilot/">Firefox</a>,
   <a href="https://microsoftedge.microsoft.com/addons/detail/bjokdnpmhkdokhpkdbgbpgbpmjbknjoh">Edge</a>,
-  <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Opera</a>
+  <a href="https://addons.opera.com/es/extensions/details/itic-copilot/">Opera</a>
   and <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Safari</a>!
 </strong></p>
   
