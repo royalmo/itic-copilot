@@ -4,9 +4,9 @@ of a subject in the https://ocwitic.epsem.upc.edu webpage.
 
 It has secondary functions for download_subject.js.
 
-This file is part of OCW-Anti-Download extension, made
+This file is part of iTIC Copilot extension, made
 by Eric Roy (royalmo). Find it and its liscence at
-https://github.com/royalmo/ocw-anti-download .
+https://github.com/royalmo/itic-copilot .
 */
 
 // FUNCTIONS TO DOWNLOAD OCW CONTENT

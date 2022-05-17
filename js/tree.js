@@ -5,9 +5,9 @@ of a subject in the https://ocwitic.epsem.upc.edu webpage.
 It contains a simple File Tree Structure with classes, to
 make easier to sort the downloaded files.
 
-This file is part of OCW-Anti-Download extension, made
+This file is part of iTIC Copilot extension, made
 by Eric Roy (royalmo). Find it and its liscence at
-https://github.com/royalmo/ocw-anti-download .
+https://github.com/royalmo/itic-copilot .
 */
 
 FOLDER = 0;
