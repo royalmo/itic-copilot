@@ -81,6 +81,34 @@ function download_file(fileNode, callback){
       });
 }
 
+function download_image(fileNode, callback){
+    if(!fnon_is_downloading()) {return;}
+    fnon_update_downloading(fileNode.name);
+
+    $.ajax({
+        type: "GET",
+        url: fileNode.url,
+        beforeSend: function (xhr) {
+            xhr.overrideMimeType('text/plain; charset=x-user-defined');
+        },
+        error: function(data){
+            fnon_panic(browser.i18n.getMessage('error_downloading_subject', fileNode.url));
+        },
+        success: function (result, textStatus, jqXHR) {
+            var binary = "";
+            var responseText = jqXHR.responseText;
+            var responseTextLen = responseText.length;
+        
+            for ( i = 0; i < responseTextLen; i++ ) {
+                binary += String.fromCharCode(responseText.charCodeAt(i) & 255)
+            }
+        
+            fileNode.data = btoa(binary);
+            callback();
+        }
+    });
+}
+
 // FUNCTION TO CREATE ZIP
 
 function createArchive(tree, callback){

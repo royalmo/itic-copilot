@@ -14,6 +14,7 @@ FOLDER = 0;
 FILE = 1;
 LINK = 2;
 DOCUMENT = 3;
+IMAGE = 4;
 
 class OcwTreeNode {
     constructor(url, nodeType, name = browser.i18n.getMessage("unknown"), parent = null) {

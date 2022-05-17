@@ -97,6 +97,10 @@ function download_folder(folderNode) {
                     let new_element = tree.insert_with_node(folderNode, link, DOCUMENT, name);
                     download_document(new_element, download_subject_continuation);
                 }
+                else if (anchor.classList.contains('contenttype-image')) {
+                    let new_element = tree.insert_with_node(folderNode, link, IMAGE, name);
+                    download_image(new_element, download_subject_continuation);
+                }
                 else if (anchor.classList.contains('contenttype-link')) {
                     let new_element = tree.insert_with_node(folderNode, link, LINK, name);
                     download_ocw_link(new_element);
