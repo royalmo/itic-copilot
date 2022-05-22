@@ -1,9 +1,125 @@
 {
     "extension_name" : {
         "message" : "iTIC Copilot",
-        "description" : "Le nom de l'éxtension. Si possible, ne pas le changer."
+        "description" : "The name of the extension. Better if not changed."
     },
     "extension_description" : {
         "message" : "L'éxtension préférée des étudiants iTIC!"
+    },
+
+    "unknown" : {
+        "message" : "Inconnu",
+        "description" : "Placeholder for files without name."
+    },
+    "done" : {
+        "message" : "Fait",
+        "description" : "Used as an OK to window prompts."
+    },
+    "close" : {
+        "message" : "Fermer",
+        "description" : "Used as a message to exit PopUps."
+    },
+    "error" : {
+        "message" : "Erreur",
+        "description" : "Title of 'error' PopUps."
+    },
+
+    "replace_html_view" : {
+        "message" : "Voir",
+        "description" : "Button that lets users view a file in the browser instead of downloading it."
+    },
+    "replace_html_download_subject" : {
+        "message" : "Télécharger",
+        "description" : "Button that lets users download all the files from a subject."
+    },
+
+    "progress_popup_title" : {
+        "message" : "Téléchargement de $SUBJECT$...",
+        "description" : "This will appear on-screen during the subject download as the TITLE.",
+        "placeholders" : {
+            "subject" : {
+                "content" : "$1",
+                "exemple" : "Circuits i Sistemes Lineals"
+            }
+        }
+    },
+    "progress_popup_fetching" : {
+        "message" : "Récupération de $URL$...",
+        "description" : "This will appear on-screen during the subject download as the subtitle.",
+        "placeholders" : {
+            "url" : {
+                "content" : "$1",
+                "example" : "https://ocwitic.epsem.upc.edu/csl/practiques/prac3.pdf"
+            }
+        }
+    },
+    "progress_popup_compressing" : {
+        "message" : "Compression de $FILE$...",
+        "description" : "This will appear on-screen during the subject download as the subtitle.",
+        "placeholders" : {
+            "file" : {
+                "content" : "$1",
+                "example" : "Circuits i Sistemes Lineals.zip"
+            }
+        }
+    },
+
+    "success_downloading_subject" : {
+        "message" : "Le sujet $SUBJECT$ a été téléchargé avec succès.",
+        "description" : "Message shown when a subject download is completed.",
+        "placeholders" : {
+            "subject" : {
+                "content" : "$1",
+                "exemple" : "Circuits i Sistemes Lineals"
+            }
+        }
+    },
+    "error_downloading_subject" : {
+        "message" : "Une erreur s'est produite lors du téléchargement de $URL$.",
+        "description" : "Message shown when an error occurs when downloading a subject.",
+        "placeholders" : {
+            "url" : {
+                "content" : "$1",
+                "example" : "https://ocwitic.epsem.upc.edu/csl/practiques/prac3.pdf"
+            }
+        }
+    },
+    "error_subject_empty" : {
+        "message" : "Ce sujet n'a pas de fichiers à télécharger!",
+        "description" : "Message shown when the subject that we want to download is empty."
+    },
+
+
+    "log_done_replace_html" : {
+        "message" : "OCW-A-D: Done replacing links!",
+        "description" : "Not important to translate (end user should never see this)."
+    },
+    "log_download_start" : {
+        "message" : "OCW-A-D: Downloading $SUBJECT$. Base link: $URL$",
+        "description" : "Not important to translate (end user should never see this).",
+        "placeholders" : {
+            "subject" : {
+                "content" : "$1",
+                "exemple" : "Circuits i Sistemes Lineals"
+            },
+            "url" : {
+                "content" : "$2",
+                "example" : "https://ocwitic.epsem.upc.edu/csl/"
+            }
+        }
+    },
+    "log_download_tree" : {
+        "message" : "OCW-A-D: Got tree with $1 urls.",
+        "description" : "Not important to translate (end user should never see this)."
+    },
+    "log_saving_zip" : {
+        "message" : "OCW-A-D: Saving file $NAME$.zip",
+        "description" : "Not important to translate (end user should never see this).",
+        "placeholders" : {
+            "name" : {
+                "content" : "$1",
+                "example" : "Circuits i Sistemes Lineals"
+            }
+        }
     }
 }
