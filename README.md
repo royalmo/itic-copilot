@@ -32,7 +32,17 @@
 
 I'm studying an ICT Systems Engineering degree (called also iTIC). During the degree I've found that some tools that we needed to use were a little bit hard to understand at first, or they weren't just as productive as they could be.
 
-That's why I created a browser extension that could, at least, try to make the navigation experience better. It is available on all the browsers that let users publish their extensions without having to be rich. In the next section we will list the most important features of the extension.
+That's why I created a browser extension that could, at least, try to make the navigation experience better. It is available on all the browsers that let users publish their extensions without having to be rich.
+
+### Extension's public description
+
+iTIC Copilot is the "must have" browser extension for the ICT Systems Students at EPSEM.
+We know the sites that you will sit in front of during hours (mostly because we did it too), so you will be with no doubt pleased with the features that we developed.
+
+Starting from an anti-downloader and a full-downloader at OCW's website, going through an autologin and marks calculator at Atenea's website, and ending by combining Escriny's and Overleaf's website.
+But that's not all! We also created some documents with advices that we would have loved to hear when we were studying.
+
+Boost your productivity with iTIC Copilot, and not by getting inside an atomic_block ! (you will understand the joke by the end of 2nd grade)
 
 ## Features
 
