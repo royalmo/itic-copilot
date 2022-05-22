@@ -35,7 +35,7 @@
 
     "progress_popup_title" : {
         "message" : "Downloading $SUBJECT$...",
-        "description" : "This will appear on screen during the subject download as the TITLE.",
+        "description" : "This will appear on-screen during the subject download as the TITLE.",
         "placeholders" : {
             "subject" : {
                 "content" : "$1",
