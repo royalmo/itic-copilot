@@ -14,7 +14,7 @@
   
 ----
 <p align="center">
-  <em>Made by <a href="https://github.com/royalmo">royalmo</a> (Eric Roy). Logo made by Josep Sucarrats.</em>
+  <em>Made by <a href="https://github.com/royalmo">royalmo</a> (Eric Roy). Logo made by <a href="https://github.com/PepitoGrillo7281">PepitoGrillo7281</a> (Josep Sucarrats). Translations by <a href="https://github.com/aidavede">aidavede</a> (Aida Vers).</em>
 </p>
 
 
