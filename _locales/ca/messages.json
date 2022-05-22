@@ -25,11 +25,11 @@
     },
 
     "replace_html_view" : {
-        "message" : "Visualització",
+        "message" : "Veure",
         "description" : "Button that lets users view a file in the browser instead of downloading it."
     },
     "replace_html_download_subject" : {
-        "message" : "Descarrega-ho tot",
+        "message" : "Descarregar",
         "description" : "Button that lets users download all the files from a subject."
     },
 
@@ -44,7 +44,7 @@
         }
     },
     "progress_popup_fetching" : {
-        "message" : "Recollint $URL$...",
+        "message" : "Carregant $URL$...",
         "description" : "This will appear on-screen during the subject download as the subtitle.",
         "placeholders" : {
             "url" : {
@@ -55,7 +55,7 @@
     },
     "progress_popup_compressing" : {
         "message" : "Comprimint $FILE$...",
-        "description" : "This will appear on screen during the subject download as the subtitle.",
+        "description" : "This will appear on-screen during the subject download as the subtitle.",
         "placeholders" : {
             "file" : {
                 "content" : "$1",
@@ -65,7 +65,7 @@
     },
 
     "success_downloading_subject" : {
-        "message" : "La matèria $SUBJECT$ s'ha descarregat correctament.",
+        "message" : "L'assignatura $SUBJECT$ s'ha descarregat correctament.",
         "description" : "Message shown when a subject download is completed.",
         "placeholders" : {
             "subject" : {
@@ -85,7 +85,7 @@
         }
     },
     "error_subject_empty" : {
-        "message" : "Aquesta matèria no té cap arxiu per descarregar!",
+        "message" : "Aquesta assignatura no té cap arxiu per descarregar!",
         "description" : "Message shown when the subject that we want to download is empty."
     },
 
