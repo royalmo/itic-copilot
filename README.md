@@ -36,13 +36,17 @@ That's why I created a browser extension that could, at least, try to make the n
 
 ### Extension's public description
 
-iTIC Copilot is the "must have" browser extension for the ICT Systems Students at EPSEM.
-We know the sites that you will be sitting in front of during hours (mostly because we did it too), so you will be, with no doubt, pleased with the features that we developed.
+If you are an ICT Systems Student at EPSEM, the iTIC Copilot browser extension is a "must have"
 
-Featuring an anti-downloader and a full-downloader at OCW's website, an Atenea & Escriny autologin, a grades calculator at Atenea's website, and a combination of  Escriny's and Overleaf's websites.
-But that's not all! We also created some documents with advices that we would have loved to hear about when we were studying.
+Through experience we know the sites that you will spending time on for hours, and we have no doubt that you will be pleased with the following features that we have developed
 
-Boost your productivity with iTIC Copilot, and not by getting inside an atomic_block ! (you will understand the joke by the end of 2nd grade)
+- anti-downloader & full-downloader (OCW's website)
+- Atenea & Escriny autologin
+- Grades Calculator (Atenea's website)
+- Combination of Escriny's & Overleaf's website
+- Documents with advice (wish we had this when we were studying...)
+
+Boost your productivity with iTIC Copilot, instead of getting getting inside an atomic_block! (you will get the joke by the end of 2nd grade)
 
 ## Features
 
