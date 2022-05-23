@@ -14,7 +14,7 @@
   
 ----
 <p align="center">
-  <em>Made by <a href="https://github.com/royalmo">royalmo</a> (Eric Roy). Logo made by <a href="https://github.com/PepitoGrillo7281">PepitoGrillo7281</a> (Josep Sucarrats). Translations by <a href="https://github.com/aidavede">aidavede</a> (Aida Vers).</em>
+  <em>Made by <a href="https://github.com/royalmo">royalmo</a> (Eric Roy). Logo made by <a href="https://github.com/PepitoGrillo7281">PepitoGrillo7281</a> (Josep Sucarrats). Translations by <a href="https://github.com/aidavede">aidavede</a> (Aida Vers). Issues & Feedback by <a href="https://github.com/FlyingKoala01">FlyingKoala01</a> (Isaac Iglesias).</em>
 </p>
 
 
@@ -37,10 +37,10 @@ That's why I created a browser extension that could, at least, try to make the n
 ### Extension's public description
 
 iTIC Copilot is the "must have" browser extension for the ICT Systems Students at EPSEM.
-We know the sites that you will sit in front of during hours (mostly because we did it too), so you will be with no doubt pleased with the features that we developed.
+We know the sites that you will be sitting in front of during hours (mostly because we did it too), so you will be, with no doubt, pleased with the features that we developed.
 
-Starting from an anti-downloader and a full-downloader at OCW's website, going through an autologin and marks calculator at Atenea's website, and ending by combining Escriny's and Overleaf's website.
-But that's not all! We also created some documents with advices that we would have loved to hear when we were studying.
+Featuring an anti-downloader and a full-downloader at OCW's website, an Atenea & Escriny autologin, a grades calculator at Atenea's website, and a combination of  Escriny's and Overleaf's websites.
+But that's not all! We also created some documents with advices that we would have loved to hear about when we were studying.
 
 Boost your productivity with iTIC Copilot, and not by getting inside an atomic_block ! (you will understand the joke by the end of 2nd grade)
 
