@@ -46,7 +46,7 @@ Through experience we know the sites that you will spending time on for hours, a
 - Combination of Escriny's & Overleaf's website
 - Documents with advice (wish we had this when we were studying...)
 
-Boost your productivity with iTIC Copilot, instead of getting getting inside an atomic_block! (you will get the joke by the end of 2nd grade)
+Boost your productivity with iTIC Copilot, instead of getting getting inside an `ATOMIC_BLOCK`! (you will get the joke by the end of 2nd grade)
 
 ## Features
 
