@@ -19,15 +19,19 @@ function download_ocw_link(linkNode) {
     let os = get_os();
     if (os == "Windows") {
         linkNode.data = LINK_TEMPLATE_WINDOWS.replace('{0}', linkNode.url);
+        linkNode.name += ".url";
     }
     else if (os == "Linux") {
         linkNode.data = LINK_TEMPLATE_LINUX.replace('{0}', linkNode.url).replace('{1}', linkNode.name);
+        linkNode.name += ".desktop";
     }
     else if (os == "MacOS") {
         linkNode.data = LINK_TEMPLATE_MACOS.replace('{0}', linkNode.url);
+        linkNode.name += ".webloc";
     }
     else {
-        linkNode.data = linkNode.url
+        linkNode.data = linkNode.url;
+        linkNode.name += ".txt";
     }
 }
 
@@ -81,29 +85,24 @@ function download_file(fileNode, callback){
       });
 }
 
-function download_image(fileNode, callback){
+function download_image(imgNode, callback){
     if(!fnon_is_downloading()) {return;}
-    fnon_update_downloading(fileNode.name);
-
-    $.ajax({
-        type: "GET",
-        url: fileNode.url,
-        beforeSend: function (xhr) {
-            xhr.overrideMimeType('text/plain; charset=x-user-defined');
-        },
+    fnon_update_downloading(imgNode.name);
+    
+    jQuery.ajax({
+        url:imgNode.url,
+        type:'get',
+        dataType:'html',
         error: function(data){
-            fnon_panic(browser.i18n.getMessage('error_downloading_subject', fileNode.url));
+            fnon_panic(browser.i18n.getMessage('error_downloading_subject', imgNode.url));
         },
-        success: function (result, textStatus, jqXHR) {
-            var binary = "";
-            var responseText = jqXHR.responseText;
-            var responseTextLen = responseText.length;
-        
-            for ( i = 0; i < responseTextLen; i++ ) {
-                binary += String.fromCharCode(responseText.charCodeAt(i) & 255)
-            }
-        
-            fileNode.data = btoa(binary);
+        success: function(data) {
+            imgNode.url = jQuery(data).find('a.discreet').children("img").first().attr('src');
+
+            // Downloading the image doesn't seem to work, we will save the url instead.
+            // imgNode.name += imgNode.url.substring(imgNode.url.lastIndexOf('.'));
+            // download_file(imgNode, callback);
+            download_ocw_link(imgNode);
             callback();
         }
     });
@@ -130,25 +129,8 @@ function createArchive(tree, callback){
         else if (node.nodeType == DOCUMENT && node.hasBeenDownloaded) {
             node.parent.data.file(node.name+'.md', node.data);
         }
-        else if (node.nodeType == LINK) {
-            switch (get_os()) {
-                case "Windows":
-                    var extension = ".url";
-                    break;
-
-                case "Linux":
-                    var extension = ".desktop";
-                    break;
-
-                case "MacOS":
-                    var extension = ".webloc";
-                    break;
-            
-                default:
-                    var extension = ".txt"
-                    break;
-            }
-            node.parent.data.file(node.name+extension, node.data);
+        else if (node.nodeType == LINK || (node.nodeType == IMAGE && node.hasBeenDownloaded)) {
+            node.parent.data.file(node.name, node.data);
         }
     }
 
