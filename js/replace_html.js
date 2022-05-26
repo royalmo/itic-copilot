@@ -5,9 +5,9 @@ of the https://ocwitic.epsem.upc.edu webpage.
 It adds some extra links to prevent forced downloads.
 It also adds some extra links to download all things at once.
 
-This file is part of OCW-Anti-Download extension, made
+This file is part of iTIC Copilot extension, made
 by Eric Roy (royalmo). Find it and its liscence at
-https://github.com/royalmo/ocw-anti-download .
+https://github.com/royalmo/itic-copilot .
 */
 
 function replace_html() {

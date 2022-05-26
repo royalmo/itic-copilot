@@ -5,9 +5,9 @@ of a subject in the https://ocwitic.epsem.upc.edu webpage.
 It looks for all the files in the file tree, downloads
 them and packs them in a .zip file, prompted to download.
 
-This file is part of OCW-Anti-Download extension, made
+This file is part of iTIC Copilot extension, made
 by Eric Roy (royalmo). Find it and its liscence at
-https://github.com/royalmo/ocw-anti-download .
+https://github.com/royalmo/itic-copilot .
 */
 
 // Used to link 'Download subject' links into the function.
@@ -96,6 +96,10 @@ function download_folder(folderNode) {
                 else if (anchor.classList.contains('contenttype-document')) {
                     let new_element = tree.insert_with_node(folderNode, link, DOCUMENT, name);
                     download_document(new_element, download_subject_continuation);
+                }
+                else if (anchor.classList.contains('contenttype-image')) {
+                    let new_element = tree.insert_with_node(folderNode, link, IMAGE, name);
+                    download_image(new_element, download_subject_continuation);
                 }
                 else if (anchor.classList.contains('contenttype-link')) {
                     let new_element = tree.insert_with_node(folderNode, link, LINK, name);

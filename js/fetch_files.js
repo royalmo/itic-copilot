@@ -4,9 +4,9 @@ of a subject in the https://ocwitic.epsem.upc.edu webpage.
 
 It has secondary functions for download_subject.js.
 
-This file is part of OCW-Anti-Download extension, made
+This file is part of iTIC Copilot extension, made
 by Eric Roy (royalmo). Find it and its liscence at
-https://github.com/royalmo/ocw-anti-download .
+https://github.com/royalmo/itic-copilot .
 */
 
 // FUNCTIONS TO DOWNLOAD OCW CONTENT
@@ -19,15 +19,19 @@ function download_ocw_link(linkNode) {
     let os = get_os();
     if (os == "Windows") {
         linkNode.data = LINK_TEMPLATE_WINDOWS.replace('{0}', linkNode.url);
+        linkNode.name += ".url";
     }
     else if (os == "Linux") {
         linkNode.data = LINK_TEMPLATE_LINUX.replace('{0}', linkNode.url).replace('{1}', linkNode.name);
+        linkNode.name += ".desktop";
     }
     else if (os == "MacOS") {
         linkNode.data = LINK_TEMPLATE_MACOS.replace('{0}', linkNode.url);
+        linkNode.name += ".webloc";
     }
     else {
-        linkNode.data = linkNode.url
+        linkNode.data = linkNode.url;
+        linkNode.name += ".txt";
     }
 }
 
@@ -81,6 +85,29 @@ function download_file(fileNode, callback){
       });
 }
 
+function download_image(imgNode, callback){
+    if(!fnon_is_downloading()) {return;}
+    fnon_update_downloading(imgNode.name);
+    
+    jQuery.ajax({
+        url:imgNode.url,
+        type:'get',
+        dataType:'html',
+        error: function(data){
+            fnon_panic(browser.i18n.getMessage('error_downloading_subject', imgNode.url));
+        },
+        success: function(data) {
+            imgNode.url = jQuery(data).find('a.discreet').children("img").first().attr('src');
+
+            // Downloading the image doesn't seem to work, we will save the url instead.
+            // imgNode.name += imgNode.url.substring(imgNode.url.lastIndexOf('.'));
+            // download_file(imgNode, callback);
+            download_ocw_link(imgNode);
+            callback();
+        }
+    });
+}
+
 // FUNCTION TO CREATE ZIP
 
 function createArchive(tree, callback){
@@ -102,25 +129,8 @@ function createArchive(tree, callback){
         else if (node.nodeType == DOCUMENT && node.hasBeenDownloaded) {
             node.parent.data.file(node.name+'.md', node.data);
         }
-        else if (node.nodeType == LINK) {
-            switch (get_os()) {
-                case "Windows":
-                    var extension = ".url";
-                    break;
-
-                case "Linux":
-                    var extension = ".desktop";
-                    break;
-
-                case "MacOS":
-                    var extension = ".webloc";
-                    break;
-            
-                default:
-                    var extension = ".txt"
-                    break;
-            }
-            node.parent.data.file(node.name+extension, node.data);
+        else if (node.nodeType == LINK || (node.nodeType == IMAGE && node.hasBeenDownloaded)) {
+            node.parent.data.file(node.name, node.data);
         }
     }
 
