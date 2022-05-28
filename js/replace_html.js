@@ -42,6 +42,15 @@ function replace_html() {
         }
     }
 
+    // Adding download quadrimester links
+    var quadrimesters = document.querySelectorAll("dt");
+
+    for (i = 0; i<quadrimesters.length; i++) {
+        if (quadrimesters[i].classList.contains('doormatSectionHeader')) {
+            quadrimesters[i].innerHTML = quadrimesters[i].innerHTML + '<a class="copilot_d_quadrimester" style="color:#bfbbb2; font-size:10px;" href="#"> [<em>' + browser.i18n.getMessage('replace_html_download_subject') + '</em>]</a>';
+        }
+    }
+
     console.log(browser.i18n.getMessage('log_done_replace_html'));
 }
 

@@ -17,13 +17,14 @@ DOCUMENT = 3;
 IMAGE = 4;
 
 class OcwTreeNode {
-    constructor(url, nodeType, name = browser.i18n.getMessage("unknown"), parent = null) {
+    constructor(url, nodeType, name = browser.i18n.getMessage("unknown"), parent = null, navTreeLevel = null) {
         this.url = url;
         this.nodeType = nodeType;
         this.name = name;
         this.parent = parent;
         this.children = [];
         this.data = null;
+        this.navTreeLevel = navTreeLevel===null? this.parent.navTreeLevel+1 : navTreeLevel;
     }
 
     get isLeaf() {
@@ -46,10 +47,6 @@ class OcwTreeNode {
         return !this.isRoot;
     }
 
-    get navTreeLevel() {
-        return this.isRoot? 1 : this.parent.navTreeLevel+1;
-    }
-
     // Used to say that a folder has been seen.
     folderChecked() {
         this.data = 0;
@@ -57,8 +54,8 @@ class OcwTreeNode {
 }
   
 class OcwTree {
-    constructor(rootURL, rootName = browser.i18n.getMessage("unknown"), rootNodeType = FOLDER) {
-        this.root = new OcwTreeNode(rootURL, rootNodeType, rootName);
+    constructor(rootURL, rootName = browser.i18n.getMessage("unknown"), startLevel = 1, rootNodeType = FOLDER) {
+        this.root = new OcwTreeNode(rootURL, rootNodeType, rootName, null, startLevel);
     }
 
     *preOrderTraversal(node = this.root) {

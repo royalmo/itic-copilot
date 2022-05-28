@@ -15,11 +15,42 @@ $(function() {
     $('a.ocw-anti-d-lnk').click(download_subject);
 });
 
+$(function() {
+    $('a.copilot_d_quadrimester').click(download_quadrimester);
+});
+
+
+// Function called when we want to download a quadrimester.
+function download_quadrimester(e) {
+    var subjects = e.currentTarget.parentElement.parentElement.children;
+    var quadrimester_name = e.currentTarget.parentElement.innerHTML;
+
+    quadrimester_name = quadrimester_name.substring(0, quadrimester_name.indexOf('<a'));
+
+    console.log(browser.i18n.getMessage("log_download_quadrimester_start", quadrimester_name));
+
+    tree = new OcwTree(link, quadrimester_name, 0);
+    fnon_init_wait(quadrimester_name, 'a');
+
+    for(var i = 0; i<subjects.length; i++) {
+        if (! subjects[i].classList.contains('doormatSectionBody')) continue;
+
+        var link = subjects[i].children[0].href;
+        var subject_name = subjects[i].children[0].innerHTML;
+
+        let new_element = tree.insert_with_node(tree.root, link, FOLDER, subject_name);
+
+        download_folder(new_element);
+        console.log(subject_name, link);
+    }
+
+    tree.root.folderChecked();
+}
 
 // Function called when we want to download a subject.
 function download_subject(e) {
     var link = e.currentTarget.parentElement.children[0].href;
-    var subject_name = e.currentTarget.parentElement.children[0].innerHTML; // 0.413 0.161 0.087 0.248
+    var subject_name = e.currentTarget.parentElement.children[0].innerHTML;
 
     console.log(browser.i18n.getMessage("log_download_start", [subject_name, link]));
     fnon_init_wait(subject_name, link);
