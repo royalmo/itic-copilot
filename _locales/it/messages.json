@@ -63,6 +63,10 @@
             }
         }
     },
+    "progress_popup_cancel" : {
+        "message" : "Cancellare",
+        "description" : "Message used to cancel a folder, subject or quadrimester download."
+    },
 
     "success_downloading_subject" : {
         "message" : "La materia $SUBJECT$ è stata scaricata correttamente.",
