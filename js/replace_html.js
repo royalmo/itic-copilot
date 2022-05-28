@@ -19,6 +19,11 @@ function replace_html() {
         if (links[i].href.includes("@@download")) {
             links[i].parentElement.innerHTML = links[i].parentElement.innerHTML + '<a href="' + links[i].href.replace("@@download", "@@display-file") + '" style="color:grey;font-size:10px">[<em>' + browser.i18n.getMessage('replace_html_view') + '</em>]</a>';
         }
+
+        // Add download forced if we are seeing a folder
+        if (links[i].classList.contains('navTreeCurrentItem') && links[i].classList.contains('contenttype-folder')) {
+            document.getElementById('viewlet-below-content-title').innerHTML += '<p><a class="copilot-download-folder" style="color:#007bb1; font-size:13px;" href="#"> [<em>' + browser.i18n.getMessage('replace_html_download_subject') + '</em>]</a></p><br/>';
+        }
     }
 
     // Adding extra download links

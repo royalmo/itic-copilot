@@ -9,8 +9,10 @@ by Eric Roy (royalmo). Find it and its liscence at
 https://github.com/royalmo/itic-copilot .
 */
 
-PROGRESS_TITLE = '<p style="font-size:20px;" align="center"><strong>{0}</strong></p>';
-PROGRESS_SUBTITLE = '<p style="font-size:16px;" align="center"><em>{0}</em></p>';
+PROGRESS_HTML = '<p style="font-size:20px;color:#2841b5;" align="center"><strong>{0}</strong></p> <br/>\
+                <div id="fnon_content"></div> <br/>\
+                <a class="fnon-kill-wait" style="color:red;background:lightyellow;" href="#"><strong><em>' + 
+                browser.i18n.getMessage("progress_popup_cancel") + '</strong></em></a>';
 
 subject_title = browser.i18n.getMessage("unknown"); // Placeholder
 __is_downloading = false;
@@ -24,12 +26,16 @@ function fnon_init_wait(subjtitle, subjurl) {
     __is_downloading = true;
 
     Fnon.Wait.CurveBar(
-        PROGRESS_TITLE.replace("{0}", browser.i18n.getMessage("progress_popup_title", subject_title)) + PROGRESS_SUBTITLE.replace("{0}", browser.i18n.getMessage("progress_popup_fetching", subjurl)), {
+        PROGRESS_HTML.replace("{0}", browser.i18n.getMessage("progress_popup_title", subject_title)), {
         clickToClose: false,
         background: 'rgba(255,255,255,0.7)',
         textColor: '#000000',
         containerSize: '75%',
         fontFamily: '"Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif'
+    });
+
+    $(function() {
+        $('a.fnon-kill-wait').click(fnon_kill_wait);
     });
 }
 
@@ -39,16 +45,11 @@ function fnon_kill_wait() {
 }
 
 function fnon_update_downloading(url_or_name) {
-    let endstring = PROGRESS_TITLE.replace("{0}", browser.i18n.getMessage("progress_popup_title", subject_title)) + PROGRESS_SUBTITLE.replace("{0}", browser.i18n.getMessage("progress_popup_fetching", url_or_name))
-
-    Fnon.Wait.Change();
-    Fnon.Wait.Change(endstring);
+    document.getElementById('fnon_content').innerHTML = '<p style="font-size:16px;color:#1f7dde;" align="center"><em>' + browser.i18n.getMessage("progress_popup_fetching", url_or_name) + '</em></p>';
 }
 
 function fnon_update_compressing(url_or_name) {
-    let endstring = PROGRESS_TITLE.replace("{0}", browser.i18n.getMessage("progress_popup_title", subject_title)) + PROGRESS_SUBTITLE.replace("{0}", browser.i18n.getMessage("progress_popup_compressing", url_or_name))
-
-    Fnon.Wait.Change(endstring);
+    document.getElementById('fnon_content').innerHTML = '<p style="font-size:16px;color:#1f7dde;" align="center"><em>' + browser.i18n.getMessage("progress_popup_compressing", url_or_name) + '</em></p>';
 }
 
 function fnon_alert(msgstr, title, okstr=browser.i18n.getMessage("close")) {

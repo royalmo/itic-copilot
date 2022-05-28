@@ -19,6 +19,32 @@ $(function() {
     $('a.copilot_d_quadrimester').click(download_quadrimester);
 });
 
+$(function() {
+    $('a.copilot-download-folder').click(download_one_folder);
+});
+
+
+function download_one_folder() {
+    var title = document.querySelector('h1').innerHTML;
+    var link = window.location.href;
+
+    var classes = document.getElementsByClassName('navTreeCurrentItem contenttype-folder')[0].parentElement.parentElement.classList;
+    var navlevel = 1;
+    for (var i=0; i<classes.length; i++){
+        if (typeof classes[i] === 'string' && classes[i].startsWith('navTreeLevel')) {
+            navlevel = parseInt(classes[i].slice(classes[i].lastIndexOf("l")+1))+1;
+            break;
+        }
+    }
+
+    console.log(browser.i18n.getMessage("log_download_start", [title, link]));
+    fnon_init_wait(title, link);
+
+    // Creating File Tree
+    tree = new OcwTree(link, title, navlevel);
+    download_folder(tree.root);
+}
+
 
 // Function called when we want to download a quadrimester.
 function download_quadrimester(e) {

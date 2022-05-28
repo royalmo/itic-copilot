@@ -135,6 +135,7 @@ function createArchive(tree, callback){
     }
 
     zip.generateAsync({type:"blob"}).then(function(content) {
+        if(!fnon_is_downloading()) return;
         // see FileSaver.js
         console.log(browser.i18n.getMessage("log_saving_zip", tree.root.name));
         saveAs(content, tree.root.name+".zip");
