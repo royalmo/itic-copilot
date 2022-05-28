@@ -108,6 +108,16 @@
             }
         }
     },
+    "log_download_quadrimester_start" : {
+        "message" : "OCW-A-D: Downloading $QUADRI$.",
+        "description" : "Not important to translate (end user should never see this).",
+        "placeholders" : {
+            "quadri" : {
+                "content" : "$1",
+                "exemple" : "Quadrimestre 1"
+            }
+        }
+    },
     "log_download_tree" : {
         "message" : "OCW-A-D: Got tree with $1 urls.",
         "description" : "Not important to translate (end user should never see this)."

@@ -27,7 +27,7 @@ function download_quadrimester(e) {
 
     quadrimester_name = quadrimester_name.substring(0, quadrimester_name.indexOf('<a'));
 
-    console.log(browser.i18n.getMessage("log_download_start", [quadrimester_name, 'a']));
+    console.log(browser.i18n.getMessage("log_download_quadrimester_start", quadrimester_name));
 
     tree = new OcwTree(link, quadrimester_name, 0);
     fnon_init_wait(quadrimester_name, 'a');
