@@ -36,15 +36,15 @@ That's why I created a browser extension that could, at least, try to make the n
 
 ### Extension's public description
 
-If you are an ICT Systems Student at EPSEM, the iTIC Copilot browser extension is a "must have"
+If you are an ICT Systems Student at EPSEM, the iTIC Copilot browser extension is a "must have".
 
-Through experience we know the sites that you will spending time on for hours, and we have no doubt that you will be pleased with the following features that we have developed
+Through experience we know the sites that you will spending time on for hours, and we have no doubt that you will be pleased with the following features that we have developed.
 
-- anti-downloader & full-downloader (OCW's website)
-- Atenea & Escriny autologin
-- Grades Calculator (Atenea's website)
-- Combination of Escriny's & Overleaf's website
-- Documents with advice (wish we had this when we were studying...)
+- Anti-downloader & full-downloader (OCW's website).
+- Atenea & Escriny autologin.
+- Grades Calculator (Atenea's website).
+- Combination of Escriny's & Overleaf's website.
+- Documents with advice (wish we had this when we were studying...).
 
 Boost your productivity with iTIC Copilot, instead of getting getting inside an `ATOMIC_BLOCK`! (you will get the joke by the end of 2nd grade)
 
@@ -56,8 +56,18 @@ This extension makes the browsing experience of iTIC students much, much easier.
 
 - It disables the 'forced download' when accessing some files. Specially, the PDF's, that with the extension are opened with the browser.
 - It has a 'download subject' option, that creates a `.zip` file with all the resources of a subject, to make massive downloads easier.
+- The same occurs when downloading a folder inside a subject, or when downloading an entire quatrimester.
+- We made the download process fully controllable by the end-user (cancel button, messages of errors, etc.).
 
-### Escriny (iTIC's subversion) productivity
+### Escriny (iTIC's OpenProject) productivity
+
+Work in progress. For the moment, there's nothing here.
+
+### Atenea (iTIC's Moodle) productivity
+
+Work in progress. For the moment, there's nothing here.
+
+### Other websites
 
 Work in progress. For the moment, there's nothing here.
 
