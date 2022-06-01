@@ -52,8 +52,14 @@ function fnon_update_compressing(url_or_name) {
     document.getElementById('fnon_content').innerHTML = '<p style="font-size:16px;color:#1f7dde;" align="center"><em>' + browser.i18n.getMessage("progress_popup_compressing", url_or_name) + '</em></p>';
 }
 
-function fnon_alert(msgstr, title, okstr=browser.i18n.getMessage("close")) {
-    Fnon.Alert.Warning(msgstr, title, okstr);
+function fnon_alert(msgstr, title, okstr=browser.i18n.getMessage("close"), autoremove=true) {
+    if (autoremove) {
+        let alert_timeout = setTimeout(function() {
+            $("button.f__btn").first().click();
+        }, 10000);
+    }
+
+    Fnon.Alert.Warning(msgstr, title, okstr, function() {clearTimeout(alert_timeout);});
 }
 
 function fnon_panic(msgstr, title=browser.i18n.getMessage("error")) {
