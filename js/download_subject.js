@@ -37,7 +37,7 @@ function download_one_folder() {
         }
     }
 
-    console.log(browser.i18n.getMessage("log_download_start", [title, link]));
+    console.log(browser.i18n.getMessage("log_ocw_start_folder_download", [title, link]));
     fnon_init_wait(title, link);
 
     // Creating File Tree
@@ -53,7 +53,7 @@ function download_quadrimester(e) {
 
     quadrimester_name = quadrimester_name.substring(0, quadrimester_name.indexOf('<a'));
 
-    console.log(browser.i18n.getMessage("log_download_quadrimester_start", quadrimester_name));
+    console.log(browser.i18n.getMessage("log_ocw_start_quatrimester_download", quadrimester_name));
 
     tree = new OcwTree(link, quadrimester_name, 0);
     fnon_init_wait(quadrimester_name, 'a');
@@ -78,7 +78,7 @@ function download_subject(e) {
     var link = e.currentTarget.parentElement.children[0].href;
     var subject_name = e.currentTarget.parentElement.children[0].innerHTML;
 
-    console.log(browser.i18n.getMessage("log_download_start", [subject_name, link]));
+    console.log(browser.i18n.getMessage("log_ocw_start_subject_download", [subject_name, link]));
     fnon_init_wait(subject_name, link);
 
     // Creating File Tree
@@ -89,12 +89,12 @@ function download_subject(e) {
 function download_subject_continuation() {
     if (!tree.all_downloaded) {return;}
 
-    console.log(browser.i18n.getMessage("log_download_tree", String(tree.length)));
+    console.log(browser.i18n.getMessage("log_ocw_fetched_tree", String(tree.length)));
 
     // Downloading files
     createArchive(tree, function() {
         fnon_kill_wait();
-        fnon_alert(browser.i18n.getMessage("success_downloading_subject", tree.root.name), browser.i18n.getMessage("done"));
+        fnon_alert(browser.i18n.getMessage("ocw_downloader_success_msg", tree.root.name), browser.i18n.getMessage("ocw_downloader_done"));
     });
 }
 
@@ -110,7 +110,7 @@ function download_folder(folderNode) {
         type:'get',
         dataType:'html',
         error: function(data) {
-            fnon_panic(browser.i18n.getMessage("error_downloading_subject", folderNode.url));
+            fnon_panic(browser.i18n.getMessage("ocw_downloader_error_msg", folderNode.url));
         },
         success: function(data){
 
@@ -121,7 +121,7 @@ function download_folder(folderNode) {
             // Empty folder
             if(_navTree.html() == null) {
                 if (folderNode.isRoot) {
-                    fnon_panic(browser.i18n.getMessage("error_subject_empty"));
+                    fnon_panic(browser.i18n.getMessage("ocw_downloader_empty_subject_msg"));
                     return;
                 }
                 // Telling that we checked the folder

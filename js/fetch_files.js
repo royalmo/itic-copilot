@@ -44,7 +44,7 @@ function download_document(documentNode, callback) {
         type:'get',
         dataType:'html',
         error: function(data){
-            fnon_panic(browser.i18n.getMessage('error_downloading_subject', documentNode.url));
+            fnon_panic(browser.i18n.getMessage('ocw_downloader_error_msg', documentNode.url));
         },
         success: function(data) {
             var webcontent = jQuery(data).find("#content-core").html();
@@ -68,7 +68,7 @@ function download_file(fileNode, callback){
             xhr.overrideMimeType('text/plain; charset=x-user-defined');
         },
         error: function(data){
-            fnon_panic(browser.i18n.getMessage('error_downloading_subject', fileNode.url));
+            fnon_panic(browser.i18n.getMessage('ocw_downloader_error_msg', fileNode.url));
         },
         success: function (result, textStatus, jqXHR) {
             var binary = "";
@@ -94,7 +94,7 @@ function download_image(imgNode, callback){
         type:'get',
         dataType:'html',
         error: function(data){
-            fnon_panic(browser.i18n.getMessage('error_downloading_subject', imgNode.url));
+            fnon_panic(browser.i18n.getMessage('ocw_downloader_error_msg', imgNode.url));
         },
         success: function(data) {
             imgNode.url = jQuery(data).find('a.discreet').children("img").first().attr('src');
@@ -137,7 +137,7 @@ function createArchive(tree, callback){
     zip.generateAsync({type:"blob"}).then(function(content) {
         if(!fnon_is_downloading()) return;
         // see FileSaver.js
-        console.log(browser.i18n.getMessage("log_saving_zip", tree.root.name));
+        console.log(browser.i18n.getMessage("log_ocw_saving_file", tree.root.name+".zip"));
         saveAs(content, tree.root.name+".zip");
         callback();
     });

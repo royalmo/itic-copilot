@@ -16,8 +16,10 @@ LINK = 2;
 DOCUMENT = 3;
 IMAGE = 4;
 
+unknown_text = browser.i18n.getMessage("ocw_downloader_unknown")
+
 class OcwTreeNode {
-    constructor(url, nodeType, name = browser.i18n.getMessage("unknown"), parent = null, navTreeLevel = null) {
+    constructor(url, nodeType, name = unknown_text, parent = null, navTreeLevel = null) {
         this.url = url;
         this.nodeType = nodeType;
         this.name = name;
@@ -54,7 +56,7 @@ class OcwTreeNode {
 }
   
 class OcwTree {
-    constructor(rootURL, rootName = browser.i18n.getMessage("unknown"), startLevel = 1, rootNodeType = FOLDER) {
+    constructor(rootURL, rootName = unknown_text, startLevel = 1, rootNodeType = FOLDER) {
         this.root = new OcwTreeNode(rootURL, rootNodeType, rootName, null, startLevel);
     }
 
@@ -76,7 +78,7 @@ class OcwTree {
         yield node;
     }
 
-    insert(parentNodeURL, newNodeURL, newNodeType, newNodeName = browser.i18n.getMessage("unknown")) {
+    insert(parentNodeURL, newNodeURL, newNodeType, newNodeName = unknown_text) {
         for (let node of this.preOrderTraversal()) {
             if (node.url === parentNodeURL) {
                 return this.insert_with_node(node, newNodeURL, newNodeType, newNodeName);
