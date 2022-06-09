@@ -7,45 +7,55 @@
         "message" : "La extensión de navegador imprescindible para los estudiantes de iTIC!"
     },
 
-    "unknown" : {
-        "message" : "Desconocido",
-        "description" : "Placeholder for files without name."
-    },
-    "done" : {
-        "message" : "Hecho",
-        "description" : "Used as an OK to window prompts."
-    },
-    "close" : {
-        "message" : "Cerrar",
-        "description" : "Used as a message to exit PopUps."
-    },
-    "error" : {
-        "message" : "Error",
-        "description" : "Title of 'error' PopUps."
-    },
 
-    "replace_html_view" : {
+
+    "ocw_replacer_view" : {
         "message" : "Ver",
         "description" : "Button that lets users view a file in the browser instead of downloading it."
     },
-    "replace_html_download_subject" : {
+    "ocw_replacer_download_all" : {
         "message" : "Descargar todo",
-        "description" : "Button that lets users download all the files from a subject."
+        "description" : "Button that lets users download all the files from a subject or folder."
     },
 
-    "progress_popup_title" : {
-        "message" : "Descargando $SUBJECT$...",
-        "description" : "This will appear on-screen during the subject download as the TITLE.",
+
+
+    "ocw_downloader_done" : {
+        "message" : "Hecho",
+        "description" : "Used as an OK to window prompts."
+    },
+    "ocw_downloader_close" : {
+        "message" : "Cerrar",
+        "description" : "Used as a message to exit PopUps."
+    },
+    "ocw_downloader_error" : {
+        "message" : "Error",
+        "description" : "Title of 'error' PopUps."
+    },
+    "ocw_downloader_unknown" : {
+        "message" : "Desconocido",
+        "description" : "Placeholder for files without name."
+    },
+    "ocw_downloader_cancel" : {
+        "message" : "Cancelar",
+        "description" : "Message used to cancel a folder, subject or quadrimester download."
+    },
+
+
+
+    "ocw_downloader_downloading_msg" : {
+        "message" : "Descargando $TITLE$...",
+        "description" : "This will appear on-screen during the download as the TITLE.",
         "placeholders" : {
-            "subject" : {
+            "title" : {
                 "content" : "$1",
                 "exemple" : "Circuits i Sistemes Lineals"
             }
         }
     },
-    "progress_popup_fetching" : {
+    "ocw_downloader_fetching_msg" : {
         "message" : "Cargando $URL$...",
-        "description" : "This will appear on-screen during the subject download as the subtitle.",
+        "description" : "This will appear on-screen during the download as the subtitle.",
         "placeholders" : {
             "url" : {
                 "content" : "$1",
@@ -53,9 +63,9 @@
             }
         }
     },
-    "progress_popup_compressing" : {
+    "ocw_downloader_compressing_msg" : {
         "message" : "Comprimiendo $FILE$...",
-        "description" : "This will appear on-screen during the subject download as the subtitle.",
+        "description" : "This will appear on-screen during the download as the subtitle.",
         "placeholders" : {
             "file" : {
                 "content" : "$1",
@@ -63,24 +73,22 @@
             }
         }
     },
-    "progress_popup_cancel" : {
-        "message" : "Cancelar",
-        "description" : "Message used to cancel a folder, subject or quadrimester download."
-    },
 
-    "success_downloading_subject" : {
-        "message" : "La asignatura $SUBJECT$ se ha descargado con éxito.",
-        "description" : "Message shown when a subject download is completed.",
+
+
+    "ocw_downloader_success_msg" : {
+        "message" : "Se ha descargado correctamente `$TITLE$`.",
+        "description" : "Message shown when a subject/folder/quadrimester download is completed.",
         "placeholders" : {
-            "subject" : {
+            "title" : {
                 "content" : "$1",
                 "exemple" : "Circuits i Sistemes Lineals"
             }
         }
     },
-    "error_downloading_subject" : {
-        "message" : "Se ha producido un error durante la descarga de $URL$.",
-        "description" : "Message shown when an error occurs when downloading a subject.",
+    "ocw_downloader_error_msg" : {
+        "message" : "Un error ha ocurrido durante la descarga de $URL$.",
+        "description" : "Message shown when an error occurs when downloading a file.",
         "placeholders" : {
             "url" : {
                 "content" : "$1",
@@ -88,42 +96,8 @@
             }
         }
     },
-    "error_subject_empty" : {
-        "message" : "Esta asignatura no tiene archivos para descargar!",
-        "description" : "Message shown when the subject that we want to download is empty."
-    },
-
-
-    "log_done_replace_html" : {
-        "message" : "OCW-A-D: Done replacing links!",
-        "description" : "Not important to translate (end user should never see this)."
-    },
-    "log_download_start" : {
-        "message" : "OCW-A-D: Downloading $SUBJECT$. Base link: $URL$",
-        "description" : "Not important to translate (end user should never see this).",
-        "placeholders" : {
-            "subject" : {
-                "content" : "$1",
-                "exemple" : "Circuits i Sistemes Lineals"
-            },
-            "url" : {
-                "content" : "$2",
-                "example" : "https://ocwitic.epsem.upc.edu/csl/"
-            }
-        }
-    },
-    "log_download_tree" : {
-        "message" : "OCW-A-D: Got tree with $1 urls.",
-        "description" : "Not important to translate (end user should never see this)."
-    },
-    "log_saving_zip" : {
-        "message" : "OCW-A-D: Saving file $NAME$.zip",
-        "description" : "Not important to translate (end user should never see this).",
-        "placeholders" : {
-            "name" : {
-                "content" : "$1",
-                "example" : "Circuits i Sistemes Lineals"
-            }
-        }
+    "ocw_downloader_empty_subject_msg" : {
+        "message" : "¡No hay ningún archivo para descargar!",
+        "description" : "Message shown when the subject/quadrimester/folder that we want to download is empty."
     }
 }

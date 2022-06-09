@@ -12,9 +12,9 @@ https://github.com/royalmo/itic-copilot .
 PROGRESS_HTML = '<p style="font-size:20px;color:#2841b5;" align="center"><strong>{0}</strong></p> <br/>\
                 <div id="fnon_content"></div> <br/>\
                 <a class="fnon-kill-wait" style="color:red;background:lightyellow;" href="#"><strong><em>' + 
-                browser.i18n.getMessage("progress_popup_cancel") + '</strong></em></a>';
+                browser.i18n.getMessage("ocw_downloader_cancel") + '</strong></em></a>';
 
-subject_title = browser.i18n.getMessage("unknown"); // Placeholder
+subject_title = browser.i18n.getMessage("ocw_downloader_unknown"); // Placeholder
 __is_downloading = false;
 
 function fnon_is_downloading() {
@@ -26,7 +26,7 @@ function fnon_init_wait(subjtitle, subjurl) {
     __is_downloading = true;
 
     Fnon.Wait.CurveBar(
-        PROGRESS_HTML.replace("{0}", browser.i18n.getMessage("progress_popup_title", subject_title)), {
+        PROGRESS_HTML.replace("{0}", browser.i18n.getMessage("ocw_downloader_downloading_msg", subject_title)), {
         clickToClose: false,
         background: 'rgba(255,255,255,0.7)',
         textColor: '#000000',
@@ -35,7 +35,10 @@ function fnon_init_wait(subjtitle, subjurl) {
     });
 
     $(function() {
-        $('a.fnon-kill-wait').click(fnon_kill_wait);
+        $('a.fnon-kill-wait').click( function() {
+            browser.i18n.getMessage('log_ocw_cancel_download');
+            fnon_kill_wait();
+        });
     });
 }
 
@@ -45,16 +48,16 @@ function fnon_kill_wait() {
 }
 
 function fnon_update_downloading(url_or_name) {
-    document.getElementById('fnon_content').innerHTML = '<p style="font-size:16px;color:#1f7dde;" align="center"><em>' + browser.i18n.getMessage("progress_popup_fetching", url_or_name) + '</em></p>';
+    document.getElementById('fnon_content').innerHTML = '<p style="font-size:16px;color:#1f7dde;" align="center"><em>' + browser.i18n.getMessage("ocw_downloader_fetching_msg", url_or_name) + '</em></p>';
 }
 
 function fnon_update_compressing(url_or_name) {
-    document.getElementById('fnon_content').innerHTML = '<p style="font-size:16px;color:#1f7dde;" align="center"><em>' + browser.i18n.getMessage("progress_popup_compressing", url_or_name) + '</em></p>';
+    document.getElementById('fnon_content').innerHTML = '<p style="font-size:16px;color:#1f7dde;" align="center"><em>' + browser.i18n.getMessage("ocw_downloader_compressing_msg", url_or_name) + '</em></p>';
 }
 
-function fnon_alert(msgstr, title, okstr=browser.i18n.getMessage("close"), autoremove=true) {
+function fnon_alert(msgstr, title, okstr=browser.i18n.getMessage("ocw_downloader_close"), autoremove=true) {
     if (autoremove) {
-        let alert_timeout = setTimeout(function() {
+        var alert_timeout = setTimeout(function() {
             $("button.f__btn").first().click();
         }, 10000);
     }
@@ -62,7 +65,7 @@ function fnon_alert(msgstr, title, okstr=browser.i18n.getMessage("close"), autor
     Fnon.Alert.Warning(msgstr, title, okstr, function() {clearTimeout(alert_timeout);});
 }
 
-function fnon_panic(msgstr, title=browser.i18n.getMessage("error")) {
+function fnon_panic(msgstr, title=browser.i18n.getMessage("ocw_downloader_error")) {
     fnon_alert(msgstr, title);
     fnon_kill_wait();
 }
