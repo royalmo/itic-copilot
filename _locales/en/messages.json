@@ -103,14 +103,24 @@
 
 
 
-
+    "log_copilot_name" : {
+        "message" : "Copilot: "
+    },
 
     "log_ocw_done_link_replacement" : {
-        "message" : "Copilot: Done replacing links!"
+        "message" : "Done replacing links!"
+    },
+
+    "log_ocw_links_shown" : {
+        "message" : "OCW links shown."
+    },
+
+    "log_ocw_links_hidden" : {
+        "message" : "OCW links hidden."
     },
 
     "log_ocw_start_subject_download" : {
-        "message" : "Copilot: Downloading subject `$SUBJECT$`. Base link: $URL$",
+        "message" : "Downloading subject `$SUBJECT$`. Base link: $URL$",
         "placeholders" : {
             "subject" : {
                 "content" : "$1",
@@ -123,7 +133,7 @@
         }
     },
     "log_ocw_start_quatrimester_download" : {
-        "message" : "Copilot: Downloading `$QUATRI$`.",
+        "message" : "Downloading `$QUATRI$`.",
         "placeholders" : {
             "quatri" : {
                 "content" : "$1",
@@ -132,7 +142,7 @@
         }
     },
     "log_ocw_start_folder_download" : {
-        "message" : "Copilot: Downloading folder `$FOLDER$`. Base link: $URL$",
+        "message" : "Downloading folder `$FOLDER$`. Base link: $URL$",
         "placeholders" : {
             "folder" : {
                 "content" : "$1",
@@ -146,14 +156,14 @@
     },
 
     "log_ocw_cancel_download" : {
-        "message" : "Copilot: Download cancelled by user."
+        "message" : "Download cancelled by user."
     },
     "log_ocw_error_download" : {
-        "message" : "Copilot: An error occurred. Check the console."
+        "message" : "An error occurred. Check the console."
     },
 
     "log_ocw_fetched_tree" : {
-        "message" : "Copilot: Got file tree with $NUMBER$ urls.",
+        "message" : "Got file tree with $NUMBER$ urls.",
         "placeholders" : {
             "number" : {
                 "content" : "$1",
@@ -162,7 +172,7 @@
         }
     },
     "log_ocw_saving_file" : {
-        "message" : "Copilot: Saving file $NAME$",
+        "message" : "Saving file $NAME$",
         "placeholders" : {
             "name" : {
                 "content" : "$1",
