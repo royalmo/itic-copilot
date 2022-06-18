@@ -18,28 +18,31 @@
 // This file adds extra links into the ocw pages.
 
 (function () {
-    // Removing fored download
     var links = document.querySelectorAll("a");
     var i;
 
     for (i = 0; i<links.length; i++) {
+
+        // Removing fored download
         if (links[i].href.includes("@@download")) {
             links[i].parentElement.innerHTML = links[i].parentElement.innerHTML + '<a href="' + links[i].href.replace("@@download", "@@display-file") + '" style="color:grey;font-size:10px">[<em>' + t('ocw_replacer_view') + '</em>]</a>';
         }
 
-        // Add download forced if we are seeing a folder
+        // Add download to all if we are seeing a folder
         if (links[i].classList.contains('navTreeCurrentItem') && links[i].classList.contains('contenttype-folder')) {
             document.getElementById('viewlet-below-content-title').innerHTML += '<p><a class="copilot-download-folder" style="color:#007bb1; font-size:13px;" href="#"> [<em>' + t('ocw_replacer_download_all') + '</em>]</a></p><br/>';
         }
     }
 
-    // Adding extra download links
     var spans = document.querySelectorAll("span");
 
     for (i = 0; i<spans.length; i++) {
+        // Extra view links to file (on menu)
         if (spans[i].classList.contains('summary') && spans[i].children[0].classList.contains('contenttype-file')) {
             spans[i].innerHTML = spans[i].innerHTML + '<a href = "' + spans[i].children[0].href.replace('/view', '') + '" style="color:grey;font-size:10px">[<em>' + t('ocw_replacer_view') + '</em>]</a>';
         }
+
+        // Download entire subject (on menu)
         if (spans[i].classList.contains('summary') && spans[i].children[0].classList.contains('contenttype-assignatura')) {
             spans[i].innerHTML = spans[i].innerHTML + '<a class="ocw-anti-d-lnk" style="color:#2F4F4F; font-size:10px;" href="#"> [<em>' + t('ocw_replacer_download_all') + '</em>]</a>';
         }
@@ -49,9 +52,9 @@
     var subjects = document.querySelectorAll("dd");
 
     for (i = 0; i<subjects.length; i++) {
-        if (subjects[i].classList.contains('doormatSectionBody')) {
-            subjects[i].innerHTML = subjects[i].innerHTML + '<a class="ocw-anti-d-lnk" style="color:#2F4F4F; font-size:10px;" href="#"> [<em>' + t('ocw_replacer_download_all') + '</em>]</a>';
-        }
+        if (! subjects[i].classList.contains('doormatSectionBody')) continue;
+
+        subjects[i].innerHTML = subjects[i].innerHTML + '<a class="ocw-anti-d-lnk" style="color:#2F4F4F; font-size:10px;" href="#"> [<em>' + t('ocw_replacer_download_all') + '</em>]</a>';
     }
 
     // Adding download quadrimester links
@@ -80,4 +83,4 @@
 })();
 
 // For the moment this functionality is always active.
-itic_copilot.show_links();
+itic_copilot.ocw.show_links(); // TODO replace
