@@ -38,14 +38,14 @@ itic_copilot = {};
     }
 
     // Other utils
-    itic_copilot.os = function() {
+    itic_copilot.os = (function() {
         /* Returns "Windows", "Linux", "MacOS" */
         /* Default value (if not found) is Windows */
         let os_info = jscd.os;
         if (os_info.includes("Linux")) return "Linux";
         if (os_info.includes("Mac")) return "MacOS";
         return "Windows";
-    }();
+    })();
 
     // Translations
     itic_copilot.t = browser.i18n.getMessage;

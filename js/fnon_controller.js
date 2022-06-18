@@ -40,7 +40,7 @@
 
         $(function() {
             $('a.fnon_kill_wait').click( function() {
-                t('log_ocw_cancel_download');
+                itic_copilot.log('ocw_cancel_download');
                 fnon_kill_wait();
             });
         });
@@ -64,7 +64,7 @@
             }, 10000);
         }
 
-        Fnon.Alert.Warning(msgstr, title, okstr, function() {clearTimeout(alert_timeout);});
+        Fnon.Alert.Warning(message, title, okey, function() {clearTimeout(alert_timeout);});
     }
 
 
