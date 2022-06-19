@@ -22,18 +22,18 @@ itic_copilot = {};
 (function() {
 
     // Debug functions
-    itic_copilot.log = function(str) {
+    itic_copilot.log = function(str, args) {
         console.log(
             browser.i18n.getMessage('log_copilot_name') + 
-            browser.i18n.getMessage('log_' + str)
+            browser.i18n.getMessage('log_' + str, args)
         );
     }
 
-    itic_copilot.error = function(str) {
+    itic_copilot.error = function(str, args) {
         console.log(
             "[ERROR]" +
             browser.i18n.getMessage('log_copilot_name') + 
-            browser.i18n.getMessage(str)
+            browser.i18n.getMessage(str, args)
         );
     }
 
