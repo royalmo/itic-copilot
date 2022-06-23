@@ -85,10 +85,10 @@ Here you have a tutorial for the manual instalation in Google Chrome. For the ot
 
 Assuming you have git installed, run
 ```
-git clone https://github.com/royalmo/ocw-anti-download.git
+git clone https://github.com/royalmo/itic-copilot.git
 ```
 
-Otherwise, you can [download the zip file](https://github.com/royalmo/ocw-anti-download/archive/refs/heads/main.zip) of the repository, and unzip the downloaded file.
+Otherwise, you can [download the zip file](https://github.com/royalmo/itic-copilot/archive/refs/heads/main.zip) of the repository, and unzip the downloaded file.
 
 ### 2. Activate Chrome developer mode
 
@@ -98,7 +98,7 @@ Go to [`chrome://extensions/`](chrome://extensions/) on your Chrome browser and 
 
 ### 3. Load the extension folder
 
-A **Load unpacked** button will appear at the top left of the page after enabling *Developer mode*. Click there, and select the *ocw-anti-download* folder you just cloned.
+A **Load unpacked** button will appear at the top left of the page after enabling *Developer mode*. Click there, and select the *itic-copilot* folder you just cloned.
 
 ![Load unpacked](https://user-images.githubusercontent.com/49844173/158700864-62b51048-0768-4926-b1d7-272f7f4bbf97.png)
 
