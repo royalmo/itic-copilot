@@ -21,6 +21,8 @@
  * has some methods to deal with them.
 */
 
+itic_copilot.tree = {};
+
 // Enum for file type
 itic_copilot.tree.FOLDER = 0;
 itic_copilot.tree.FILE = 1;
@@ -28,7 +30,7 @@ itic_copilot.tree.LINK = 2;
 itic_copilot.tree.DOCUMENT = 3;
 itic_copilot.tree.IMAGE = 4;
 
-itic_copilot.OcwTreeNode = class {
+itic_copilot.tree.OcwTreeNode = class {
     constructor(url, nodeType, name = t("ocw_downloader_unknown"), parent = null, navTreeLevel = null) {
         this.url = url;
         this.nodeType = nodeType;
@@ -65,9 +67,9 @@ itic_copilot.OcwTreeNode = class {
     }
 }
 
-itic_copilot.OcwTree = class {
-    constructor(rootURL, rootName = t("ocw_downloader_unknown"), startLevel = 1, rootNodeType = FOLDER) {
-        this.root = new itic_copilot.OcwTreeNode(rootURL, rootNodeType, rootName, null, startLevel);
+itic_copilot.tree.OcwTree = class {
+    constructor(rootURL, rootName = t("ocw_downloader_unknown"), startLevel = 1, rootNodeType = itic_copilot.tree.FOLDER) {
+        this.root = new itic_copilot.tree.OcwTreeNode(rootURL, rootNodeType, rootName, null, startLevel);
     }
 
     *preOrderTraversal(node = this.root) {
@@ -98,7 +100,7 @@ itic_copilot.OcwTree = class {
     }
 
     insert_with_node(parentNode, newNodeURL, newNodeType, newNodeName = t("ocw_downloader_unknown")) {
-        let newNodeObject = new OcwTreeNode(newNodeURL, newNodeType, newNodeName, parentNode)
+        let newNodeObject = new itic_copilot.tree.OcwTreeNode(newNodeURL, newNodeType, newNodeName, parentNode)
         parentNode.children.push(newNodeObject);
         return newNodeObject            
     }

@@ -31,7 +31,7 @@
                 "include/FileSaver.js",
                 "include/turndown.js",
                 "include/fnon.min.js",
-                "js/fasics.js",
+                "js/basics.js",
                 "js/fnon_controller.js",
                 "js/ocw/html_replacer.js",
                 "js/ocw/tree.js",

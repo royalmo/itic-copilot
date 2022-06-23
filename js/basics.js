@@ -33,7 +33,7 @@ itic_copilot = {};
         console.log(
             "[ERROR]" +
             browser.i18n.getMessage('log_copilot_name') + 
-            browser.i18n.getMessage(str, args)
+            browser.i18n.getMessage('log'+str, args)
         );
     }
 

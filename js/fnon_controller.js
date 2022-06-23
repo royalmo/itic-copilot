@@ -15,6 +15,8 @@
  * this program. If not, see http://www.gnu.org/licenses/.
 */
 
+itic_copilot.fnon = {};
+
 (function () {
 
     __html_template = '<p style="font-size:20px;color:#2841b5;" align="center"><strong>{0}</strong></p> <br/>\
@@ -41,7 +43,7 @@
         $(function() {
             $('a.fnon_kill_wait').click( function() {
                 itic_copilot.log('ocw_cancel_download');
-                fnon_kill_wait();
+                itic_copilot.fnon.kill_wait();
             });
         });
     }

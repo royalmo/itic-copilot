@@ -21,6 +21,12 @@ This file contains the methods needed to download a group of files (foler, subje
 */
 
 (function() {
+
+    LINK_TEMPLATE_WINDOWS = '[InternetShortcut]\nURL={0}\n';
+    LINK_TEMPLATE_LINUX   = '[Desktop Entry]\nEncoding=UTF-8\nName={1}\nType=Link\nURL={0}'
+    LINK_TEMPLATE_MACOS   = '<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">\n<plist version="1.0">\n<dict>\n    <key>URL</key>\n    <string>{0}</string>\n</dict>\n</plist>\n';
+
+
     itic_copilot.ocw.link_download_buttons = function() {
         $(function() {
             $('a.copilot_download_subject').click(download_subject);
@@ -35,291 +41,287 @@ This file contains the methods needed to download a group of files (foler, subje
         });
     };
 
-})();
 
-// Used to link 'Download subject' links into the function.
-
-
-
-function download_folder() {
-    var title = document.querySelector('h1').innerHTML;
-    var link = window.location.href;
-
-    var classes = document.getElementsByClassName('navTreeCurrentItem contenttype-folder')[0].parentElement.parentElement.classList;
-    var navlevel = 1;
-    for (var i=0; i<classes.length; i++){
-        if (typeof classes[i] === 'string' && classes[i].startsWith('navTreeLevel')) {
-            navlevel = parseInt(classes[i].slice(classes[i].lastIndexOf("l")+1))+1;
-            break;
+    function download_folder() {
+        var title = document.querySelector('h1').innerHTML;
+        var link = window.location.href;
+    
+        var classes = document.getElementsByClassName('navTreeCurrentItem contenttype-folder')[0].parentElement.parentElement.classList;
+        var navlevel = 1;
+        for (var i=0; i<classes.length; i++){
+            if (typeof classes[i] === 'string' && classes[i].startsWith('navTreeLevel')) {
+                navlevel = parseInt(classes[i].slice(classes[i].lastIndexOf("l")+1))+1;
+                break;
+            }
         }
+    
+        itic_copilot.log("ocw_start_folder_download", [title, link]);
+        itic_copilot.fnon.wait(title);
+    
+        // Creating File Tree
+        tree = new itic_copilot.tree.OcwTree(link, title, navlevel);
+        download_folder_recursive(tree.root);
     }
 
-    itic_copilot.log("ocw_start_folder_download", [title, link]);
-    fnon_init_wait(title, link);
+    function download_subject(e) {
+        var link = e.currentTarget.parentElement.children[0].href;
+        var subject_name = e.currentTarget.parentElement.children[0].innerHTML;
 
-    // Creating File Tree
-    tree = new OcwTree(link, title, navlevel);
-    download_folder_recursive(tree.root);
-}
+        itic_copilot.log("ocw_start_subject_download", [subject_name, link]);
+        itic_copilot.fnon.wait(subject_name, link);
 
-
-// Function called when we want to download a quadrimester.
-function download_quadrimester(e) {
-    var subjects = e.currentTarget.parentElement.parentElement.children;
-    var quadrimester_name = e.currentTarget.parentElement.innerHTML;
-
-    quadrimester_name = quadrimester_name.substring(0, quadrimester_name.indexOf('<a'));
-
-    itic_copilot.log("ocw_start_quatrimester_download", quadrimester_name);
-
-    tree = new OcwTree(link, quadrimester_name, 0);
-    fnon_init_wait(quadrimester_name, 'a');
-
-    for(var i = 0; i<subjects.length; i++) {
-        if (! subjects[i].classList.contains('doormatSectionBody')) continue;
-
-        var link = subjects[i].children[0].href;
-        var subject_name = subjects[i].children[0].innerHTML;
-
-        let new_element = tree.insert_with_node(tree.root, link, FOLDER, subject_name);
-
-        download_folder_recursive(new_element);
+        // Creating File Tree
+        tree = new itic_copilot.tree.OcwTree(link, subject_name);
+        download_folder_recursive(tree.root);
     }
 
-    tree.root.folderChecked();
-}
+    function download_quadrimester(e) {
+        var subjects = e.currentTarget.parentElement.parentElement.children;
+        var quadrimester_name = e.currentTarget.parentElement.innerHTML;
 
-// Function called when we want to download a subject.
-function download_subject(e) {
-    var link = e.currentTarget.parentElement.children[0].href;
-    var subject_name = e.currentTarget.parentElement.children[0].innerHTML;
+        quadrimester_name = quadrimester_name.substring(0, quadrimester_name.indexOf('<a'));
 
-    itic_copilot.log("ocw_start_subject_download", [subject_name, link]);
-    fnon_init_wait(subject_name, link);
+        itic_copilot.log("ocw_start_quatrimester_download", quadrimester_name);
 
-    // Creating File Tree
-    tree = new OcwTree(link, subject_name);
-    download_folder_recursive(tree.root);
-}
+        tree = new itic_copilot.tree.OcwTree(link, quadrimester_name, 0);
+        itic_copilot.fnon.wait(quadrimester_name, 'a');
 
-function download_folder_continuation() {
-    if (!tree.all_downloaded) {return;}
+        for(var i = 0; i<subjects.length; i++) {
+            if (! subjects[i].classList.contains('doormatSectionBody')) continue;
 
-    itic_copilot.log("ocw_fetched_tree", String(tree.length));
+            var link = subjects[i].children[0].href;
+            var subject_name = subjects[i].children[0].innerHTML;
 
-    // Downloading files
-    createArchive(tree, function() {
-        fnon_kill_wait();
-        fnon_alert(t("ocw_downloader_success_msg", tree.root.name), t("ocw_downloader_done"));
-    });
-}
+            let new_element = tree.insert_with_node(tree.root, link, FOLDER, subject_name);
+
+            download_folder_recursive(new_element);
+        }
+
+        tree.root.folderChecked();
+    }
 
 
-// Fetches all the contents of a folder. Half-recursive.
-function download_folder_recursive(folderNode) {
-    if(!itic_copilot.fnon.is_downloading()) {return;}    fnon_update_downloading(folderNode.url);
+    function download_folder_continuation() {
+        if (!tree.all_downloaded) {return;}
 
-    // Getting html
-    jQuery.ajax({
-        url:folderNode.url,
-        type:'get',
-        dataType:'html',
-        error: function(data) {
-            fnon_panic(t("ocw_downloader_error_msg", folderNode.url));
-        },
-        success: function(data){
+        itic_copilot.log("ocw_fetched_tree", String(tree.length));
 
-            // Parsing
-            var _html= jQuery(data);
-            var _navTree = _html.find(".navTreeLevel" + folderNode.navTreeLevel);
+        // Downloading files
+        createArchive(tree, function() {
+            itic_copilot.fnon.panic(t("ocw_downloader_success_msg", tree.root.name), t("ocw_downloader_done"));
+        });
+    }
 
-            // Empty folder
-            if(_navTree.html() == null) {
-                if (folderNode.isRoot) {
-                    fnon_panic(t("ocw_downloader_empty_subject_msg"));
+
+    function download_folder_recursive(folderNode) {
+        if(!itic_copilot.fnon.is_downloading()) {return;} 
+        itic_copilot.fnon.update_wait(t("ocw_downloader_fetching_msg", folderNode.url));
+
+        // Getting html
+        jQuery.ajax({
+            url:folderNode.url,
+            type:'get',
+            dataType:'html',
+            error: function(data) {
+                itic_copilot.fnon.panic(t("ocw_downloader_error_msg", folderNode.url));
+                itic_copilot.error("ocw_error_download");
+            },
+            success: function(data){
+
+                // Parsing
+                var _html= jQuery(data);
+                var _navTree = _html.find(".navTreeLevel" + folderNode.navTreeLevel);
+
+                // Empty folder
+                if(_navTree.html() == null) {
+                    if (folderNode.isRoot) {
+                        itic_copilot.fnon.panic(t("ocw_downloader_empty_subject_msg"));
+                        return;
+                    }
+                    // Telling that we checked the folder
+                    folderNode.folderChecked();
+                    download_folder_continuation();
                     return;
                 }
+
+                // Checking every sub-item and doing what we need to do.
+                var sub_items = _navTree.children();
+                for (var i=0; i<sub_items.length; i++) {
+                    var prev = sub_items[i].children;
+                    if (prev.length == 0) continue;
+
+                    var anchor = prev[0];
+                    var link = anchor.href;
+                    var name = $.trim($(anchor).text());
+
+                    if (anchor.classList.contains('contenttype-folder')) {
+                        let new_element = tree.insert_with_node(folderNode, link, itic_copilot.tree.FOLDER, name);
+                        download_folder_recursive(new_element);
+                    }
+                    else if (anchor.classList.contains('contenttype-file')) {
+                        let download_link = link.replace("/view", "");
+
+                        let new_element = tree.insert_with_node(folderNode, download_link, itic_copilot.tree.FILE, name);
+                        download_file(new_element, download_folder_continuation);
+                    }
+                    else if (anchor.classList.contains('contenttype-document')) {
+                        let new_element = tree.insert_with_node(folderNode, link, itic_copilot.tree.DOCUMENT, name);
+                        download_document(new_element, download_folder_continuation);
+                    }
+                    else if (anchor.classList.contains('contenttype-image')) {
+                        let new_element = tree.insert_with_node(folderNode, link, itic_copilot.tree.IMAGE, name);
+                        download_image(new_element, download_folder_continuation);
+                    }
+                    else if (anchor.classList.contains('contenttype-link')) {
+                        let new_element = tree.insert_with_node(folderNode, link, itic_copilot.tree.LINK, name);
+                        download_ocw_link(new_element);
+                    }
+                    // Debug
+                    //else {console.log(anchor);}
+                }
+
                 // Telling that we checked the folder
                 folderNode.folderChecked();
+
+                // End download loop
                 download_folder_continuation();
-                return;
             }
+        });
+    }
 
-            // Checking every sub-item and doing what we need to do.
-            var sub_items = _navTree.children();
-            for (var i=0; i<sub_items.length; i++) {
-                var prev = sub_items[i].children;
-                if (prev.length == 0) continue;
+    function download_ocw_link(linkNode) {
+        let os = itic_copilot.os;
+        if (os == "Windows") {
+            linkNode.data = LINK_TEMPLATE_WINDOWS.replace('{0}', linkNode.url);
+            linkNode.name += ".url";
+        }
+        else if (os == "Linux") {
+            linkNode.data = LINK_TEMPLATE_LINUX.replace('{0}', linkNode.url).replace('{1}', linkNode.name);
+            linkNode.name += ".desktop";
+        }
+        else if (os == "MacOS") {
+            linkNode.data = LINK_TEMPLATE_MACOS.replace('{0}', linkNode.url);
+            linkNode.name += ".webloc";
+        }
+        else {
+            linkNode.data = linkNode.url;
+            linkNode.name += ".txt";
+        }
+    }
 
-                var anchor = prev[0];
-                var link = anchor.href;
-                var name = $.trim($(anchor).text());
+    function download_document(documentNode, callback) {
+        if(!itic_copilot.fnon.is_downloading()) {return;} 
+        itic_copilot.fnon.update_wait(t("ocw_downloader_downloading_msg", documentNode.url));
 
-                if (anchor.classList.contains('contenttype-folder')) {
-                    let new_element = tree.insert_with_node(folderNode, link, itic_copilot.tree.FOLDER, name);
-                    download_folder_recursive(new_element);
-                }
-                else if (anchor.classList.contains('contenttype-file')) {
-                    let download_link = link.replace("/view", "");
+        jQuery.ajax({
+            url:documentNode.url,
+            type:'get',
+            dataType:'html',
+            error: function(data){
+                itic_copilot.fnon.panic(t('ocw_downloader_error_msg', documentNode.url));
+                itic_copilot.error("ocw_error_download");
+            },
+            success: function(data) {
+                var webcontent = jQuery(data).find("#content-core").html();
 
-                    let new_element = tree.insert_with_node(folderNode, download_link, itic_copilot.tree.FILE, name);
-                    download_file(new_element, download_folder_continuation);
-                }
-                else if (anchor.classList.contains('contenttype-document')) {
-                    let new_element = tree.insert_with_node(folderNode, link, itic_copilot.tree.DOCUMENT, name);
-                    download_document(new_element, download_folder_continuation);
-                }
-                else if (anchor.classList.contains('contenttype-image')) {
-                    let new_element = tree.insert_with_node(folderNode, link, itic_copilot.tree.IMAGE, name);
-                    download_image(new_element, download_folder_continuation);
-                }
-                else if (anchor.classList.contains('contenttype-link')) {
-                    let new_element = tree.insert_with_node(folderNode, link, itic_copilot.tree.LINK, name);
-                    download_ocw_link(new_element);
-                }
-                // Debug
-                //else {console.log(anchor);}
+                var turndownService = new TurndownService();
+                documentNode.data = turndownService.turndown(webcontent);
+
+                callback();
             }
-
-            // Telling that we checked the folder
-            folderNode.folderChecked();
-
-            // End download loop
-            download_folder_continuation();
-        }
-    });
-}
-
-
-LINK_TEMPLATE_WINDOWS = '[InternetShortcut]\nURL={0}\n';
-LINK_TEMPLATE_LINUX   = '[Desktop Entry]\nEncoding=UTF-8\nName={1}\nType=Link\nURL={0}'
-LINK_TEMPLATE_MACOS   = '<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">\n<plist version="1.0">\n<dict>\n    <key>URL</key>\n    <string>{0}</string>\n</dict>\n</plist>\n';
-
-function download_ocw_link(linkNode) {
-    let os = itic_copilot.os;
-    if (os == "Windows") {
-        linkNode.data = LINK_TEMPLATE_WINDOWS.replace('{0}', linkNode.url);
-        linkNode.name += ".url";
+        });
     }
-    else if (os == "Linux") {
-        linkNode.data = LINK_TEMPLATE_LINUX.replace('{0}', linkNode.url).replace('{1}', linkNode.name);
-        linkNode.name += ".desktop";
-    }
-    else if (os == "MacOS") {
-        linkNode.data = LINK_TEMPLATE_MACOS.replace('{0}', linkNode.url);
-        linkNode.name += ".webloc";
-    }
-    else {
-        linkNode.data = linkNode.url;
-        linkNode.name += ".txt";
-    }
-}
 
-function download_document(documentNode, callback) {
-    if(!itic_copilot.fnon.is_downloading()) {return;}    fnon_update_downloading(documentNode.url);
+    function download_file(fileNode, callback){
+        if(!itic_copilot.fnon.is_downloading()) {return;} 
+        itic_copilot.fnon.update_wait(t("ocw_downloader_downloading_msg", fileNode.name));
 
-    jQuery.ajax({
-        url:documentNode.url,
-        type:'get',
-        dataType:'html',
-        error: function(data){
-            fnon_panic(t('ocw_downloader_error_msg', documentNode.url));
-        },
-        success: function(data) {
-            var webcontent = jQuery(data).find("#content-core").html();
+        $.ajax({
+            type: "GET",
+            url: fileNode.url,
+            beforeSend: function (xhr) {
+                xhr.overrideMimeType('text/plain; charset=x-user-defined');
+            },
+            error: function(data){
+                itic_copilot.fnon.panic(t('ocw_downloader_error_msg', fileNode.url));
+                itic_copilot.error("ocw_error_download");
+            },
+            success: function (result, textStatus, jqXHR) {
+                var binary = "";
+                var responseText = jqXHR.responseText;
+                var responseTextLen = responseText.length;
 
-            var turndownService = new TurndownService();
-            documentNode.data = turndownService.turndown(webcontent);
+                for ( i = 0; i < responseTextLen; i++ ) {
+                    binary += String.fromCharCode(responseText.charCodeAt(i) & 255)
+                }
 
-            callback();
-        }
-    });
-}
-
-function download_file(fileNode, callback){
-    if(!itic_copilot.fnon.is_downloading()) {return;}    fnon_update_downloading(fileNode.name);
-
-    $.ajax({
-        type: "GET",
-        url: fileNode.url,
-        beforeSend: function (xhr) {
-            xhr.overrideMimeType('text/plain; charset=x-user-defined');
-        },
-        error: function(data){
-            fnon_panic(t('ocw_downloader_error_msg', fileNode.url));
-        },
-        success: function (result, textStatus, jqXHR) {
-            var binary = "";
-            var responseText = jqXHR.responseText;
-            var responseTextLen = responseText.length;
-        
-            for ( i = 0; i < responseTextLen; i++ ) {
-                binary += String.fromCharCode(responseText.charCodeAt(i) & 255)
+                fileNode.data = btoa(binary);
+                callback();
             }
-
-            fileNode.data = btoa(binary);
-            callback();
-        }
-      });
-}
-
-function download_image(imgNode, callback){
-    if(!itic_copilot.fnon.is_downloading()) {return;}
-    fnon_update_downloading(imgNode.name);
-
-    jQuery.ajax({
-        url:imgNode.url,
-        type:'get',
-        dataType:'html',
-        error: function(data){
-            fnon_panic(t('ocw_downloader_error_msg', imgNode.url));
-        },
-        success: function(data) {
-            imgNode.url = jQuery(data).find('a.discreet').children("img").first().attr('src');
-
-            // Downloading the image doesn't seem to work, we will save the url instead.
-            // imgNode.name += imgNode.url.substring(imgNode.url.lastIndexOf('.'));
-            // download_file(imgNode, callback);
-            download_ocw_link(imgNode);
-            callback();
-        }
-    });
-}
-
-// FUNCTION TO CREATE ZIP
-
-function createArchive(tree, callback){
-    if(!itic_copilot.fnon.is_downloading()) {return;}
-    // Use jszip
-    var zip = new JSZip();
-    fnon_update_compressing(tree.root.name+".zip");
-
-    for (let node of tree.preOrderTraversal()) {
-        if (node.nodeType == itic_copilot.tree.FOLDER) {
-            let folder_root = node.isRoot? zip : node.parent.data;
-            node.data =  folder_root.folder(node.name);
-        }
-        else if (node.nodeType == itic_copilot.tree.FILE && node.hasBeenDownloaded) {
-            let prevtitle = node.url.substring(node.url.lastIndexOf('/')+1);
-            let title = prevtitle + (prevtitle.includes('.')? '':'.pdf' );
-            node.parent.data.file(title, node.data, {base64: true});
-        }
-        else if (node.nodeType == itic_copilot.tree.DOCUMENT && node.hasBeenDownloaded) {
-            node.parent.data.file(node.name+'.md', node.data);
-        }
-        else if (node.nodeType == itic_copilot.tree.LINK || (node.nodeType == itic_copilot.tree.IMAGE && node.hasBeenDownloaded)) {
-            node.parent.data.file(node.name, node.data);
-        }
+          });
     }
 
-    zip.generateAsync({type:"blob"}).then(function(content) {
-        if(!fnon_is_downloading()) return;
-        // see FileSaver.js
-        itic_copilot.log("ocw_saving_file", tree.root.name+".zip");
-        saveAs(content, tree.root.name+".zip");
-        callback();
-    });
-}
+    function download_image(imgNode, callback){
+        if(!itic_copilot.fnon.is_downloading()) {return;}
+        itic_copilot.fnon.update_wait(t("ocw_downloader_downloading_msg", imgNode.name));
+
+        jQuery.ajax({
+            url:imgNode.url,
+            type:'get',
+            dataType:'html',
+            error: function(data){
+                itic_copilot.fnon.panic(t('ocw_downloader_error_msg', imgNode.url));
+                itic_copilot.error("ocw_error_download");
+            },
+            success: function(data) {
+                imgNode.url = jQuery(data).find('a.discreet').children("img").first().attr('src');
+
+                // Downloading the image doesn't seem to work, we will save the url instead.
+                // imgNode.name += imgNode.url.substring(imgNode.url.lastIndexOf('.'));
+                // download_file(imgNode, callback);
+                download_ocw_link(imgNode);
+                callback();
+            }
+        });
+    }
+
+    // FUNCTION TO CREATE ZIP
+
+    function createArchive(tree, callback){
+        if(!itic_copilot.fnon.is_downloading()) {return;}
+        // Use jszip
+        var zip = new JSZip();
+        itic_copilot.fnon.update_wait(t("ocw_downloader_compressing_msg", tree.root.name+".zip"));
+
+        for (let node of tree.preOrderTraversal()) {
+            if (node.nodeType == itic_copilot.tree.FOLDER) {
+                let folder_root = node.isRoot? zip : node.parent.data;
+                node.data =  folder_root.folder(node.name);
+            }
+            else if (node.nodeType == itic_copilot.tree.FILE && node.hasBeenDownloaded) {
+                let prevtitle = node.url.substring(node.url.lastIndexOf('/')+1);
+                let title = prevtitle + (prevtitle.includes('.')? '':'.pdf' );
+                node.parent.data.file(title, node.data, {base64: true});
+            }
+            else if (node.nodeType == itic_copilot.tree.DOCUMENT && node.hasBeenDownloaded) {
+                node.parent.data.file(node.name+'.md', node.data);
+            }
+            else if (node.nodeType == itic_copilot.tree.LINK || (node.nodeType == itic_copilot.tree.IMAGE && node.hasBeenDownloaded)) {
+                node.parent.data.file(node.name, node.data);
+            }
+        }
+
+        zip.generateAsync({type:"blob"}).then(function(content) {
+            if(!itic_copilot.fnon.is_downloading()) return;
+
+            // see FileSaver.js
+            itic_copilot.log("ocw_saving_file", tree.root.name+".zip");
+            saveAs(content, tree.root.name+".zip");
+            callback();
+        });
+    }
+
+})();
 
 // For the moment this functionality is always active.
 itic_copilot.ocw.show_links(); // TODO replace

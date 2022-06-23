@@ -17,6 +17,8 @@
 
 // This file adds extra links into the ocw pages.
 
+itic_copilot.ocw = {};
+
 (function () {
     var links = document.querySelectorAll("a");
     var i;
