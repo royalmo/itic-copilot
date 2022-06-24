@@ -41,6 +41,23 @@
                 "include/fnon.min.css"
             ],
             "run_at": "document_end"
+        },
+
+        {
+            "matches": ["*://escriny.epsem.upc.edu/projects/*/repository/*"],
+            "all_frames": true,
+            "js": [
+                "include/browser-polyfill.min.js",
+                "include/jquery-3.4.1.min.js",
+                "include/fnon.min.js",
+                "include/ace/ace.js",
+                "js/basics.js",
+                "js/fnon_controller.js",
+                "js/escriny/editor.js"
+                ],
+            "css": [
+            ],
+            "run_at": "document_end"
         }
     ]
 }
