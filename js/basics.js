@@ -41,7 +41,7 @@ itic_copilot = {};
     itic_copilot.os = (function() {
         /* Returns "Windows", "Linux", "MacOS" */
         /* Default value (if not found) is Windows */
-        let os_info = jscd.os;
+        let os_info = typeof jscd === "undefined" ? "Undefined" : jscd.os;
         if (os_info.includes("Linux")) return "Linux";
         if (os_info.includes("Mac")) return "MacOS";
         return "Windows";
