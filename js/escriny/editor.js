@@ -54,4 +54,25 @@
     startstr = splitted[0] + '| <i id="copilot_edit_phar" style="display:none">Editar</i><a id="copilot_edit_link">Editar</a> (' + splitted[1];
 
     submenu_paragraph.html(startstr)
+
+    original_content = $('#content').children().last();
+
+    $(function () {
+        $('#copilot_current_link').click(function () {
+            $('#copilot_current_link').hide();
+            $('#copilot_current_phar').show();
+            $('#copilot_edit_link').show();
+            $('#copilot_edit_phar').hide();
+
+            original_content.show();
+        });
+        $('#copilot_edit_link').click(function () {
+            $('#copilot_current_link').show();
+            $('#copilot_current_phar').hide();
+            $('#copilot_edit_link').hide();
+            $('#copilot_edit_phar').show();
+
+            original_content.hide();
+        })
+    })
 })();
