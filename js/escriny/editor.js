@@ -25,7 +25,7 @@
     // Example: https://escriny.epsem.upc.edu/svn/itic-copilot-test
     repository_url = file_url.split('/', 5).join('/');
 
-    // Looking for "Historial | Ver | Anotar | Descargar (| Editar) (X Bytes)" pattern.
+    // Looking for "Historial | Ver | Anotar | Descargar (| Editar) (X Bytes)"
     tmp = $('#content').children('p');
     for(i = 0; i<tmp.length; i++) {
         if (tmp.eq(i).text().split('|').length-1 === 3) {
@@ -40,7 +40,6 @@
     // Adding url to current view
     splitted = startstr.split('|')
     for(i = 0; i<splitted.length; i++) {
-        console.log(splitted[i]);
         if(splitted[i].includes("</a>")) continue;
         
         word = splitted[i].replace(/\s+/g, '');
@@ -55,7 +54,18 @@
 
     submenu_paragraph.html(startstr)
 
-    original_content = $('#content').children().last();
+    $('#content').children().last().attr('id', 'original_content');
+    original_content = $('#original_content');
+
+    // Adding editor content
+    $('#content').html($('#content').html() + '<div id="editor_content" style="display:none;"><div id="editor" style="width:100%;height:700px;border: solid 2px darkgrey;">' + "Loading file contents..." + '</div></div>')
+
+    // ACE init
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/textmate");
+    //editor.session.setMode("ace/mode/javascript"); TODO
+
+    file_contents_loaded = false
 
     $(function () {
         $('#copilot_current_link').click(function () {
@@ -64,7 +74,8 @@
             $('#copilot_edit_link').show();
             $('#copilot_edit_phar').hide();
 
-            original_content.show();
+            $('#original_content').show();
+            $('#editor_content').hide();
         });
         $('#copilot_edit_link').click(function () {
             $('#copilot_current_link').show();
@@ -72,7 +83,12 @@
             $('#copilot_edit_link').hide();
             $('#copilot_edit_phar').show();
 
-            original_content.hide();
+            $('#original_content').hide();
+            $('#editor_content').show();
+
+            if (file_contents_loaded) return;
+
+            //$.ajax();
         })
     })
 })();
