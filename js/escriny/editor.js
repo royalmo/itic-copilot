@@ -58,11 +58,13 @@
     original_content = $('#original_content');
 
     // Adding editor content
-    $('#content').html($('#content').html() + '<div id="editor_content" style="display:none;"><div id="editor" style="width:100%;height:700px;border: solid 2px darkgrey;">' + "Loading file contents..." + '</div></div>')
+    $('#content').html($('#content').html() + '<div id="editor_content" style="display:none;"><div id="editor" style="width:100% max-width:300px;height:700px;border: solid 2px darkgrey;">' + "Loading file contents..." + '</div></div>')
 
     // ACE init
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/textmate");
+    editor.setOptions({ maxLines: Infinity });
+    editor.setAutoScrollEditorIntoView(true);
     //editor.session.setMode("ace/mode/javascript"); TODO
 
     file_contents_loaded = false
