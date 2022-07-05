@@ -58,7 +58,7 @@
     original_content = $('#original_content');
 
     // Adding editor content
-    $('#content').html($('#content').html() + '<div id="editor_content" style="display:none;"><div id="editor" style="width:100% max-width:300px;height:700px;outline: solid 2px darkgrey;">' + "Loading file contents..." + '</div></div>');
+    $('#content').html($('#content').html() + '<div id="editor_content" style="display:none;"><input type="text" id="new_commit_msg"/><button id="commit_btn">Commit</button><div id="editor" style="width:100% max-width:300px;height:700px;outline: solid 2px darkgrey;">' + "Loading file contents..." + '</div></div>');
 
     // ACE init
     var editor = ace.edit("editor");
@@ -68,9 +68,6 @@
     editor.setShowInvisibles(true);
 
     //editor.session.setMode("ace/mode/javascript"); TODO ADD HIGHLITING
-
-    // var code = editor.getValue();
-    editor.setValue('test hello hello\n\n' + editor.getValue());
 
     file_contents_loaded = false
 
@@ -92,15 +89,26 @@
 
             $('#original_content').hide();
             $('#editor_content').show();
-
             editor.focus();
-            editor.clearSelection();
-            editor.moveCursorFileStart();
 
             if (file_contents_loaded) return;
 
-            // $.ajax();
-            // editor.set('value', contents);
-        })
+            $.ajax({
+                url: file_url,
+                method: 'get',
+                success: function(result) {
+                    editor.setValue(result);
+                    editor.navigateFileStart();
+                    file_contents_loaded = true;
+                },
+                error: function() {
+                    alert('An error occurred while fetching the url.');
+                }
+            });
+        });
+
+        $('#commit_btn').click(function() {
+            alert($('#new_commit_msg').val());
+        });
     })
 })();
