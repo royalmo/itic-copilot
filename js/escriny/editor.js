@@ -25,6 +25,9 @@
     // Example: https://escriny.epsem.upc.edu/svn/itic-copilot-test
     repository_url = file_url.split('/', 5).join('/');
 
+    // Example: bye.rst
+    file_path = 'hello.rst'; // TODO
+
     // Looking for "Historial | Ver | Anotar | Descargar (| Editar) (X Bytes)"
     tmp = $('#content').children('p');
     for(i = 0; i<tmp.length; i++) {
@@ -108,7 +111,12 @@
         });
 
         $('#commit_btn').click(function() {
-            alert($('#new_commit_msg').val());
+            commit_message = $('#new_commit_msg').val();
+
+            var svn = new svnjs.Client(prompt("Username:"), prompt("Password:"), repository_url);
+            svn.add(file_path, editor.getValue());
+            svn.commit(commit_message);
+            alert("done!")
         });
     })
 })();
