@@ -51,6 +51,7 @@
                 "include/jquery-3.4.1.min.js",
                 "include/fnon.min.js",
                 "include/ace/ace.js",
+                "include/svnjs.min.js",
                 "js/basics.js",
                 "js/fnon_controller.js",
                 "js/escriny/editor.js"
