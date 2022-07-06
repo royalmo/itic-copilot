@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="../css/user_interface.css">
+</head>
+
+<body>
+  <!-- LANDPAGE -->
+  <div id="landpageDiv">
+    <div class="titleDiv">
+      <h1 class="title">Links of Interest</h1>
+    </div>
+    <div class="bodyPopup">
+      <table>
+        <tr>
+          <td><a href="https://atenea.upc.edu/login/index.php">Atenea</a></td>
+          <td><a href="https://ocwitic.epsem.upc.edu/">OCW</a></td>
+          <td><a href="https://escriny.epsem.upc.edu/">Escriny</a></td>
+          <td><a href="https://www.overleaf.com/">Overleaf</a></td>
+        </tr>
+      </table>
+
+      <table class="navDiv">
+        <tr>
+          <td><button class="settingButton">Settings</button></td>
+          <td><button class="aboutButton">About</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- SETTINGS -->
+  <div id="settingDiv" style="display: none">
+    <div class="titleDiv">
+      <h1 class="title">Settings</h1>
+    </div>
+    <div class="bodyPopup">
+      <h2 id="settingsSubTitle">OCW</h2>
+      <div class="switch">
+        <label for="ocwShowLinks">Show Links</label>
+        <input type="checkbox" id="ocwShowLinks" name="ocwShowLinks">
+        <span class="slider round"></span>
+      </div>
+
+      <h2 id="settingsSubTitle">Escriny</h2>
+      <div class="switch">
+        <label for="editSVN">Edit SVN</label>
+        <input type="checkbox" id="editSVN" name="editSVN">
+        <span class="slider round"></span>
+      </div>
+      <div class="switch">
+        <label for="saveSVN">Save Password</label>
+        <input type="checkbox" id="saveSVN" name="saveSVN">
+        <span class="slider round"></span>
+      </div>
+      <form class="svnLog" style="display: none">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"><br>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br>
+        <br>
+      </form>
+
+      <h2 id="settingsSubTitle">OTHERS</h2>
+      <div class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </div>
+
+      <table class="navDiv">
+        <tr>
+          <td><button class="langpageButton">Landpage</button></td>
+          <td><button class="aboutButton">About</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div id="aboutDiv" style="display: none">
+    <div class="titleDiv">
+      <h1 class="title">About</h1>
+    </div>
+    <div class="bodyPopup">
+      <h2 id="aboutSubTitle">Credits</h2>
+      <!--<p>iTIC Copilot</p>-->
+      <p>Made by <a href="https://github.com/royalmo">Eric Roy</a></p>
+      <h2 id="aboutSubTitle">License</h2>
+      <p>
+        This extension is part of an open
+        source project, liscenced with the
+        GNU General Public Liscence V3
+        (GPL3). See more details of it <a href="https://github.com/royalmo/itic-copilot/blob/main/LICENSE">here</a>
+      </p>
+      <h2 id="aboutSubTitle">Privacy Note</h2>
+      <p>
+        As you can verify with your own eyes (because it's an Open Source project),
+        we don't do anything with your data. Passwords or other preferences may
+        be saved by request, but only locally (we don't receive anything from you).
+      </p>
+      <h2 id="aboutSubTitle">What to contribute?</h2>
+      <p>
+        You can report bugs, suggestions, or
+        contribute to the iTIC Copilot extension
+        by going in the <a href="https://github.com/royalmo/itic-copilot">GitHub repository</a>.
+      </p>
+      <table class="navDiv">
+        <tr>
+          <td><button class="langpageButton">Landpage</button></td>
+          <td><button class="settingButton">Settings</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <script src="../include/jquery-3.4.1.min.js"></script>
+  <script src="../js/UI.js"></script>
+</body>
+
+</html>
