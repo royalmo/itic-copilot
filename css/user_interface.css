@@ -1,0 +1,63 @@
+body {
+    width: 300px;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    margin: 0px;
+    font-family: Verdana, sans-serif;
+    background-color: #F4F4F4;
+}
+
+p {
+    text-align: justify;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+h2 {
+    text-align: justify;
+    margin-right: 10%;
+    margin-left: 10%;
+    text-decoration: underline;
+}
+
+label {
+    font-size: 0.9rem;
+}
+
+#landpageDiv,
+#settingDiv,
+#aboutDiv {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+}
+
+.titleDiv {
+    background-color: #bdd5f1;
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    top: 0;
+    left: 0;
+}
+
+.navDiv {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.bodyPopup {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 10%;
+}
+
+.title {
+    text-align: center;
+    color: #363636;
+    font-size: 1.4rem;
+}
