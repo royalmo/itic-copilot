@@ -34,6 +34,10 @@
   <div id="settingDiv" style="display: none">
     <div class="titleDiv">
       <h1 class="title">Settings</h1>
+
+      <div class="arrowDiv">
+        <i class="arrow left"></i>
+      </div>
     </div>
     <div class="bodyPopup">
       <h2 id="settingsSubTitle">OCW</h2>
@@ -68,13 +72,6 @@
         <input type="checkbox">
         <span class="slider round"></span>
       </div>
-
-      <table class="navDiv">
-        <tr>
-          <td><button class="langpageButton">Landpage</button></td>
-          <td><button class="aboutButton">About</button></td>
-        </tr>
-      </table>
     </div>
   </div>
 
@@ -82,11 +79,14 @@
   <div id="aboutDiv" style="display: none">
     <div class="titleDiv">
       <h1 class="title">About</h1>
+
+      <div class="arrowDiv">
+        <i class="arrow left"></i>
+      </div>
+
     </div>
     <div class="bodyPopup">
-      <h2 id="aboutSubTitle">Credits</h2>
-      <!--<p>iTIC Copilot</p>-->
-      <p>Made by <a href="https://github.com/royalmo">Eric Roy</a></p>
+      <p style="text-align: center;">Made by <a href="https://github.com/royalmo">Eric Roy</a></p>
       <h2 id="aboutSubTitle">License</h2>
       <p>
         This extension is part of an open
@@ -106,16 +106,10 @@
         contribute to the iTIC Copilot extension
         by going in the <a href="https://github.com/royalmo/itic-copilot">GitHub repository</a>.
       </p>
-      <table class="navDiv">
-        <tr>
-          <td><button class="langpageButton">Landpage</button></td>
-          <td><button class="settingButton">Settings</button></td>
-        </tr>
-      </table>
     </div>
   </div>
   <script src="../include/jquery-3.4.1.min.js"></script>
-  <script src="../js/UI.js"></script>
+  <script src="../js/user_interface.js"></script>
 </body>
 
 </html>
