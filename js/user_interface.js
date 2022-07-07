@@ -11,7 +11,7 @@ $(document).ready(function () {
         $("#aboutDiv").hide();
         $("#landpageDiv").hide();
     });
-    $(".langpageButton").click(function () {
+    $(".arrow").click(function () {
         console.log("SHOW LANDPAGE");
         $("#settingDiv").hide();
         $("#aboutDiv").hide();
