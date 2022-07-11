@@ -36,11 +36,18 @@ label {
     display: inline-block;
     padding: 4px;
     cursor: pointer;
+    transition: all 200ms ease;
 }
 
 .left {
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
+}
+
+.arrow:hover {
+    border-width: 0 5px 5px 0;
+    padding: 5px;
+    transition: all 200ms ease;
 }
 
 #landpageDiv,
