@@ -1,20 +1,72 @@
 $(document).ready(function () {
     $(".aboutButton").click(function () {
-        console.log("SHOW ABOUT");
-        $("#settingDiv").hide();
-        $("#aboutDiv").show();
+        $("#aboutDiv").show(
+            function(){
+                $('#aboutDiv').animate({
+                    top: "-100",
+                    backgroundColor: "bdd5f1"
+                }, 500);
+            },
+            function(){
+                $('#aboutDiv').animate({
+                    top: "0",
+                    backgroundColor: "F4F4F4"
+                }, 500);
+            }
+        );
         $("#landpageDiv").hide();
     });
     $(".settingButton").click(function () {
-        console.log("SHOW SETTINGS");
-        $("#settingDiv").show();
-        $("#aboutDiv").hide();
+        $("#settingDiv").show(
+            function(){
+                $('#settingDiv').animate({
+                    top: "-100",
+                    backgroundColor: "bdd5f1"
+                }, 500);
+            },
+            function(){
+                $('#settingDiv').animate({
+                    top: "0",
+                    backgroundColor: "F4F4F4"
+                }, 500);
+            }
+        );
         $("#landpageDiv").hide();
     });
     $(".arrow").click(function () {
-        console.log("SHOW LANDPAGE");
-        $("#settingDiv").hide();
-        $("#aboutDiv").hide();
+
+        if ($("#settingDiv").is(":visible")) {
+            $("#settingDiv").hide(
+                function(){
+                    $('#settingDiv').animate({
+                        top: "0%",
+                        backgroundColor: "F4F4F4"
+                    }, 500);
+                },
+                function(){
+                    $('#settingDiv').animate({
+                        top: "-100%",
+                        backgroundColor: "bdd5f1"
+                    }, 500);
+                }
+            );
+        } else {
+            $("#aboutDiv").hide(
+                function(){
+                    $('#aboutDiv').animate({
+                        top: "0%",
+                        backgroundColor: "F4F4F4"
+                    }, 500);
+                },
+                function(){
+                    $('#aboutDiv').animate({
+                        top: "-100%",
+                        backgroundColor: "bdd5f1"
+                    }, 500);
+                }
+            );    
+        }
+
         $("#landpageDiv").show();
     });
 
