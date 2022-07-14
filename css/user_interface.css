@@ -1,6 +1,6 @@
 body {
     width: 300px;
-    height: 400px;
+    height: 500px;
     position: relative;
     overflow: hidden;
     margin: 0px;
@@ -64,7 +64,7 @@ label {
     background-image: linear-gradient(#bdd5f1, #F4F4F4);
     position: absolute;
     width: 100%;
-    height: 20%;
+    height: 15%;
     top: 0;
     left: 0;
 }
@@ -79,7 +79,7 @@ label {
 .bodyPopup {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 85%;
     top: 15%;
 }
 
