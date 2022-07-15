@@ -82,6 +82,14 @@ $(document).ready(function () {
 });
 
 
+$(document).ready(function($) {
+    $(".tableLinksTr").click(function() {
+        console.log("clicking")
+        window.open($(this).data("href"));
+    });
+});
+
+
 function hello_world() {
     console.log("Hello World!");
 }

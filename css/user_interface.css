@@ -6,6 +6,7 @@ body {
     margin: 0px;
     font-family: Verdana, sans-serif;
     background-color: #F4F4F4;
+    border: 1px solid black;
 }
 
 p {
@@ -88,6 +89,32 @@ label {
     bottom: 0;
     left: 25%;
     border-spacing: 10px;
+}
+
+.tableLinks{
+    border-spacing: 0 10px;
+    margin-left: 7.5%;
+}
+.tableLinksTr {
+    border: 2px #363636;
+    height: 50px;
+    cursor: pointer;
+}
+
+.tableLinksTd{
+    width: 200px;
+}
+
+.imgLogo{
+    height: 50px;
+    width: 50px;
+    
+}
+
+.tableText{
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 button {
