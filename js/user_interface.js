@@ -1,38 +1,70 @@
 $(document).ready(function () {
-    $(".aboutButton").click(function () {
-        $("#landpageDiv").hide();
-        $("#aboutDiv").show(
-            function(){
-                $('#aboutDiv').animate({
-                    top: "-100",
-                    backgroundColor: "bdd5f1"
-                }, 500);
-            },
-            function(){
-                $('#aboutDiv').animate({
-                    top: "0",
-                    backgroundColor: "F4F4F4"
-                }, 500);
-            }
-        );
-    });
+    $("#aboutDiv").hide(
+        function(){
+            $('#aboutDiv').animate({
+                top: "0%",
+                backgroundColor: "bdd5f1"
+            }, 500);
+        },
+        function(){
+            $('#aboutDiv').animate({
+                top: "-100%",
+                backgroundColor: "F4F4F4"
+            }, 500);
+        }
+    );
+
+    $("#settingDiv").hide(
+        function(){
+            $('#settingDiv').animate({
+                top: "0%",
+                backgroundColor: "F4F4F4"
+            }, 500);
+        },
+        function(){
+            $('#settingDiv').animate({
+                top: "-100%",
+                backgroundColor: "bdd5f1"
+            }, 500);
+        }
+    );
+
     $(".settingButton").click(function () {
         $("#settingDiv").show(
             function(){
                 $('#settingDiv').animate({
-                    top: "-100",
+                    top: "-100%",
                     backgroundColor: "bdd5f1"
                 }, 500);
             },
             function(){
                 $('#settingDiv').animate({
-                    top: "0",
+                    top: "0%",
                     backgroundColor: "F4F4F4"
                 }, 500);
             }
         );
-        $("#landpageDiv").hide();
+        $("#landpageDiv").fadeOut(800);
     });
+
+    $(".aboutButton").click(function () {
+        $("#aboutDiv").show(
+            function(){
+                $('#aboutDiv').animate({
+                    top: "-100%",
+                    backgroundColor: "bdd5f1"
+                }, 500);
+            },
+            function(){
+                $('#aboutDiv').animate({
+                    top: "0%",
+                    backgroundColor: "F4F4F4"
+                }, 500);
+            }
+        );
+        $("#landpageDiv").fadeOut(800);
+    });
+
     $(".arrow").click(function () {
 
         if ($("#settingDiv").is(":visible")) {
@@ -67,9 +99,8 @@ $(document).ready(function () {
             );    
         }
 
-        $("#landpageDiv").show();
+        $("#landpageDiv").fadeIn(500);
     });
-
 
     $('input[type="checkbox"]').click(function () {
         if ($(this).attr("id") == "saveSVN") {

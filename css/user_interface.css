@@ -51,10 +51,16 @@ label {
     transition: all 200ms ease;
 }
 
-#landpageDiv,
+#landpageDiv{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
 #settingDiv,
 #aboutDiv {
     position: absolute;
+    top: -100;
     height: 100%;
     width: 100%;
 
@@ -95,7 +101,6 @@ label {
     margin-left: 7.5%;
 }
 .tableLinksTr {
-    border: 2px #363636;
     height: 50px;
     cursor: pointer;
 }
