@@ -3,13 +3,13 @@
     "description": "__MSG_extension_description__",
     "version": "1.6",
     "manifest_version": 2,
-    "author": "Eric Roy",
-    "default_locale": "en",
+    "author" : "Eric Roy",
+    "default_locale" : "en",
 
     "icons": {
-        "16": "assets/itic-favicon16.png",
-        "32": "assets/itic-favicon32.png",
-        "48": "assets/itic-favicon48.png",
+        "16":  "assets/itic-favicon16.png",
+        "32":  "assets/itic-favicon32.png",
+        "48":  "assets/itic-favicon48.png",
         "128": "assets/itic-favicon128.png"
     },
 
@@ -27,7 +27,8 @@
         "default_popup": "html/user_interface.html"
     },
 
-    "content_scripts": [
+    "content_scripts": 
+    [
         {
             "matches": ["*://ocwitic.epsem.upc.edu/*"],
             "all_frames": true,
