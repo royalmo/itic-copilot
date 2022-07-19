@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $(".aboutButton").click(function () {
+        $("#landpageDiv").hide();
         $("#aboutDiv").show(
             function(){
                 $('#aboutDiv').animate({
@@ -14,7 +15,6 @@ $(document).ready(function () {
                 }, 500);
             }
         );
-        $("#landpageDiv").hide();
     });
     $(".settingButton").click(function () {
         $("#settingDiv").show(
@@ -70,27 +70,14 @@ $(document).ready(function () {
         $("#landpageDiv").show();
     });
 
-});
-
-$(document).ready(function () {
 
     $('input[type="checkbox"]').click(function () {
         if ($(this).attr("id") == "saveSVN") {
             $(".svnLog").toggle('swing');
         }
     });
-});
 
-
-$(document).ready(function($) {
     $(".tableLinksTr").click(function() {
-        console.log("clicking")
         window.open($(this).data("href"));
     });
 });
-
-
-function hello_world() {
-    console.log("Hello World!");
-}
-
