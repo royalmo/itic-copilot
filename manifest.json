@@ -27,7 +27,7 @@
         "default_popup": "html/user_interface.html"
     },
 
-    "content_scripts": 
+    "content_scripts" : 
     [
         {
             "matches": ["*://ocwitic.epsem.upc.edu/*"],
