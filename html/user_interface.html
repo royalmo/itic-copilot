@@ -11,7 +11,7 @@
     <div class="titleDiv">
       <img src=" ../assets/user_interface/itic-logo-no-line-resized.png" style="width: 280px; height: auto; position: absolute; top: 20%; left: 3%">
       </div>
-    <div class="bodyPopup" style="top: 20%; height: 80%;">
+    <div class="bodyPopup" style="top: 15%; height: 85%;">
       <h1 class="title">Links of Interest</h1>
       <p>Go to these sites to see the extension's potential!</p>
       <table class="tableLinks">
@@ -43,7 +43,7 @@
   </div>
 
   <!-- SETTINGS -->
-  <div id="settingDiv" style="display: none; overflow: scroll;">
+  <div id="settingDiv" style="display: none; overflow: scroll; overflow-x: hidden;">
     <div class="titleDiv">
       <h1 class="title">Settings</h1>
 
@@ -51,15 +51,14 @@
         <i class="arrow left"></i>
       </div>
     </div>
-    <div class="bodyPopup">
+    <div class="bodyPopup" style="top: 10%;">
       <h2>General</h2>
       <div class="switch">
-      Save UPC credentials
-      <label>
-        <input type="checkbox" id="saveUPC" name="saveUPC">
-        <span class="slider round"></span>
-      </label>
-      
+        <p class="textCheckbox">Save UPC credentials</p>
+        <label>
+          <input type="checkbox" id="saveUPC" name="saveUPC">
+          <span class="slider round"></span>
+        </label>
       </div>
 
       <form class="upcLog" style="display: none">
@@ -70,46 +69,60 @@
         <input type="password" id="password" name="password"><br>
         <br>
       </form>
-      <p><i>Passwords will be NEVER stored in plain text, nor shared or synced</i></p>
+      <p style="font-size: 0.65rem; margin-top: 10px; margin-bottom: 10px;"><i>Passwords will be NEVER stored in plain text, nor shared or synced</i></p>
       
       <h2>Atenea</h2>
       <div class="switch">
-        <label for="ocwShowLinks">Auto-login</label>
-        <input type="checkbox" id="ocwShowLinks" name="ocwShowLinks">
-        <span class="slider round"></span>
+        <p class="textCheckbox">Auto-login</p>
+        <label>
+          <input type="checkbox" id="ocwShowLinks" name="ocwShowLinks">
+          <span class="slider round"></span>
+        </label>
       </div>
+
       <div class="switch">
-        <label for="ocwShowLinks">[NEW! Put understandable names in subjects]</label>
-        <input type="checkbox" id="ocwShowLinks" name="ocwShowLinks">
-        <span class="slider round"></span>
+        <p class="textCheckbox">[NEW!] Put understandable names in subjects</p>
+        <label>
+          <input type="checkbox" id="ocwShowLinks" name="ocwShowLinks">
+          <span class="slider round"></span>
+        </label>
       </div>
 
       <h2>OpenCourseWare</h2>
       <div class="switch">
-        <label for="ocwShowLinks">Show <i>view</i> and <i>download all</i> links</label>
-        <input type="checkbox" id="ocwShowLinks" name="ocwShowLinks">
-        <span class="slider round"></span>
+        <p class="textCheckbox">Show <i>view</i> and <i>download all</i> links</p>
+        <label>
+          <input type="checkbox" id="ocwShowLinks" name="ocwShowLinks">
+          <span class="slider round"></span>
+        </label>
       </div>
 
       <h2>Escriny</h2>
       <div class="switch">
-        <label for="editSVN">Auto-login</label>
-        <input type="checkbox" id="editSVN" name="editSVN">
-        <span class="slider round"></span>
+        <p class="textCheckbox">Auto-login</p>
+        <label>
+          <input type="checkbox" id="editSVN" name="editSVN">
+          <span class="slider round"></span>
+        </label>
       </div>
-      <p><i>Save UPC credentials</i> must be enabled in order to perform this</p>
+      <p style="font-size: 0.65rem; margin-top: 10px; margin-bottom: 10px;"><i>Save UPC credentials</i> must be enabled in order to perform this</p>
     
       <div class="switch">
-        <label for="editSVN">Show your repositories in the landpage</label>
-        <input type="checkbox" id="editSVN" name="editSVN">
-        <span class="slider round"></span>
+        <p class="textCheckbox">Show your repositories in the landpage</p>
+        <label>
+          <input type="checkbox" id="editSVN" name="editSVN">
+          <span class="slider round"></span>
+        </label>
       </div>
+
       <div class="switch">
-        <label for="editSVN">[NEW!] Create and modify files and folders with commits</label>
-        <input type="checkbox" id="editSVN" name="editSVN">
-        <span class="slider round"></span>
+        <p class="textCheckbox">[NEW!] Create and modify files and folders with commits</p>
+        <label>
+          <input type="checkbox" id="editSVN" name="editSVN">
+          <span class="slider round"></span>
+        </label>
       </div>
-      <p><i>Save UPC credentials</i> must be enabled in order to perform this</p>
+      <p style="font-size: 0.65rem; margin-top: 10px; margin-bottom: 10px;"><i>Save UPC credentials</i> must be enabled in order to perform this</p>
 
       <h2>Overleaf</h2>
       <p><i>More features coming soon!</i></p>
@@ -129,9 +142,11 @@
   
       <h2>Advanced</h2>
       <div class="switch">
-        <label for="ocwShowLinks">Easter Eggs</label>
-        <input type="checkbox" id="ocwShowLinks" name="ocwShowLinks">
-        <span class="slider round"></span>
+        <p class="textCheckbox">Easter Eggs</p>
+        <label>
+          <input type="checkbox" id="ocwShowLinks" name="ocwShowLinks">
+          <span class="slider round"></span>
+        </label>
       </div>
 
     </div>
