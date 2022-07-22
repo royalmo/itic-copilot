@@ -69,21 +69,29 @@
         <input type="password" id="password" name="password"><br>
         <br>
       </form>
-      <p style="font-size: 0.65rem; margin-top: 10px; margin-bottom: 10px;"><i>Passwords will be NEVER stored in plain text, nor shared or synced</i></p>
+      <p style="font-size: 0.65rem; margin-top: 10px; margin-bottom: 10px;"><i>Passwords will be <b>NEVER</b> stored in plain text, nor shared or synced</i></p>
       
+      <div class="switch">
+        <p class="textCheckbox">Sync settings</p>
+        <label>
+          <input type="checkbox" id="syncSettings" name="syncSettings">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
       <h2>Atenea</h2>
       <div class="switch">
         <p class="textCheckbox">Auto-login</p>
         <label>
-          <input type="checkbox" id="ocwShowLinks" name="ocwShowLinks">
+          <input type="checkbox" id="ateneaLog" name="ateneaLog">
           <span class="slider round"></span>
         </label>
       </div>
 
       <div class="switch">
-        <p class="textCheckbox">[NEW!] Put understandable names in subjects</p>
+        <p class="textCheckbox"><mark style="background-color:rgb(167, 252, 255)">[NEW!]</mark> Put understandable names in subjects</p>
         <label>
-          <input type="checkbox" id="ocwShowLinks" name="ocwShowLinks">
+          <input type="checkbox" id="subjectsCheck" name="subjectsCheck">
           <span class="slider round"></span>
         </label>
       </div>
@@ -101,41 +109,44 @@
       <div class="switch">
         <p class="textCheckbox">Auto-login</p>
         <label>
-          <input type="checkbox" id="editSVN" name="editSVN">
+          <input type="checkbox" id="logSVN" name="logSVN">
           <span class="slider round"></span>
         </label>
       </div>
-      <p style="font-size: 0.65rem; margin-top: 10px; margin-bottom: 10px;"><i>Save UPC credentials</i> must be enabled in order to perform this</p>
+      <p style="font-size: 0.65rem; margin-top: 10px; margin-bottom: 10px; color: grey;"><i>Save UPC credentials</i> must be enabled in order to perform this</p>
     
       <div class="switch">
         <p class="textCheckbox">Show your repositories in the landpage</p>
         <label>
-          <input type="checkbox" id="editSVN" name="editSVN">
+          <input type="checkbox" id="showRepo" name="showRepo">
           <span class="slider round"></span>
         </label>
       </div>
 
       <div class="switch">
-        <p class="textCheckbox">[NEW!] Create and modify files and folders with commits</p>
+        <p class="textCheckbox"><mark style="background-color:rgb(167, 252, 255)">[NEW!]</mark> Create and modify files and folders with commits</p>
         <label>
-          <input type="checkbox" id="editSVN" name="editSVN">
+          <input type="checkbox" id="commitsCheck" name="commitsCheck">
           <span class="slider round"></span>
         </label>
       </div>
-      <p style="font-size: 0.65rem; margin-top: 10px; margin-bottom: 10px;"><i>Save UPC credentials</i> must be enabled in order to perform this</p>
-
+    
       <h2>Overleaf</h2>
       <p><i>More features coming soon!</i></p>
 
       <h2>Timetables</h2>
       <p><i>Click thks button to choose another set of subjects</i></p>
-      <!--<button type="button">[Reset timetables]</button>-->
+      <button type="button" style="position: relative; left: 30%;">[Reset timetables]</button>
   
       <h2>Subject Guide</h2>
       <p>Prefered language:</p>
-      <!--<button type="button">[Catalan]</button>
-      <button type="button">[Spanish]</button>
-      <button type="button">[English]</button>-->
+
+      <select name="langs" id="lang-select" style="position: relative; left: 15%;">
+          <option value="">--Please choose an option--</option>
+          <option value="catalan">Catalan</option>
+          <option value="spanish">Spanish</option>
+          <option value="english">English</option>
+      </select>
   
       <h2>Calendar</h2>
       <p><i>More features coming soon!</i></p>
@@ -144,7 +155,7 @@
       <div class="switch">
         <p class="textCheckbox">Easter Eggs</p>
         <label>
-          <input type="checkbox" id="ocwShowLinks" name="ocwShowLinks">
+          <input type="checkbox" id="easterEggs" name="easterEggs">
           <span class="slider round"></span>
         </label>
       </div>

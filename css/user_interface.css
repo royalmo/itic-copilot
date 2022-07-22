@@ -163,6 +163,7 @@ button {
     height: 20px;
     left: 220px;
     margin: 15px;
+    border: 10px black;
 
   }
   
@@ -201,14 +202,11 @@ button {
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
+
   }
   
   input:checked + .slider {
     background-color: #2196F3;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
   }
   
   input:checked + .slider:before {
@@ -220,10 +218,12 @@ button {
   /* Rounded sliders */
   .slider.round {
     border-radius: 20px;
+    
   }
   
   .slider.round:before {
     border-radius: 50%;
+    
   }
   
 
