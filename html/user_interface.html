@@ -10,9 +10,7 @@
   <div id="landpageDiv">
     <div class="titleDiv">
       <img src=" ../assets/user_interface/itic-logo-no-line-resized.png" style="width: 280px; height: auto; position: absolute; top: 20%; left: 3%">
-      <!--<img src=" ../assets/itic-favicon128.png" style="width: 50px; height: auto; position: absolute; left: 10%; top: 20%;">
-      <h1 class="titleTIC" style="position: absolute; left: 30%; top: 20%; font-size: 1.4rem; color: #252a88;"> iTIC COPILOT</h1>-->
-    </div>
+      </div>
     <div class="bodyPopup" style="top: 20%; height: 80%;">
       <h1 class="title">Links of Interest</h1>
       <p>Go to these sites to see the extension's potential!</p>
@@ -45,7 +43,7 @@
   </div>
 
   <!-- SETTINGS -->
-  <div id="settingDiv" style="display: none">
+  <div id="settingDiv" style="display: none; overflow: scroll;">
     <div class="titleDiv">
       <h1 class="title">Settings</h1>
 
@@ -54,25 +52,17 @@
       </div>
     </div>
     <div class="bodyPopup">
-      <h2>OpenCourseWare</h2>
+      <h2>General</h2>
       <div class="switch">
-        <label for="ocwShowLinks">Show Links</label>
-        <input type="checkbox" id="ocwShowLinks" name="ocwShowLinks">
+      Save UPC credentials
+      <label>
+        <input type="checkbox" id="saveUPC" name="saveUPC">
         <span class="slider round"></span>
+      </label>
+      
       </div>
 
-      <h2>Escriny</h2>
-      <div class="switch">
-        <label for="editSVN">Edit SVN</label>
-        <input type="checkbox" id="editSVN" name="editSVN">
-        <span class="slider round"></span>
-      </div>
-      <div class="switch">
-        <label for="saveSVN">Save Password</label>
-        <input type="checkbox" id="saveSVN" name="saveSVN">
-        <span class="slider round"></span>
-      </div>
-      <form class="svnLog" style="display: none">
+      <form class="upcLog" style="display: none">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username"><br>
         <br>
@@ -80,13 +70,73 @@
         <input type="password" id="password" name="password"><br>
         <br>
       </form>
-
-      <h2>OTHERS</h2>
+      <p><i>Passwords will be NEVER stored in plain text, nor shared or synced</i></p>
+      
+      <h2>Atenea</h2>
       <div class="switch">
-        <input type="checkbox">
+        <label for="ocwShowLinks">Auto-login</label>
+        <input type="checkbox" id="ocwShowLinks" name="ocwShowLinks">
         <span class="slider round"></span>
       </div>
+      <div class="switch">
+        <label for="ocwShowLinks">[NEW! Put understandable names in subjects]</label>
+        <input type="checkbox" id="ocwShowLinks" name="ocwShowLinks">
+        <span class="slider round"></span>
+      </div>
+
+      <h2>OpenCourseWare</h2>
+      <div class="switch">
+        <label for="ocwShowLinks">Show <i>view</i> and <i>download all</i> links</label>
+        <input type="checkbox" id="ocwShowLinks" name="ocwShowLinks">
+        <span class="slider round"></span>
+      </div>
+
+      <h2>Escriny</h2>
+      <div class="switch">
+        <label for="editSVN">Auto-login</label>
+        <input type="checkbox" id="editSVN" name="editSVN">
+        <span class="slider round"></span>
+      </div>
+      <p><i>Save UPC credentials</i> must be enabled in order to perform this</p>
+    
+      <div class="switch">
+        <label for="editSVN">Show your repositories in the landpage</label>
+        <input type="checkbox" id="editSVN" name="editSVN">
+        <span class="slider round"></span>
+      </div>
+      <div class="switch">
+        <label for="editSVN">[NEW!] Create and modify files and folders with commits</label>
+        <input type="checkbox" id="editSVN" name="editSVN">
+        <span class="slider round"></span>
+      </div>
+      <p><i>Save UPC credentials</i> must be enabled in order to perform this</p>
+
+      <h2>Overleaf</h2>
+      <p><i>More features coming soon!</i></p>
+
+      <h2>Timetables</h2>
+      <p><i>Click thks button to choose another set of subjects</i></p>
+      <!--<button type="button">[Reset timetables]</button>-->
+  
+      <h2>Subject Guide</h2>
+      <p>Prefered language:</p>
+      <!--<button type="button">[Catalan]</button>
+      <button type="button">[Spanish]</button>
+      <button type="button">[English]</button>-->
+  
+      <h2>Calendar</h2>
+      <p><i>More features coming soon!</i></p>
+  
+      <h2>Advanced</h2>
+      <div class="switch">
+        <label for="ocwShowLinks">Easter Eggs</label>
+        <input type="checkbox" id="ocwShowLinks" name="ocwShowLinks">
+        <span class="slider round"></span>
+      </div>
+
     </div>
+
+
   </div>
 
   <!-- ABOUT -->
