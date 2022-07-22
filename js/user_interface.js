@@ -103,8 +103,8 @@ $(document).ready(function () {
     });
 
     $('input[type="checkbox"]').click(function () {
-        if ($(this).attr("id") == "saveSVN") {
-            $(".svnLog").toggle('swing');
+        if ($(this).attr("id") == "saveUPC") {
+            $(".upcLog").toggle('swing');
         }
     });
 
