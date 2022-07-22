@@ -6,6 +6,7 @@ body {
     margin: 0px;
     font-family: Verdana, sans-serif;
     background-color: #F4F4F4;
+    padding: 0;
 }
 
 p {
@@ -19,10 +20,23 @@ h2 {
     margin-right: 10%;
     margin-left: 10%;
     font-size: 1.0rem;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
-label {
-    font-size: 0.7rem;
+::-webkit-scrollbar-track {
+	border: 1px solid black;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+    ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+	background-color: #0d6efd;	
 }
 
 .arrowDiv {
@@ -54,15 +68,14 @@ label {
 #landpageDiv{
     position: absolute;
     height: 100%;
-    width: 100%;
+    width: 101%;
 }
 
 #settingDiv,
 #aboutDiv {
     position: absolute;
-    top: -100;
     height: 100%;
-    width: 100%;
+    width: 101%;
 
 }
 
@@ -146,9 +159,11 @@ button {
 
 .switch {
     position: relative;
-    display: inline-block;
     width: 35px;
     height: 20px;
+    left: 220px;
+    margin: 15px;
+
   }
   
   /* Hide default HTML checkbox */
@@ -156,6 +171,13 @@ button {
     opacity: 0;
     width: 0;
     height: 0;
+  }
+
+  .textCheckbox{
+    position: relative;
+    text-decoration: none;
+    left: -200px;
+    width: 190px;
   }
   
   /* The slider */
@@ -204,3 +226,14 @@ button {
     border-radius: 50%;
   }
   
+
+.upcLog{
+    position: relative;
+    left: 40px;
+    width: 80px;
+}
+
+#password,
+#username{
+    width: 180px;
+}
