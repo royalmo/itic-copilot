@@ -2,8 +2,6 @@ let checkboxesId = new Array();
 
 $(document).ready(function () {
 
-    let checkboxes = document.querySelectorAll('input[type=checkbox]');
-
     $("#aboutDiv").hide(
         function(){
             $('#aboutDiv').animate({
@@ -119,19 +117,29 @@ $(document).ready(function () {
 
 
     function storeCheckboxes(){
+        
+        let checkboxes = document.querySelectorAll('input[type=checkbox]');
         for (const value of checkboxes.values()){
             checkboxesId.push(value.id);
             window.localStorage.setItem(value.id, String(document.getElementById(value.id).checked));
         }
         };
-     
+    
+    console.log(checkboxesId)
     if(localStorage.length > 0){
-        for (const checkboxName of checkboxesId ){
-            let checked = JSON.parse(localStorage.getItem(checkboxName));
-            document.getElementById(checked).checked = checked;
-            $("#"+ document.getElementById(checked)).prop('checked', checked);
-            if (document.getElementById(checked).checked) $("#"+ document.getElementById(checked)).parent().click();
-    };
+        for (let checkboxName of checkboxesId ){
+            console.log(checkboxName)
+            let checkboxValue = JSON.parse(localStorage.getItem(checkboxName));
+            document.getElementById(checkboxName).checked = checkboxValue;
+            $("#"+ document.getElementById(checkboxName)).prop('checked', checkboxValue);
+            if (document.getElementById(checkboxName).checked) {
+                //$("#"+ document.getElementById(checkboxName)).click();
+                console.log("CHECKED");
+            }
+            else {
+                console.log("Not Checked");
+            }
+        };
     }
     window.addEventListener('change', storeCheckboxes);
 });
