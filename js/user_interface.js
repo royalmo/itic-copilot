@@ -1,7 +1,20 @@
 let checkboxesId = new Array();
 
 $(document).ready(function () {
+    let checkboxes = document.querySelectorAll('input[type=checkbox]');
+    
+    for (const value of checkboxes.values()){
+        checkboxesId.push(value.id);
+    }
+    
+    for (let checkboxName of checkboxesId ){
+        console.log("hi")
+        let checkboxValue = JSON.parse(window.localStorage.getItem(checkboxName));
+        document.getElementById(checkboxName).checked = checkboxValue;
+        $("#"+ checkboxName).prop('checked', checkboxValue);
+    }
 
+    // ANIMATIONS BETWEEN WINDOW'S SECTIONS
     $("#aboutDiv").hide(
         function(){
             $('#aboutDiv').animate({
@@ -105,41 +118,27 @@ $(document).ready(function () {
         $("#landpageDiv").fadeIn(500);
     });
 
+    // FORM TOGGLE
     $('input[type="checkbox"]').click(function () {
         if ($(this).attr("id") == "saveUPC") {
             $(".upcLog").toggle('swing');
         }
     });
 
+    // MAKES ROW A HYPERLINK TO SITE
     $(".tableLinksTr").click(function() {
         window.open($(this).data("href"));
     });
 
-
+    // STORING VALUES IN LOCAL STORAGE BROWSER
     function storeCheckboxes(){
         
-        let checkboxes = document.querySelectorAll('input[type=checkbox]');
         for (const value of checkboxes.values()){
             checkboxesId.push(value.id);
             window.localStorage.setItem(value.id, String(document.getElementById(value.id).checked));
         }
-        };
-    
-    console.log(checkboxesId)
-    if(localStorage.length > 0){
-        for (let checkboxName of checkboxesId ){
-            console.log(checkboxName)
-            let checkboxValue = JSON.parse(localStorage.getItem(checkboxName));
-            document.getElementById(checkboxName).checked = checkboxValue;
-            $("#"+ document.getElementById(checkboxName)).prop('checked', checkboxValue);
-            if (document.getElementById(checkboxName).checked) {
-                //$("#"+ document.getElementById(checkboxName)).click();
-                console.log("CHECKED");
-            }
-            else {
-                console.log("Not Checked");
-            }
-        };
+        
     }
+    
     window.addEventListener('change', storeCheckboxes);
 });
