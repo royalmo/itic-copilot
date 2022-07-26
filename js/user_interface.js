@@ -8,7 +8,6 @@ $(document).ready(function () {
     }
     
     for (let checkboxName of checkboxesId ){
-        console.log("hi")
         let checkboxValue = JSON.parse(window.localStorage.getItem(checkboxName));
         document.getElementById(checkboxName).checked = checkboxValue;
         $("#"+ checkboxName).prop('checked', checkboxValue);
