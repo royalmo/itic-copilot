@@ -99,6 +99,10 @@
             $.ajax({
                 url: file_url,
                 method: 'get',
+                cache: false,
+                headers: {
+                    "Authorization" : "Basic " + btoa(prompt("username") + ':' + prompt("password"))
+                },
                 success: function(result) {
                     editor.setValue(result);
                     editor.navigateFileStart();
@@ -117,15 +121,9 @@
             var svn = new SVN(prompt("Username"), prompt("Password"), repository_url);
             // SVNJS 0.2.0
             // var svn = new svnjs.Client(prompt("Username:"), prompt("Password:"), repository_url);
-            //svn.add(file_path, editor.getValue());
-            // svn.propset(file_path, {"svn:mime-type": "text/javascript"});
-            //svn.commit(commit_message);
-
-            //tmp
-            svn.mkdir('hola/bye');
-            //svn.add('hola/byee.rst', "this is a crazy test!\nwhat will happen??\n");
-            svn.commit('Second SVNJS 0.1.0 commit!');
             
+            svn.add(file_path, editor.getValue());
+            svn.commit(commit_message, function () {alert("Done!")});
         });
     })
 })();

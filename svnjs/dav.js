@@ -68,6 +68,7 @@ Dav.prototype = {
             }
         };
         xhr.open(options.type, options.path, true);
+        xhr.setRequestHeader("Authorization", self.auth);
         if (options.headers)
             for(var key in options.headers) {
                 var val = options.headers[key];
@@ -181,9 +182,6 @@ Dav.prototype = {
         self.request({
             type: 'MKACTIVITY',
             path: self.act + self.uniqueKey,
-            headers: {
-                'Authorization': self.auth
-            },
             handler: function (stat, statstr, cont) {
                 if (stat == '201') {
                     self.log('MKACTIVITY request success');
@@ -233,8 +231,7 @@ Dav.prototype = {
             type: 'PROPPATCH',
             path: path,
             headers: {
-                'Content-type': 'text/xml;charset=utf-8',
-                'Authorization': self.auth
+                'Content-type': 'text/xml;charset=utf-8'
             },
             content: [
                 '<?xml version="1.0" encoding="utf-8" ?>',
@@ -262,14 +259,13 @@ Dav.prototype = {
 
     PUT : function (file, content, ok, err) {
         var self = this;
-        var path = self.cko.indexOf(file) ? self.cko :
+        var path = self.cko.indexOf(file) != -1 ? self.cko :
                                             self.cko + '/' + file;
         self.request({
             type: 'PUT',
             path: path,
             headers: {
-                'Content-type': 'text/plain',
-                'Authorization': self.auth
+                'Content-type': 'text/plain'
             },
             content: content,
             handler: function (stat, statstr, cont) {
@@ -294,9 +290,6 @@ Dav.prototype = {
         self.request({
             type: 'DELETE',
             path: path,
-            headers: {
-                'Authorization': self.auth
-            },
             handler: function (stat, statstr, cont) {
                 if (stat >= 200 && stat < 300) {
                     self.log('DELETE ' + path + ' done');
@@ -318,8 +311,7 @@ Dav.prototype = {
             path: path,
             headers: {
                 'Destination': topath,
-                'Overwrite': 'F',
-                'Authorization': self.auth
+                'Overwrite': 'F'
             },
             handler: function (stat, statstr, cont) {
                 
@@ -334,8 +326,7 @@ Dav.prototype = {
             path: path,
             headers: {
                 'Destination': topath,
-                'Overwrite': 'F',
-                'Authorization': self.auth
+                'Overwrite': 'F'
             },
             handler: function (stat, statstr, cont) {
                 if (stat >= 200 && stat < 300) {
@@ -355,9 +346,6 @@ Dav.prototype = {
         self.request({
             type: 'MKCOL',
             path: path,
-            headers: {
-                'Authorization': self.auth
-            },
             handler: function (stat, statstr, cont) {
                 if (stat >= 200 && stat < 300) {
                     self.log('MKCOL ' + path + ' done!');
@@ -405,8 +393,7 @@ Dav.prototype = {
             path: self.act + self.uniqueKey,
             headers: {
                 'X-SVN-Options': 'release-locks',
-                'Content-type': 'text/xml;charset=utf-8',
-                'Authorization': self.auth
+                'Content-type': 'text/xml;charset=utf-8'
             },
             content: [
                 '<?xml version="1.0" encoding="utf-8"?>',
