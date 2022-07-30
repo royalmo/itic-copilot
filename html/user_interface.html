@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="../css/user_interface.css">
+</head>
+
+<body>
+  <!-- LANDPAGE -->
+  <div id="landpageDiv">
+    <div class="titleDiv">
+      <img src=" ../assets/user_interface/itic-logo-no-line-resized.png" style="width: 280px; height: auto; position: absolute; top: 20%; left: 3%">
+      </div>
+    <div class="bodyPopup" style="top: 15%; height: 85%;">
+      <h1 class="title">Links of Interest</h1>
+      <p>Go to these sites to see the extension's potential!</p>
+      <table class="tableLinks">
+        <tr class="tableLinksTr" data-href="https://atenea.upc.edu/login/index.php" style="background: linear-gradient(0deg, #F4F4F4, rgb(90, 149, 250))">
+          <td class="tableLinksTd"><p class="tableText">Atenea</p></td>
+          <td><img class="imgLogo" src="../assets/user_interface/upc_logo.png"></td>
+        </tr>
+        <tr class="tableLinksTr" data-href="https://ocwitic.epsem.upc.edu/" style="background: linear-gradient(0deg, #F4F4F4, rgb(200, 98, 28))">
+          <td class="tableLinksTd"><p class="tableText">iTIC OpenCourseWare</p></td>
+          <td><img class="imgLogo"></td>
+        </tr>
+        <tr class="tableLinksTr" data-href="https://escriny.epsem.upc.edu/" style="background: linear-gradient(0deg, #F4F4F4, rgb(46, 189, 228))">
+          <td class="tableLinksTd"><p class="tableText">Escriny</p></td>
+          <td><img class="imgLogo" src="../assets/user_interface/open_project_logo.png"></td>
+        </tr>
+        <tr class="tableLinksTr" data-href="https://www.overleaf.com/" style="background: linear-gradient(0deg, #F4F4F4, rgb(114, 188, 145))">
+          <td class="tableLinksTd"><p class="tableText">Overleaf</p></td>
+          <td><img class="imgLogo" src="../assets/user_interface/overleaf_logo.png"></td>
+        </tr>
+      </table>
+
+      <table class="navDiv">
+        <tr>
+          <td class="tdButton"><button class="settingButton">Settings</button></td>
+          <td class="tdButton"><button class="aboutButton">About</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- SETTINGS -->
+  <div id="settingDiv" style="display: none; overflow: scroll; overflow-x: hidden;">
+    <div class="titleDiv">
+      <h1 class="title">Settings</h1>
+
+      <div class="arrowDiv">
+        <i class="arrow left"></i>
+      </div>
+    </div>
+    <div class="bodyPopup" style="top: 10%;">
+      <h2>General</h2>
+      <div class="switch">
+        <p class="textCheckbox">Save UPC credentials</p>
+        <label>
+          <input type="checkbox"  autocomplete="off" id="saveUPC" name="saveUPC">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <form class="upcLog" style="display: none">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"><br>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br>
+        <br>
+      </form>
+      <p style="font-size: 0.65rem; margin-top: 10px; margin-bottom: 10px;"><i>Passwords will be <b>NEVER</b> stored in plain text, nor shared or synced</i></p>
+      
+      <div class="switch">
+        <p class="textCheckbox">Sync settings</p>
+        <label>
+          <input type="checkbox"  autocomplete="off" id="syncSettings" name="syncSettings">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <h2>Atenea</h2>
+      <div class="switch">
+        <p class="textCheckbox">Auto-login</p>
+        <label>
+          <input type="checkbox"  autocomplete="off" id="ateneaLog" name="ateneaLog">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <div class="switch">
+        <p class="textCheckbox"><mark style="background-color:rgb(167, 252, 255)">[NEW!]</mark> Put understandable names in subjects</p>
+        <label>
+          <input type="checkbox"  autocomplete="off" id="subjectsCheck" name="subjectsCheck">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <h2>OpenCourseWare</h2>
+      <div class="switch">
+        <p class="textCheckbox">Show <i>view</i> and <i>download all</i> links</p>
+        <label>
+          <input type="checkbox"  autocomplete="off" id="ocwShowLinks" name="ocwShowLinks">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <h2>Escriny</h2>
+      <div class="switch">
+        <p class="textCheckbox">Auto-login</p>
+        <label>
+          <input type="checkbox"  autocomplete="off" id="logSVN" name="logSVN">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <p style="font-size: 0.65rem; margin-top: 10px; margin-bottom: 10px; color: grey;"><i>Save UPC credentials</i> must be enabled in order to perform this</p>
+    
+      <div class="switch">
+        <p class="textCheckbox">Show your repositories in the landpage</p>
+        <label>
+          <input type="checkbox"  autocomplete="off" id="showRepo" name="showRepo">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <div class="switch">
+        <p class="textCheckbox"><mark style="background-color:rgb(167, 252, 255)">[NEW!]</mark> Create and modify files and folders with commits</p>
+        <label>
+          <input type="checkbox"  autocomplete="off" id="commitsCheck" name="commitsCheck">
+          <span class="slider round"></span>
+        </label>
+      </div>
+    
+      <h2>Overleaf</h2>
+      <p><i>More features coming soon!</i></p>
+
+      <h2>Timetables</h2>
+      <p><i>Click this button to choose another set of subjects</i></p>
+      <button type="button" style="position: relative; left: 30%;">Reset timetables</button>
+  
+      <h2>Subject Guide</h2>
+      <p>Prefered language:</p>
+
+      <select name="langs" id="lang-select" style="position: relative; left: 15%;">
+          <option value="">--Please choose an option--</option>
+          <option value="catalan">Catalan</option>
+          <option value="spanish">Spanish</option>
+          <option value="english">English</option>
+      </select>
+  
+      <h2>Calendar</h2>
+      <p><i>More features coming soon!</i></p>
+  
+      <h2>Advanced</h2>
+      <div class="switch">
+        <p class="textCheckbox">Easter Eggs</p>
+        <label>
+          <input type="checkbox"  autocomplete="off" id="easterEggs" name="easterEggs">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <!-- ABOUT -->
+  <div id="aboutDiv" style="display: none">
+    <div class="titleDiv">
+      <h1 class="title">About</h1>
+      <div class="arrowDiv">
+        <i class="arrow left"></i>
+      </div>
+
+    </div>
+    <div class="bodyPopup">
+      <img src=" ../assets/user_interface/itic-logo-no-line.png" style="width: 150px; height: auto; margin-left: 25%;">
+      <p style="text-align: center;"><i>Made by <a href="https://github.com/royalmo">Eric Roy</a></i></p>
+    
+      <h2 id="aboutSubTitle">License</h2>
+      <p>
+        This extension is part of an open
+        source project, liscenced with the
+        GNU General Public Liscence V3
+        (GPL3). See more details of it <a href="https://github.com/royalmo/itic-copilot/blob/main/LICENSE">here</a>.
+      </p>
+      <h2 id="aboutSubTitle">Privacy Note</h2>
+      <p>
+        As you can verify with your own eyes (because it's an Open Source project),
+        we don't do anything with your data. Passwords or other preferences may
+        be saved by request, but only locally (we don't receive anything from you).
+      </p>
+      <h2 id="aboutSubTitle">What to contribute?</h2>
+      <p>
+        You can report bugs, suggestions, or
+        contribute to the iTIC Copilot extension
+        by going in the <a href="https://github.com/royalmo/itic-copilot">GitHub repository</a>.
+      </p>
+      </div>
+  </div>
+  <script src="../include/jquery-3.4.1.min.js"></script>
+  <script src="../js/user_interface.js"></script>
+</body>
+
+</html>

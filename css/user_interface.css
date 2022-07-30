@@ -1,0 +1,251 @@
+body {
+    width: 300px;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    margin: 0px;
+    font-family: Verdana, sans-serif;
+    background-color: #F4F4F4;
+    padding: 0;
+}
+
+p {
+    text-align: justify;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+h2 {
+    text-align: justify;
+    margin-right: 10%;
+    margin-left: 10%;
+    font-size: 1.0rem;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+::-webkit-scrollbar-track {
+	border: 1px solid black;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+    ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+	background-color: #0d6efd;	
+}
+
+.arrowDiv {
+    position: absolute;
+    top: 23%;
+    left: 10%;
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    padding: 4px;
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.arrow:hover {
+    border-width: 0 5px 5px 0;
+    padding: 5px;
+    transition: all 200ms ease;
+}
+
+#landpageDiv{
+    position: absolute;
+    height: 100%;
+    width: 101%;
+}
+
+#settingDiv,
+#aboutDiv {
+    position: absolute;
+    height: 100%;
+    width: 101%;
+
+}
+
+.titleDiv {
+    background-image: linear-gradient(#bdd5f1, #F4F4F4);
+    position: absolute;
+    width: 100%;
+    height: 15%;
+    top: 0;
+    left: 0;
+}
+
+.title {
+    text-align: center;
+    vertical-align: middle;
+    color: #363636;
+    font-size: 1.2rem;
+}
+
+.bodyPopup {
+    position: absolute;
+    width: 100%;
+    height: 85%;
+    top: 15%;
+}
+
+.navDiv {
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    border-spacing: 10px;
+}
+
+.tableLinks{
+    border-spacing: 0 10px;
+    margin-left: 7.5%;
+}
+.tableLinksTr {
+    height: 50px;
+    cursor: pointer;
+}
+
+.tableLinksTr td {
+    height: 50px;
+    transform: scale(1);
+    transition: transform .1s ease-in, height .1s ease-in;
+}
+
+.tableLinksTd{
+    width: 200px;
+}
+
+.tableLinks .tableLinksTr:hover td{
+    height: 55px;
+    transform: scale(1.1);
+    transition: transform .1s ease-in, height .1s ease-in;
+    
+}
+
+.imgLogo{
+    height: 50px;
+    width: 50px;
+    
+}
+
+.tableText{
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+    cursor: pointer;
+    outline: 0;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 4px 10px;
+    font-size: 0.7rem;
+    border-radius: .25rem;
+    transition: color 1s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.tdButton button:hover {
+    color: black;
+    background-color: #bdd5f1;
+    border-color: black;
+}
+
+.switch {
+    position: relative;
+    width: 35px;
+    height: 20px;
+    left: 220px;
+    margin: 15px;
+    border: 10px black;
+
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .textCheckbox{
+    position: relative;
+    text-decoration: none;
+    left: -200px;
+    width: 190px;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 20px;
+    
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+    
+  }
+
+.upcLog{
+    position: relative;
+    left: 40px;
+    width: 80px;
+}
+
+#password,
+#username{
+    width: 180px;
+}
