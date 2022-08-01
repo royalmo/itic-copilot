@@ -26,7 +26,7 @@
     repository_url = file_url.split('/', 5).join('/');
 
     // Example: bye.rst
-    file_path = 'hello.rst'; // TODO
+    file_path = file_url.split('/').slice(5).join('/');
 
     // Looking for "Historial | Ver | Anotar | Descargar (| Editar) (X Bytes)"
     tmp = $('#content').children('p');
@@ -61,7 +61,7 @@
     original_content = $('#original_content');
 
     // Adding editor content
-    $('#content').html($('#content').html() + '<div id="editor_content" style="display:none;"><input type="text" id="new_commit_msg"/><button id="commit_btn">Commit</button><div id="editor" style="width:100% max-width:300px;height:700px;outline: solid 2px darkgrey;">' + "Loading file contents..." + '</div></div>');
+    $('#content').html($('#content').html() + '<div id="editor_content" style="display:none;"><div class="toolbar-input-group"><input type="text" id="new_commit_msg" style="width:50%" placeholder="Commit message ..."/><button class="button" style="margin:0" id="commit_btn">Commit</button></div><p style="display:none;font-size:12px"><i><a href="javascript:void(0)" id="copilot_edit_settings_show">Show advanced settings.</a><a href="javascript:void(0)" id="copilot_edit_settings_hide" style="display:none">Hide advanced settings.</a></i></p><div style="display:none" id="copilot_advanced_settings_div"><p> CR CRLF LF </p></div><br/><div id="editor" style="width:100% max-width:300px;height:700px;outline: solid 2px darkgrey;">' + "Loading file contents..." + '</div></div><div id="editor_content_loading><p>Loading file contents ...</p><p>Could not load file contents. Reload the page to retry.</p></div>');
 
     // ACE init
     var editor = ace.edit("editor");
@@ -74,7 +74,25 @@
 
     file_contents_loaded = false
 
+    // Prompting if needed when saves occur.
+    function preventChangeLoss(event) {
+        if (editor.session.getUndoManager().hasUndo())
+            event.returnValue = null; // if it isn't null, prompt is hidden.
+    }
+    window.addEventListener("beforeunload", preventChangeLoss);
+
     $(function () {
+        $('#copilot_edit_settings_show').click(function() {
+            $('#copilot_advanced_settings_div').show();
+            $('#copilot_edit_settings_show').hide();
+            $('#copilot_edit_settings_hide').show();
+        });
+        $('#copilot_edit_settings_hide').click(function() {
+            $('#copilot_advanced_settings_div').hide();
+            $('#copilot_edit_settings_show').show();
+            $('#copilot_edit_settings_hide').hide();
+        });
+
         $('#copilot_current_link').click(function () {
             $('#copilot_current_link').hide();
             $('#copilot_current_phar').show();
@@ -107,6 +125,7 @@
                     editor.setValue(result);
                     editor.navigateFileStart();
                     file_contents_loaded = true;
+                    editor.getSession().getUndoManager().reset();
                 },
                 error: function() {
                     alert('An error occurred while fetching the url.');
@@ -123,7 +142,13 @@
             // var svn = new svnjs.Client(prompt("Username:"), prompt("Password:"), repository_url);
             
             svn.add(file_path, editor.getValue());
-            svn.commit(commit_message, function () {alert("Done!")});
+            svn.commit(commit_message, function () {
+                editor.getSession().getUndoManager().reset();
+                editor.focus();
+                $('#new_commit_msg').val("").done(function(){
+                    alert('done')
+                });
+            });
         });
     })
 })();
