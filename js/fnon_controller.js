@@ -69,6 +69,10 @@ itic_copilot.fnon = {};
         Fnon.Alert.Warning(message, title, okey, function() {clearTimeout(alert_timeout);});
     }
 
+    itic_copilot.fnon.confirm = function (title, message, yes_str, no_str, callback) {
+        Fnon.Ask.Danger(title, message, yes_str, no_str, (result)=>callback);
+    }
+
 
     // More specific functions
     itic_copilot.fnon.panic = function (message, title=t('ocw_downloader_error')) {
