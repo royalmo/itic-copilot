@@ -1,3 +1,20 @@
+/*
+ * Copyright (C) 2022 Eric Roy
+ *
+ * This program is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published by the Free
+ * Software Foundation, either version 3 of the License, or (at your option)
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+ * more details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * this program. If not, see http://www.gnu.org/licenses/.
+*/
+
 let checkboxesId = new Array();
 
 $(document).ready(function () {
@@ -6,11 +23,15 @@ $(document).ready(function () {
     for (const value of checkboxes.values()){
         checkboxesId.push(value.id);
     }
-    
+
     for (let checkboxName of checkboxesId ){
-        let checkboxValue = JSON.parse(window.localStorage.getItem(checkboxName));
+        let checkboxValue = chrome.storage.sync.get([checkboxName], (result) => {
+                console.log(`Retrieved ${checkboxName} value: ` + result);
+            });
+        console.log(`checkbox value: ${checkboxValue}`);
         document.getElementById(checkboxName).checked = checkboxValue;
         $("#"+ checkboxName).prop('checked', checkboxValue);
+
     }
 
     // ANIMATIONS BETWEEN WINDOW'S SECTIONS
@@ -131,13 +152,16 @@ $(document).ready(function () {
 
     // STORING VALUES IN LOCAL STORAGE BROWSER
     function storeCheckboxes(){
-        
         for (const value of checkboxes.values()){
-            checkboxesId.push(value.id);
-            window.localStorage.setItem(value.id, String(document.getElementById(value.id).checked));
+            let valueID = value.id;
+            checkboxesId.push(valueID);
+            chrome.storage.sync.set({valueID : String(document.getElementById(value.id).checked)}, () => {
+                console.log(`${value.id} is set to ` + String(document.getElementById(value.id).checked));
+                });
         }
-        
-    }
-    
+    };
+           
     window.addEventListener('change', storeCheckboxes);
 });
+
+
