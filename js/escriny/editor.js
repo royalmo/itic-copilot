@@ -55,6 +55,8 @@
     splitted = startstr.split('(');
     startstr = splitted[0] + '| <i id="copilot_edit_phar" style="display:none">Editar</i><a id="copilot_edit_link">Editar</a> (' + splitted[1];
 
+    // | <a id="copilot_delete_link">Eliminar</a>
+
     submenu_paragraph.html(startstr)
 
     $('#content').children().last().attr('id', 'original_content');
@@ -119,7 +121,7 @@
                 method: 'get',
                 cache: false,
                 headers: {
-                    "Authorization" : "Basic " + btoa(prompt("username") + ':' + prompt("password"))
+                    "Authorization" : "Basic " + itic_copilot.get_user_auth()
                 },
                 success: function(result) {
                     editor.setValue(result);
@@ -135,19 +137,26 @@
 
         $('#commit_btn').click(function() {
             commit_message = $('#new_commit_msg').val();
+            if (commit_message == "") return;
 
-            // SVNJS 0.1.0
-            var svn = new SVN(prompt("Username"), prompt("Password"), repository_url);
-            // SVNJS 0.2.0
-            // var svn = new svnjs.Client(prompt("Username:"), prompt("Password:"), repository_url);
-            
-            svn.add(file_path, editor.getValue());
-            svn.commit(commit_message, function () {
-                editor.getSession().getUndoManager().reset();
-                editor.focus();
-                $('#new_commit_msg').val("").done(function(){
-                    alert('done')
+            itic_copilot.fnon.confirm("Commit", "Do you wish to commit <i>"+commit_message+"</i>?",
+            "Continue", "Cancel", function (result){
+                if (!result) return;
+
+                // SVNJS 0.1.0
+                var svn = new SVN(itic_copilot.get_user_auth(), repository_url);
+                // SVNJS 0.2.0
+                // var svn = new svnjs.Client(prompt("Username:"), prompt("Password:"), repository_url);
+                
+                svn.add(file_path, editor.getValue());
+                svn.commit(commit_message, function () {
+                    editor.getSession().getUndoManager().reset();
+                    editor.focus();
+                    $('#new_commit_msg').val("").done(function(){
+                        itic_copilot.fnon.alert("The commit has been uploaded successfully.<br/>Be aware that the content may take several minutes to be updated on the web.", "Commit completed")
+                    });
                 });
+
             });
         });
     })

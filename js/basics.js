@@ -47,6 +47,16 @@ itic_copilot = {};
         return "Windows";
     })();
 
+    current_authentification = null
+    // Basic asdffalsdjkfa3
+    itic_copilot.get_user_auth = function(force = false) {
+        if (current_authentification !== null && !force)
+            return current_authentification;
+
+        current_authentification = btoa(prompt("username") + ':' + prompt("password"))
+        return current_authentification;
+    }
+
     // Translations
     itic_copilot.t = browser.i18n.getMessage;
 
