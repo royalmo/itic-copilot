@@ -70,7 +70,7 @@ itic_copilot.fnon = {};
     }
 
     itic_copilot.fnon.confirm = function (title, message, yes_str, no_str, callback) {
-        Fnon.Ask.Danger(title, message, yes_str, no_str, (result)=>callback);
+        Fnon.Ask.Danger(message, title, yes_str, no_str, callback);
     }
 
 

@@ -57,6 +57,7 @@
                 "js/escriny/editor.js"
                 ],
             "css": [
+                "include/fnon.min.css"
             ],
             "run_at": "document_end"
         }

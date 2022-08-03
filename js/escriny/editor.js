@@ -130,7 +130,16 @@
                     editor.getSession().getUndoManager().reset();
                 },
                 error: function() {
-                    alert('An error occurred while fetching the url.');
+                    itic_copilot.fnon.alert('An error occurred while fetching the url.', 'Error');
+
+                    // Showing back old menu
+                    $('#copilot_current_link').hide();
+                    $('#copilot_current_phar').show();
+                    $('#copilot_edit_link').show();
+                    $('#copilot_edit_phar').hide();
+
+                    $('#original_content').show();
+                    $('#editor_content').hide();
                 }
             });
         });
@@ -140,7 +149,7 @@
             if (commit_message == "") return;
 
             itic_copilot.fnon.confirm("Commit", "Do you wish to commit <i>"+commit_message+"</i>?",
-            "Continue", "Cancel", function (result){
+            "Continue", "Cancel", (result)=>{
                 if (!result) return;
 
                 // SVNJS 0.1.0
@@ -152,9 +161,8 @@
                 svn.commit(commit_message, function () {
                     editor.getSession().getUndoManager().reset();
                     editor.focus();
-                    $('#new_commit_msg').val("").done(function(){
-                        itic_copilot.fnon.alert("The commit has been uploaded successfully.<br/>Be aware that the content may take several minutes to be updated on the web.", "Commit completed")
-                    });
+                    $('#new_commit_msg').val("");
+                    itic_copilot.fnon.alert("The commit has been uploaded successfully.<br/>Be aware that the content may take several minutes to be updated on the web.", "Commit completed");
                 });
 
             });
