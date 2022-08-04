@@ -146,7 +146,11 @@ $(document).ready(function () {
     });
 
     // MAKES ROW A HYPERLINK TO SITE
-    $(".tableLinksTr").click(function() {
+    $(".tableBigTr").click(function() {
+        window.open($(this).data("href"));
+    });
+
+    $(".tableSmallTd").click(function() {
         window.open($(this).data("href"));
     });
 
