@@ -33,16 +33,11 @@ p {
 }
 
 h2 {
-    text-align: justify;
-    margin-right: 10%;
     margin-left: 10%;
     font-size: 1.0rem;
-    margin-top: 5%;
-    margin-bottom: 5%;
 }
 
 ::-webkit-scrollbar-track {
-	/*border: 1px solid black;*/
 	background-color: #F5F5F5;
 }
 
@@ -93,7 +88,6 @@ h2 {
     position: absolute;
     height: 100%;
     width: 101%;
-
 }
 
 .titleDiv {
@@ -126,26 +120,50 @@ h2 {
     border-spacing: 10px;
 }
 
-.tableLinks{
+.tableBig,
+.tableSmall{
     border-spacing: 0 10px;
     margin-left: 7.5%;
+    width: 260px;
+    table-layout: fixed;
 }
-.tableLinksTr {
+
+.tableSmall{
+    border-spacing: 10px 10px;
+    margin-left: 4.5%;
+    width: 278px;
+}
+
+.tableBigTr,
+.tableSmallTr {
     height: 50px;
     cursor: pointer;
 }
 
-.tableLinksTr td {
+.tableBigTr td,
+.tableSmallTr td {
     height: 50px;
     transform: scale(1);
-    transition: transform .1s ease-in, height .1s ease-in;
+    transition: transform .1s ease-in;
 }
 
-.tableLinksTd{
-    width: 200px;
+.tableBigTd{
+    max-width: 65px;
+    text-align: right;
 }
 
-.tableLinks .tableLinksTr:hover td{
+.tableSmallTd {
+    vertical-align: middle;
+    text-align: center;
+    background: linear-gradient(0deg, #F4F4F4, lightgrey);
+}
+
+.tableBig .tableBigTr:hover td{
+    transform: scale(1.1);
+    transition: transform .1s ease-in;
+}
+
+.tableSmall .tableSmallTd:hover{
     transform: scale(1.1);
     transition: transform .1s ease-in;
 }
@@ -153,11 +171,17 @@ h2 {
 .imgLogo{
     height: 50px;
     width: 50px;
-    
+    opacity: 65%;
+}
+
+.imgLogoSmall {
+    height: 50px;
+    width: 50px;
+    opacity: 85%;
 }
 
 .tableText{
-    font-size: 0.9rem;
+    font-size: 1.0rem;
     font-weight: 600;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -203,25 +227,22 @@ button {
     left: 220px;
     margin: 15px;
     border: 10px black;
-
-  }
+}
   
-  /* Hide default HTML checkbox */
-  .switch input {
+.switch input {
     opacity: 0;
     width: 0;
     height: 0;
-  }
+}
 
-  .textCheckbox{
+.textCheckbox{
     position: relative;
     text-decoration: none;
     left: -200px;
     width: 190px;
-  }
+}
   
-  /* The slider */
-  .slider {
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -231,9 +252,9 @@ button {
     background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
-  }
+}
   
-  .slider:before {
+.slider:before {
     position: absolute;
     content: "";
     height: 15px;
@@ -241,34 +262,39 @@ button {
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
-
-  }
+}
   
-  input:checked + .slider {
+input:checked + .slider {
     background-color: #2196F3;
-  }
+}
   
-  input:checked + .slider:before {
+input:checked + .slider:before {
     -webkit-transform: translateX(20px);
     -ms-transform: translateX(20px);
     transform: translateX(20px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
+}
+
+.slider.round {
     border-radius: 20px;
-    
-  }
+}
   
-  .slider.round:before {
-    border-radius: 50%;
-    
-  }
+.slider.round:before {
+    border-radius: 50%; 
+}
 
 .upcLog{
     position: relative;
     left: 40px;
     width: 80px;
+}
+
+.gmailForm{
+    position: relative;
+    left: 40px;
+}
+
+#gmailURL{
+    width: 150px;
 }
 
 #password,
