@@ -81,7 +81,7 @@
       <div class="switch">
         <p class="textCheckbox">Save UPC credentials</p>
         <label>
-          <input type="checkbox"  autocomplete="off" id="saveUPC" name="saveUPC">
+          <input type="checkbox" autocomplete="off" id="saveUPC" name="saveUPC">
           <span class="slider round"></span>
         </label>
       </div>
@@ -94,99 +94,82 @@
         <input type="password" id="password" name="password"><br/>
         <br/>
       </form>
-      <p style="font-size: 0.65rem; margin-top: 10px; margin-bottom: 10px;"><i>Passwords will be <b>NEVER</b> stored in plain text, nor shared or synced</i></p>
+      <p  class="subTextCheckbox"><i>Passwords will be <b>NEVER</b> stored in plain text, nor shared or synced.</i></p>
       
       <div class="switch">
         <p class="textCheckbox">Sync settings</p>
         <label>
-          <input type="checkbox"  autocomplete="off" id="syncSettings" name="syncSettings">
+          <input type="checkbox" autocomplete="off" id="syncSettings" name="syncSettings">
           <span class="slider round"></span>
         </label>
       </div>
 
-      <form class="gmailForm">
-        <label for="gmailLink">Gmail URL:</label>
-        <input type="text" id="gmailURL" name="gmailURL"><br/>
-        <br/>
-      </form>
-      
+      <div class="switch">
+        <p class="textCheckbox"><b class="new">NEW!</b> Auto-login on UPCnet</p>
+        <label>
+          <input type="checkbox" disabled autocomplete="off" id="ateneaLog" name="ateneaLog">
+          <span class="slider round disabled"></span>
+        </label>
+      </div>
+      <p class="subTextCheckbox" style="color: grey;display:none"><i>Save UPC credentials</i> must be enabled to perform auto-login.</p>
       
       <h2>Atenea</h2>
-      <div class="switch">
-        <p class="textCheckbox">Auto-login</p>
+      
+      <p><i>More features coming soon!</i></p>
+
+      <div class="switch hidden">
+        <p class="textCheckbox">Put understandable names in subjects</p>
         <label>
-          <input type="checkbox"  autocomplete="off" id="ateneaLog" name="ateneaLog">
+          <input type="checkbox" autocomplete="off" id="subjectsCheck" name="subjectsCheck">
           <span class="slider round"></span>
         </label>
       </div>
 
-      <div class="switch">
-        <p class="textCheckbox"><b style="background-color:rgb(252, 239, 89)">NEW!</b> Put understandable names in subjects</p>
-        <label>
-          <input type="checkbox"  autocomplete="off" id="subjectsCheck" name="subjectsCheck">
-          <span class="slider round"></span>
-        </label>
-      </div>
-      
-      <br/>
-      
       <h2>OpenCourseWare</h2>
       <div class="switch">
-        <p class="textCheckbox">Show <i>view</i> and <i>download all</i> links</p>
+        <p class="textCheckbox">Show embedded links</p>
         <label>
-          <input type="checkbox"  autocomplete="off" id="ocwShowLinks" name="ocwShowLinks">
+          <input type="checkbox" autocomplete="off" id="ocwShowLinks" name="ocwShowLinks">
           <span class="slider round"></span>
         </label>
       </div>
-
-      <br/>
 
       <h2>Escriny</h2>
-      <div class="switch">
-        <p class="textCheckbox">Auto-login</p>
-        <label>
-          <input type="checkbox"  autocomplete="off" id="logSVN" name="logSVN">
-          <span class="slider round"></span>
-        </label>
-      </div>
-
-      <p style="font-size: 0.65rem; margin-top: 10px; margin-bottom: 10px; color: grey;"><i>Save UPC credentials</i> must be enabled in order to perform this</p>
       
-      <div class="switch">
+      <div class="switch hidden">
         <p class="textCheckbox">Show your repositories in the landpage</p>
         <label>
-          <input type="checkbox"  autocomplete="off" id="showRepo" name="showRepo">
+          <input type="checkbox" autocomplete="off" id="showRepo" name="showRepo">
           <span class="slider round"></span>
         </label>
       </div>
-
-      <br/>
 
       <div class="switch">
-        <p class="textCheckbox"><b style="background-color:rgb(252, 239, 89)">NEW!</b> Create and modify files and folders with commits</p>
+        <p class="textCheckbox"><b class="new">NEW!</b> Edit files online with commits</p>
         <label>
-          <input type="checkbox"  autocomplete="off" id="commitsCheck" name="commitsCheck">
+          <input type="checkbox" autocomplete="off" id="commitsCheck" name="commitsCheck">
           <span class="slider round"></span>
         </label>
       </div>
 
-      <br/>
+      <p style="line-height: 4px;"><br/></p>
     
+      <div class="hidden">
       <h2>Overleaf</h2>
       <p><i>More features coming soon!</i></p>
+      </div>
 
       <h2>Timetables</h2>
       <p><i>Click this button to choose another set of subjects</i></p>
-      <button type="button" class="ttButton">Reset timetables</button>
+      <button type="button" class="centeredButton">Reset timetables</button>
   
-      <h2>Subject Guide</h2>
+      <h2>Course guides</h2>
       <p>Prefered language:
-
-      <select name="langs" id="lang-select" style="position: relative; left: 15%;">
-          <option value="ca">Catalan</option>
-          <option value="es">Spanish</option>
-          <option value="en">English</option>
-      </select>
+        <select name="langs" id="lang-select" style="position: relative; left: 15%;">
+            <option value="cat">Catalan</option>
+            <option value="esp">Spanish</option>
+            <option value="ing">English</option>
+        </select>
       </p>
 
       <h2>Calendar</h2>
@@ -196,10 +179,18 @@
       <div class="switch">
         <p class="textCheckbox">Easter Eggs</p>
         <label>
-          <input type="checkbox"  autocomplete="off" id="easterEggs" name="easterEggs">
+          <input type="checkbox" autocomplete="off" id="easterEggs" name="easterEggs">
           <span class="slider round"></span>
         </label>
       </div>
+
+      <form class="gmailForm">
+        <label for="gmailLink">Gmail URL:</label>
+        <input type="text" id="gmailURL" name="gmailURL"><br/>
+      </form><br/>
+
+      <button type="button" class="centeredButton">Restore default settings</button>
+      <i style="opacity:0%;">.</i>
 
     </div>
 

@@ -209,9 +209,9 @@ button {
     border-color: black;
 }
 
-.ttButton{
-    position: relative;
-    left: 30%;
+.centeredButton{
+    margin: 0 auto;
+    display: block;
 }
 
 .ttButton:hover{
@@ -241,7 +241,17 @@ button {
     left: -200px;
     width: 190px;
 }
-  
+
+.subTextCheckbox{
+    position: relative;
+    text-decoration: none;
+    left: 20px;
+    width: 210px;
+    font-size: 0.65rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .slider {
     position: absolute;
     cursor: pointer;
@@ -300,4 +310,16 @@ input:checked + .slider:before {
 #password,
 #username{
     width: 180px;
+}
+
+.new {
+    background-color:rgb(252, 239, 89);
+    font-weight: bolder;
+}
+
+.hidden {display: none;}
+
+.disabled {
+    opacity: 50%;
+    cursor: not-allowed;
 }
