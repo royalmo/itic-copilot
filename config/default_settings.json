@@ -1,0 +1,21 @@
+{
+    "itic_copilot.save_upcnet_credentials" : true,
+    "itic_copilot.sync_settings" : true,
+    "upcnet.gmail_url" : "https://mail.google.com/mail/u/0/#inbox",
+    "upcnet.username" : null,
+    "upcnet.encrypted" : null,
+    "upcnet.authorisation" : null,
+    "upcnet.autologin" : true,
+
+    "ocw.show_links" : true,
+
+    "escriny.autologin" : true,
+    "escriny.edit_files" : true,
+
+    "subjects" : [
+    ],
+
+    "course_guides.language" : "cat",
+
+    "itic_copilot.easter_eggs" : false
+}
