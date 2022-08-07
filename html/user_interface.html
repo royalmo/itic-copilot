@@ -77,21 +77,24 @@
       </div>
     </div>
     <div class="bodyPopup" style="top: 10%;">
+
+      <p  class="subTextCheckbox"><i>Reload current pages to apply changes.</i></p>
+
       <h2>General</h2>
       <div class="switch">
         <p class="textCheckbox">Save UPC credentials</p>
         <label>
-          <input type="checkbox" autocomplete="off" id="saveUPC" name="saveUPC">
+          <input type="checkbox" autocomplete="off" name="itic_copilot.save_upcnet_credentials">
           <span class="slider round"></span>
         </label>
       </div>
 
-      <form class="upcLog" style="display: none">
+      <form id="upc_credentials" style="">
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username"><br/>
+        <input type="text" name="upcnet.username" placeholder="chuck.norris"><br/>
         <br/>
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password"><br/>
+        <input type="password" name="upcnet.password" placeholder="**********"><br/>
         <br/>
       </form>
       <p  class="subTextCheckbox"><i>Passwords will be <b>NEVER</b> stored in plain text, nor shared or synced.</i></p>
@@ -99,7 +102,7 @@
       <div class="switch">
         <p class="textCheckbox">Sync settings</p>
         <label>
-          <input type="checkbox" autocomplete="off" id="syncSettings" name="syncSettings">
+          <input type="checkbox" autocomplete="off" name="itic_copilot.sync_settings">
           <span class="slider round"></span>
         </label>
       </div>
@@ -107,8 +110,8 @@
       <div class="switch">
         <p class="textCheckbox"><b class="new">NEW!</b> Auto-login on UPCnet</p>
         <label>
-          <input type="checkbox" disabled autocomplete="off" id="ateneaLog" name="ateneaLog">
-          <span class="slider round disabled"></span>
+          <input type="checkbox" autocomplete="off" name="upcnet.autologin">
+          <span id="autologin_slider" class="slider round disabled"></span>
         </label>
       </div>
       <p class="subTextCheckbox" style="color: grey;display:none"><i>Save UPC credentials</i> must be enabled to perform auto-login.</p>
@@ -117,37 +120,21 @@
       
       <p><i>More features coming soon!</i></p>
 
-      <div class="switch hidden">
-        <p class="textCheckbox">Put understandable names in subjects</p>
-        <label>
-          <input type="checkbox" autocomplete="off" id="subjectsCheck" name="subjectsCheck">
-          <span class="slider round"></span>
-        </label>
-      </div>
-
       <h2>OpenCourseWare</h2>
       <div class="switch">
         <p class="textCheckbox">Show embedded links</p>
         <label>
-          <input type="checkbox" autocomplete="off" id="ocwShowLinks" name="ocwShowLinks">
+          <input type="checkbox" autocomplete="off" name="ocw.show_links">
           <span class="slider round"></span>
         </label>
       </div>
 
       <h2>Escriny</h2>
-      
-      <div class="switch hidden">
-        <p class="textCheckbox">Show your repositories in the landpage</p>
-        <label>
-          <input type="checkbox" autocomplete="off" id="showRepo" name="showRepo">
-          <span class="slider round"></span>
-        </label>
-      </div>
 
       <div class="switch">
         <p class="textCheckbox"><b class="new">NEW!</b> Edit files online with commits</p>
         <label>
-          <input type="checkbox" autocomplete="off" id="commitsCheck" name="commitsCheck">
+          <input type="checkbox" autocomplete="off" name="escriny.edit_files">
           <span class="slider round"></span>
         </label>
       </div>
@@ -161,11 +148,11 @@
 
       <h2>Timetables</h2>
       <p><i>Click this button to choose another set of subjects</i></p>
-      <button type="button" class="centeredButton">Reset timetables</button>
+      <button type="button" class="centeredButton href" href="">Reset timetables</button>
   
       <h2>Course guides</h2>
       <p>Prefered language:
-        <select name="langs" id="lang-select" style="position: relative; left: 15%;">
+        <select name="course_guides.language" style="position: relative; left: 15%;">
             <option value="cat">Catalan</option>
             <option value="esp">Spanish</option>
             <option value="ing">English</option>
@@ -179,17 +166,17 @@
       <div class="switch">
         <p class="textCheckbox">Easter Eggs</p>
         <label>
-          <input type="checkbox" autocomplete="off" id="easterEggs" name="easterEggs">
+          <input type="checkbox" autocomplete="off" name="itic_copilot.easter_eggs">
           <span class="slider round"></span>
         </label>
       </div>
 
       <form class="gmailForm">
         <label for="gmailLink">Gmail URL:</label>
-        <input type="text" id="gmailURL" name="gmailURL"><br/>
+        <input type="text" name="upcnet.gmail_url"><br/>
       </form><br/>
 
-      <button type="button" class="centeredButton">Restore default settings</button>
+      <button type="button" id="reset_settings_btn" class="centeredButton">Restore default settings</button>
       <i style="opacity:0%;">.</i>
 
     </div>
