@@ -19,7 +19,7 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="../css/user_interface.css">
+  <link rel="stylesheet" href="/css/user_interface.css">
 </head>
 
 <body>
@@ -32,29 +32,61 @@
       <h1 class="title">Links of Interest</h1>
       <p>Go to these sites to see the extension's potential!</p>
       <table class="tableBig">
-        <tr class="tableBigTr" data-href="https://atenea.upc.edu/login/index.php" style="background: linear-gradient(0deg, #F4F4F4, lightgrey)">
-          <td class="tableBigTd"><p class="tableText">Atenea</p></td>
+        <tr class="tableBigTr" type="constant" key="atenea">
+          <td class="tableBigTd" colspan="3"><p class="tableText">Atenea</p></td>
           <td class="tableBigTd"><img class="imgLogo" src="../assets/user_interface/upc_logo.png"></td>
         </tr>
-        <tr class="tableBigTr" data-href="https://ocwitic.epsem.upc.edu/" style="background: linear-gradient(0deg, #F4F4F4, lightgrey)">
-          <td class="tableBigTd"><p class="tableText">OpenCourseWare</p></td>
+        <tr class="tableBigTr" type="constant" key="ocw">
+          <td class="tableBigTd"  colspan="3"><p class="tableText">OpenCourseWare</p></td>
           <td class="tableBigTd"><img class="imgLogo" src="../assets/user_interface/ocw_logo.png"></td>
         </tr>
-
       </table>
+
       <table class="tableSmall">
         <tr class="tableSmallTr" >
-          <td class="tableSmallTd" data-href="https://escriny.epsem.upc.edu/"><img class="imgLogoSmall" src="../assets/user_interface/open_project_logo.png"></td>
-          <td class="tableSmallTd" data-href="https://www.overleaf.com/"><img class="imgLogoSmall" src="../assets/user_interface/overleaf_logo.png"></td>
-          <td class="tableSmallTd" data-href="https://www.epsem.upc.edu/ca/estudis/calendaris-academics/"><img class="imgLogoSmall" src="../assets/user_interface/calendar_icon.png"></td>
-          <td class="tableSmallTd" data-href="https://epsem.upc.edu/thor/PG/"><img class="imgLogoSmall" src="../assets/user_interface/clock_icon.png"></td>
+          <td class="tableSmallTd">
+            <a type="constant" key="escriny">
+              <img class="imgLogoSmall" src="../assets/user_interface/open_project_logo.png">
+            </a>
+          </td>
+          <td class="tableSmallTd">
+            <a type="constant" key="overleaf">
+              <img class="imgLogoSmall" src="../assets/user_interface/overleaf_logo.png">
+            </a>
+          </td>
+          <td class="tableSmallTd">
+            <a type="constant" key="calendar">
+              <img class="imgLogoSmall" src="../assets/user_interface/calendar_icon.png">
+            </a>
+          </td>
+          <td class="tableSmallTd">
+            <a type="constant" key="see_schedule">
+              <img class="imgLogoSmall" src="../assets/user_interface/clock_icon.png">
+            </a>
+          </td>
 
         </tr>
         <tr class="tableSmallTr">
-          <td class="tableSmallTd" style="padding-left: 0px" data-href="https://www.youtube.com/watch?v=wHl1vlm22yQ&ab_channel=Danynix"><img class="imgLogoSmall" src="../assets/user_interface/guides_icon.png"></td>
-          <td class="tableSmallTd" data-href="https://www.youtube.com/watch?v=Z3w5gVM_4y8&ab_channel=QueenHouse85"><img class="imgLogoSmall" src="../assets/user_interface/gmail_icon.png"></td>
-          <td class="tableSmallTd" data-href="https://prisma-nou.upc.edu/apl/home_estudiants.php"><img class="imgLogoSmall" src="../assets/user_interface/esecretaria_icon.png"></td>
-          <td class="tableSmallTd" data-href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"><img class="imgLogoSmall" src="../assets/user_interface/hehexd_icon.png"></td>
+          <td class="tableSmallTd" style="padding-left: 0px">
+            <a type="variable" key="course_guides">
+              <img class="imgLogoSmall" src="../assets/user_interface/guides_icon.png">
+            </a>
+          </td>
+          <td class="tableSmallTd">
+            <a type="variable" key="upcnet.gmail_url">
+              <img class="imgLogoSmall" src="../assets/user_interface/gmail_icon.png">
+            </a>
+          </td>
+          <td class="tableSmallTd">
+            <a type="constant" key="e_secretaria">
+              <img class="imgLogoSmall" src="../assets/user_interface/esecretaria_icon.png">
+            </a>
+          </td>
+          <td class="tableSmallTd">
+            <a type="constant" key="easter_egg">
+              <img class="imgLogoSmall" src="../assets/user_interface/hehexd_icon.png">
+            </a>
+          </td>
         </tr>
       </table>
 
@@ -89,12 +121,12 @@
         </label>
       </div>
 
-      <form id="upc_credentials" style="">
+      <form id="upc_credentials">
         <label for="username">Username:</label>
-        <input type="text" name="upcnet.username" placeholder="chuck.norris"><br/>
+        <input type="text" name="upcnet.username" placeholder="jean.baptiste.fourier"><br/>
         <br/>
         <label for="password">Password:</label>
-        <input type="password" name="upcnet.password" placeholder="**********"><br/>
+        <input type="password" name="upcnet.password" placeholder="****************"><br/>
         <br/>
       </form>
       <p  class="subTextCheckbox"><i>Passwords will be <b>NEVER</b> stored in plain text, nor shared or synced.</i></p>
@@ -148,7 +180,7 @@
 
       <h2>Timetables</h2>
       <p><i>Click this button to choose another set of subjects</i></p>
-      <button type="button" class="centeredButton href" href="">Reset timetables</button>
+      <button type="button" name="new_schedule" class="centeredButton href" href="">Reset timetables</button>
   
       <h2>Course guides</h2>
       <p>Prefered language:
@@ -177,6 +209,7 @@
       </form><br/>
 
       <button type="button" id="reset_settings_btn" class="centeredButton">Restore default settings</button>
+      <p class="centeredButton" id="settings_reset_msg" style="opacity:0%;text-align:center;line-height:2;"><em>Done!</em></p>
       <i style="opacity:0%;">.</i>
 
     </div>
@@ -218,8 +251,12 @@
       </p>
       </div>
   </div>
-  <script src="../include/jquery-3.4.1.min.js"></script>
-  <script src="../js/user_interface.js"></script>
+
+  <script src="/include/browser-polyfill.min.js"></script>
+  <script src="/include/jquery-3.4.1.min.js"></script>
+  <script src="/js/basics.js"></script>
+  <script src="/js/settings.js"></script>
+  <script src="/js/user_interface.js"></script>
 </body>
 
 </html>

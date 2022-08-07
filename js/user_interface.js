@@ -86,6 +86,7 @@ $(document).ready(function () {
     $(".arrow").click(function () {
 
         if ($("#settingDiv").is(":visible")) {
+            configure_links(only_variable=true);
             $("#settingDiv").hide(
                 function(){
                     $('#settingDiv').animate({
@@ -121,8 +122,8 @@ $(document).ready(function () {
     });
 
     // LINK REFERENCING
-    $('body').on('click', 'a, button.href', function(){
-        chrome.tabs.create({url: $(this).attr('href')});
+    $('body').on('click', 'a, button.href, tr.tableBigTr', function(){
+        browser.tabs.create({url: $(this).attr('href')});
         return false;
     });
 
@@ -130,8 +131,7 @@ $(document).ready(function () {
     $('input[name="itic_copilot.save_upcnet_credentials"]').click(enable_disable_credentials);
 
     $('#reset_settings_btn').click( function () {
-        itic_copilot.settings.reset();
-        load_settings();
+        itic_copilot.settings.reset().then(load_settings).then(() => $('#settings_reset_msg').fadeTo(200, 1).delay(5000).fadeTo(1000, 0));
     });
 
     $('input[type="checkbox"]').click( function () {
@@ -144,23 +144,27 @@ $(document).ready(function () {
         console.log("Saved " + $(this).attr("name") + ": " + $(this).val());
     });
 
-    load_settings();
-    enable_disable_credentials(do_not_save=true);
+    load_settings().then(() => enable_disable_credentials(do_not_save=true));
+    configure_links();
 });
 
-function load_settings () {
-    itic_copilot.settings.getAll().then(function (settings) {
-        $.each(settings, function(key, value) {
-            if ($('[name="' + key + '"]').length == 0) return;
+function load_settings (callback) {
+    return new Promise((resolve, reject) => {
+        itic_copilot.settings.getAll().then(function (settings) {
+            $.each(settings, function(key, value) {
+                if ($('[name="' + key + '"]').length == 0) return;
 
-            if ($('[name="' + key + '"]').attr('type') == 'checkbox') {
-                $('input[name="' + key + '"]').prop( "checked", value );
-            }
-            else { // text, password or select
-                $('[name="' + key + '"]').val(value);
-            }
+                if ($('[name="' + key + '"]').attr('type') == 'checkbox') {
+                    $('input[name="' + key + '"]').prop( "checked", value );
+                }
+                else { // text, password or select
+                    $('[name="' + key + '"]').val(value);
+                }
+            });
+            console.log("Settings updated!")
+
+            resolve();
         });
-        console.log("Settings updated!")
     });
 }
 
@@ -178,4 +182,26 @@ function enable_disable_credentials (do_not_save = false) {
 
     itic_copilot.settings.set("upcnet.username", usr);
     itic_copilot.settings.set("upcnet.password", pwd);
+}
+
+function configure_links (only_variable=false) {
+    $.getJSON(browser.extension.getURL('/config/links.json'), function(links) {
+        // Setting up gmail url
+        itic_copilot.settings.get("upcnet.gmail_url").then(function (value) {
+            $('a[key="upcnet.gmail_url"]').attr('href', value);
+        })
+
+        // Setting up course guides language
+        itic_copilot.settings.get("course_guides.language").then(function (value) {
+            $('a[key="course_guides"]').attr('href', links["course_guides_"+value]);
+        });
+
+        if(only_variable) return;
+
+        // Setting up all constant links
+        $('a[type="constant"], tr[type="constant"').each(function () {
+            $(this).attr('href', links[$(this).attr('key')]);
+        });
+        $('button[name="new_schedule"]').attr('href', links["new_schedule"]);
+    });
 }
