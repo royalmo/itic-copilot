@@ -142,7 +142,7 @@
         return new Promise((resolve, reject) => {
             // Sync settings are always stored in sync menu
             if (key == SYNC_SETTINGS_KEY) {
-                itic_copilot.get(SYNC_SETTINGS_KEY).then( sync => {
+                itic_copilot.settings.get(SYNC_SETTINGS_KEY).then( sync => {
                     if (sync == value) return;
 
                     // If sync options have changed, we need to migrate options.
