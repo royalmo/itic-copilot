@@ -148,7 +148,7 @@ $(document).ready(function () {
     configure_links();
 });
 
-function load_settings (callback) {
+function load_settings () {
     return new Promise((resolve, reject) => {
         itic_copilot.settings.getAll().then(function (settings) {
             $.each(settings, function(key, value) {

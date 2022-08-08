@@ -100,19 +100,24 @@
 
     itic_copilot.settings.getAll = function (include_passwod_placeholder=true) {
         return new Promise((resolve, reject) => {
-            // we will scan for each setting individually
-            // TODO: not efficient. Is it worth the time improving?
-            load_default_settings().then( (def_set) => {
-                final_settings = {};
-
-                Object.keys(def_set).forEach( async (current) => {
-                    final_settings[current] = await itic_copilot.settings.get(current);
-                });
-
-                if (include_passwod_placeholder && final_settings[USR_KEY]) {
-                    final_settings[PTP_KEY] = "************";
+            Promise.all([
+                load_default_settings(),
+                localstorage.get(),
+                syncstorage.get()
+            ]).then(results => {
+                // Swap storage order if sync is disabled.
+                if ( (SYNC_SETTINGS_KEY in results[2]) && (! results[2][SYNC_SETTINGS_KEY]) ) {
+                    [results[1], results[2]] = [results[2], results[1]];
                 }
-                resolve(final_settings);
+
+                // Merging settings
+                all_settings = { ...results[0], ...results[1], ...results[2] };
+
+                if (include_passwod_placeholder && all_settings[USR_KEY]) {
+                    all_settings[PTP_KEY] = "************";
+                }
+
+                resolve(all_settings);
             });
         });
     };
