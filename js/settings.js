@@ -142,7 +142,22 @@
         return new Promise((resolve, reject) => {
             // Sync settings are always stored in sync menu
             if (key == SYNC_SETTINGS_KEY) {
-                syncstorage.set(data).then(resolve);
+                itic_copilot.get(SYNC_SETTINGS_KEY).then( sync => {
+                    if (sync == value) return;
+
+                    // If sync options have changed, we need to migrate options.
+                    storages = sync ?
+                        [syncstorage, localstorage] : [localstorage, syncstorage];
+
+                    // Delete storage-specific options
+                    storages[0].get().then( res => {
+                        [...NO_SYNC_KEYS, SYNC_SETTINGS_KEY].forEach(e => delete res[e]);
+                        
+                        storages[1].set(res).then(() => {
+                            syncstorage.set(data).then(resolve);
+                        });
+                    });
+                });
                 return;
             }
 
@@ -179,12 +194,12 @@
         });
     }
 
-    // TODO
+    // We could think of a better encryptation (?)
     function encrypt(value) {
-        return value;
+        return window.btoa(value);
     }
 
     function decrypt(value) {
-        return value;
+        return window.atob(value);
     }
 })();
