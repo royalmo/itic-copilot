@@ -128,7 +128,9 @@ $(document).ready(function () {
     });
 
     // FORM TOGGLE
-    $('input[name="itic_copilot.save_upcnet_credentials"]').click(enable_disable_credentials);
+    $('input[name="itic_copilot.save_upcnet_credentials"]').click(
+        function () {enable_disable_credentials(do_not_save=false);}
+    );
 
     $('#reset_settings_btn').click( function () {
         itic_copilot.settings.reset().then(load_settings).then(() => $('#settings_reset_msg').fadeTo(200, 1).delay(5000).fadeTo(1000, 0));
@@ -144,7 +146,7 @@ $(document).ready(function () {
         console.log("Saved " + $(this).attr("name") + ": " + $(this).val());
     });
 
-    load_settings().then(() => enable_disable_credentials(do_not_save=true));
+    load_settings();
     configure_links();
 });
 
@@ -163,6 +165,7 @@ function load_settings () {
             });
             console.log("Settings updated!")
 
+            setTimeout(function () {enable_disable_credentials(do_not_save=true);}, 100); 
             resolve();
         });
     });
@@ -177,8 +180,8 @@ function enable_disable_credentials (do_not_save = false) {
     if (do_not_save) return;
 
     // Saving or deleting credentials
-    usr = save_credentials ? $('input[name="upcnet.username"]').val() : ""
-    usr = save_credentials ? $('input[name="upcnet.password"]').val() : ""
+    usr = save_credentials ? $('input[name="upcnet.username"]').val() : "";
+    pwd = save_credentials ? $('input[name="upcnet.password"]').val() : "";
 
     itic_copilot.settings.set("upcnet.username", usr);
     itic_copilot.settings.set("upcnet.password", pwd);

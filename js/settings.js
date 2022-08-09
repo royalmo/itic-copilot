@@ -16,20 +16,20 @@
 */
 
 (function () {
-    SYNC_SETTINGS_KEY = 'itic_copilot.sync_settings';
-    DEFAULT_SETTINGS_PATH = browser.extension.getURL('/config/default_settings.json');
+    const SYNC_SETTINGS_KEY = 'itic_copilot.sync_settings';
+    const DEFAULT_SETTINGS_PATH = browser.extension.getURL('/config/default_settings.json');
 
-    USR_KEY = 'upcnet.username';
-    PTP_KEY = 'upcnet.password'; // Virtual key (isn't in storage)
-    ENC_KEY = 'upcnet.encrypted';
-    AUTH_KEY= 'upcnet.authorisation';
+    const USR_KEY = 'upcnet.username';
+    const PTP_KEY = 'upcnet.password'; // Virtual key (isn't in storage)
+    const ENC_KEY = 'upcnet.encrypted';
+    const AUTH_KEY= 'upcnet.authorisation';
 
-    NO_SYNC_KEYS = [USR_KEY, ENC_KEY, AUTH_KEY];
+    const NO_SYNC_KEYS = [USR_KEY, ENC_KEY, AUTH_KEY];
 
     itic_copilot.settings = {};
 
-    syncstorage = browser.storage.sync;
-    localstorage = browser.storage.local;
+    const syncstorage = browser.storage.sync;
+    const localstorage = browser.storage.local;
 
     itic_copilot.settings.get = function (key) {
         if (NO_SYNC_KEYS.includes(key)) {
@@ -40,7 +40,7 @@
                         return;
                     }
 
-                    newdata = {[key] : null}
+                    var newdata = {[key] : null}
                     localstorage.set(newdata).then( () => {
                         resolve(null);
                     })
@@ -69,7 +69,7 @@
                 }
 
                 // Determine the order to find the value
-                storages = res[SYNC_SETTINGS_KEY] ?
+                var storages = res[SYNC_SETTINGS_KEY] ?
                     [syncstorage, localstorage] : [localstorage, syncstorage];
 
                 storages[0].get(key).then( (res)=> {
@@ -88,7 +88,7 @@
     
                         // Look default value and replace
                         load_default_settings().then( (def_set) => {
-                            data = { [key] : def_set[key] };
+                            var data = { [key] : def_set[key] };
                             storages[0].set(data);
                             resolve(def_set[key]);
                         });
@@ -111,7 +111,7 @@
                 }
 
                 // Merging settings
-                all_settings = { ...results[0], ...results[1], ...results[2] };
+                var all_settings = { ...results[0], ...results[1], ...results[2] };
 
                 if (include_passwod_placeholder && all_settings[USR_KEY]) {
                     all_settings[PTP_KEY] = "************";
@@ -138,7 +138,7 @@
             key = ENC_KEY;
         }
 
-        data = {[key] : value};
+        var data = {[key] : value};
         return new Promise((resolve, reject) => {
             // Sync settings are always stored in sync menu
             if (key == SYNC_SETTINGS_KEY) {
@@ -146,7 +146,7 @@
                     if (sync == value) return;
 
                     // If sync options have changed, we need to migrate options.
-                    storages = sync ?
+                    var storages = sync ?
                         [syncstorage, localstorage] : [localstorage, syncstorage];
 
                     // Delete storage-specific options
@@ -162,7 +162,7 @@
             }
 
             itic_copilot.settings.get(SYNC_SETTINGS_KEY).then( (sync) => {
-                st = sync ? syncstorage : localstorage;
+                var st = sync ? syncstorage : localstorage;
                 st.set(data).then(resolve);
             });
         });
