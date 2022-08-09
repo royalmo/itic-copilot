@@ -1,0 +1,18 @@
+{
+    "atenea" : "https://sso.upc.edu/CAS/login?service=https%3A%2F%2Fatenea.upc.edu%2Flogin%2Findex.php%3FauthCAS%3DCAS",
+    "ocw" : "https://ocwitic.epsem.upc.edu/",
+
+    "escriny" : "https://escriny.epsem.upc.edu/login?back_url=https%3A%2F%2Fescriny.epsem.upc.edu%2F",
+    "overleaf" : "https://www.overleaf.com/project",
+    "calendar" : "https://www.epsem.upc.edu/ca/estudis/calendaris-academics/calendari-graus-curs-2022-23",
+
+    "new_schedule" : "https://epsem.upc.edu/thor/PG/Grups.php?t=14&setup=true",
+    "see_schedule" : "https://epsem.upc.edu/thor/PG/Horari.php",
+
+    "course_guides_cat" : "https://www.epsem.upc.edu/ca/estudis/graus/grau-en-enginyeria-de-sistemes-tic#pla",
+    "course_guides_esp" : "https://www.epsem.upc.edu/es/estudios/grados/grado-en-ingenieria-en-sistemas-tic#plan",
+    "course_guides_ing" : "https://www.upc.edu/en/bachelors/ict-systems-engineering-manresa-epsem#plan",
+
+    "e_secretaria" : "https://sso.upc.edu/CAS/login?service=https://prisma-nou.upc.edu/apl/inicial.php",
+    "easter_egg" : "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+}

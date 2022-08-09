@@ -1,0 +1,322 @@
+{
+    "330212" : {
+        "full_name" : "Matemàtiques bàsiques per a l'enginyeria",
+        "short_name" : "MBE",
+        "upc_code" : 330212,
+        "ocw_name" : null,
+        "quatrimester" : 1,
+        "optional" : false
+    },
+    "330213" : {
+        "full_name" : "Física",
+        "short_name" : "FIS",
+        "upc_code" : 330213,
+        "ocw_name" : "f",
+        "quadrimester" : 1,
+        "optional" : false
+    },
+    "330214" : {
+        "full_name" : "Informàtica",
+        "short_name" : "INFO",
+        "upc_code" : 330214,
+        "ocw_name" : "inf",
+        "quadrimester" : 1,
+        "optional" : false
+    },
+    "330215" : {
+        "full_name" : "Introducció als sistemes digitals",
+        "short_name" : "ISD",
+        "upc_code" : 330215,
+        "ocw_name" : "isd",
+        "quadrimester" : 1,
+        "optional" : false
+    },
+    "330216" : {
+        "full_name" : "Fonaments matemàtics per a les TIC",
+        "short_name" : "FMT",
+        "upc_code" : 330216,
+        "ocw_name" : "fmt",
+        "quadrimester" : 1,
+        "optional" : false
+    },
+
+    "330217" : {
+        "full_name" : "Estadística",
+        "short_name" : "EST",
+        "upc_code" : 330217,
+        "ocw_name" : "est",
+        "quadrimester" : 2,
+        "optional" : false
+    },
+    "330218" : {
+        "full_name" : "Tecnologies complementàries 1",
+        "short_name" : "TC1",
+        "upc_code" : 330218,
+        "ocw_name" : "tc1",
+        "quadrimester" : 2,
+        "optional" : false
+    },
+    "330219" : {
+        "full_name" : "Tecnologies de la programació",
+        "short_name" : "TP",
+        "upc_code" : 330219,
+        "ocw_name" : "tecpro",
+        "quadrimester" : 2,
+        "optional" : false
+    },
+    "330220" : {
+        "full_name" : "Sistemes digitals",
+        "short_name" : "SD",
+        "upc_code" : 330220,
+        "ocw_name" : "sd",
+        "quadrimester" : 2,
+        "optional" : false
+    },
+    "330221" : {
+        "full_name" : "Teoria de circuits",
+        "short_name" : "TC",
+        "upc_code" : 330221,
+        "ocw_name" : "tcir",
+        "quadrimester" : 2,
+        "optional" : false
+    },
+
+    "330222" : {
+        "full_name" : "Matemàtiques avançades per a l'enginyeria",
+        "short_name" : "MAE",
+        "upc_code" : 330222,
+        "ocw_name" : "mae",
+        "quadrimester" : 3,
+        "optional" : false
+    },
+    "330223" : {
+        "full_name" : "Tecnologies complementàries 2",
+        "short_name" : "TC2",
+        "upc_code" : 330223,
+        "ocw_name" : "tc2",
+        "quadrimester" : 3,
+        "optional" : false
+    },
+    "330224" : {
+        "full_name" : "Dispositius programables",
+        "short_name" : "DP",
+        "upc_code" : 330224,
+        "ocw_name" : "dp",
+        "quadrimester" : 3,
+        "optional" : false
+    },
+    "330225" : {
+        "full_name" : "Empresa",
+        "short_name" : "EMP",
+        "upc_code" : 330225,
+        "ocw_name" : "emp",
+        "quadrimester" : 3,
+        "optional" : false
+    },
+    "330226" : {
+        "full_name" : "Circuits i sistemes lineals",
+        "short_name" : "CSL",
+        "upc_code" : 330226,
+        "ocw_name" : "csl",
+        "quadrimester" : 3,
+        "optional" : false
+    },
+
+    "330227" : {
+        "full_name" : "Sistemes analògics",
+        "short_name" : "SA",
+        "upc_code" : 330227,
+        "ocw_name" : "sa",
+        "quadrimester" : 4,
+        "optional" : false
+    },
+    "330228" : {
+        "full_name" : "Programació a baix nivell",
+        "short_name" : "PBN",
+        "upc_code" : 330228,
+        "ocw_name" : "pbn",
+        "quadrimester" : 4,
+        "optional" : false
+    },
+    "330229" : {
+        "full_name" : "Arquitectura de computadors",
+        "short_name" : "AC",
+        "upc_code" : 330229,
+        "ocw_name" : "ac",
+        "quadrimester" : 4,
+        "optional" : false
+    },
+    "330230" : {
+        "full_name" : "Circuits i sistemes de radiofreqüència",
+        "short_name" : "CSRF",
+        "upc_code" : 330230,
+        "ocw_name" : "csr",
+        "quadrimester" : 4,
+        "optional" : false
+    },
+    "330231" : {
+        "full_name" : "Senyals i sistemes",
+        "short_name" : "SS",
+        "upc_code" : 330231,
+        "ocw_name" : "ss",
+        "quadrimester" : 4,
+        "optional" : false
+    },
+
+    "330232" : {
+        "full_name" : "Programació concurrent i en temps real",
+        "short_name" : "PCTR",
+        "upc_code" : 330232,
+        "ocw_name" : "pctr",
+        "quadrimester" : 5,
+        "optional" : false
+    },
+    "330233" : {
+        "full_name" : "Gestió i orientació de projectes",
+        "short_name" : "GiOP",
+        "upc_code" : 330233,
+        "ocw_name" : "gop",
+        "quadrimester" : 5,
+        "optional" : false
+    },
+    "330234" : {
+        "full_name" : "Sistemes operatius",
+        "short_name" : "SO",
+        "upc_code" : 330234,
+        "ocw_name" : "so",
+        "quadrimester" : 5,
+        "optional" : false
+    },
+    "330235" : {
+        "full_name" : "Xarxes de comunicacions",
+        "short_name" : "XC",
+        "upc_code" : 330235,
+        "ocw_name" : "xcom",
+        "quadrimester" : 5,
+        "optional" : false
+    },
+    "330236" : {
+        "full_name" : "Processament digital del senyal",
+        "short_name" : "PDS",
+        "upc_code" : 330236,
+        "ocw_name" : "pds",
+        "quadrimester" : 5,
+        "optional" : false
+    },
+
+    "330237" : {
+        "full_name" : "Sistemes encastats",
+        "short_name" : "SE",
+        "upc_code" : 330237,
+        "ocw_name" : "se",
+        "quadrimester" : 6,
+        "optional" : false
+    },
+    "330238" : {
+        "full_name" : "Enginyeria de sistemes",
+        "short_name" : "ES",
+        "upc_code" : 330238,
+        "ocw_name" : "es",
+        "quadrimester" : 6,
+        "optional" : false
+    },
+    "330239" : {
+        "full_name" : "Aplicacions i serveis sobre internet",
+        "short_name" : "ASI",
+        "upc_code" : 330239,
+        "ocw_name" : "asi",
+        "quadrimester" : 6,
+        "optional" : false
+    },
+    "330240" : {
+        "full_name" : "Sistemes electrònics de control",
+        "short_name" : "SEC",
+        "upc_code" : 330240,
+        "ocw_name" : "sec",
+        "quadrimester" : 6,
+        "optional" : false
+    },
+
+    "330241" : {
+        "full_name" : "Integració de sistemes",
+        "short_name" : "IS",
+        "upc_code" : 330241,
+        "ocw_name" : "is",
+        "quadrimester" : 7,
+        "optional" : false
+    },
+    "330242" : {
+        "full_name" : "Sistemes automàtics i robotitzats",
+        "short_name" : "SAR",
+        "upc_code" : 330242,
+        "ocw_name" : "sar",
+        "quadrimester" : 7,
+        "optional" : false
+    },
+
+    "330244" : {
+        "full_name" : "Interfícies d'usuari",
+        "short_name" : "UI",
+        "upc_code" : 330244,
+        "ocw_name" : "iu",
+        "quadrimester" : 7,
+        "optional" : true
+    },
+    "330247" : {
+        "full_name" : "Bases de dades",
+        "short_name" : "BD",
+        "upc_code" : 330247,
+        "ocw_name" : "bd",
+        "quadrimester" : 7,
+        "optional" : true
+    },
+    "330246" : {
+        "full_name" : "Microelectrònica",
+        "short_name" : "ME",
+        "upc_code" : 330246,
+        "ocw_name" : "me",
+        "quadrimester" : 7,
+        "optional" : true
+    },
+    "330119" : {
+        "full_name" : "Sistemes de comunicació",
+        "short_name" : "SC",
+        "upc_code" : 330119,
+        "ocw_name" : null,
+        "quadrimester" : 7,
+        "optional" : true
+    },
+    "330120" : {
+        "full_name" : "Seguretat i secret en la codificació d'informació",
+        "short_name" : "SSCI",
+        "upc_code" : 330120,
+        "ocw_name" : null,
+        "quadrimester" : 7,
+        "optional" : true
+    },
+
+    "330102" : {
+        "full_name" : "Anglès empresarial",
+        "short_name" : "ANG",
+        "upc_code" : 330102,
+        "ocw_name" : null,
+        "quadrimester" : 7,
+        "optional" : true
+    },
+    "330094" : {
+        "full_name" : "Recursos energètics",
+        "short_name" : "RE",
+        "upc_code" : 330094,
+        "ocw_name" : null,
+        "quadrimester" : 7,
+        "optional" : true
+    },
+    "330099" : {
+        "full_name" : "Gestió en la qualitat i de sistemes QSSMA",
+        "short_name" : "GQSQ",
+        "upc_code" : 330099,
+        "ocw_name" : null,
+        "quadrimester" : 7,
+        "optional" : true
+    }
+}

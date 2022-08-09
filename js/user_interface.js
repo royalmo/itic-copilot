@@ -15,25 +15,7 @@
  * this program. If not, see http://www.gnu.org/licenses/.
 */
 
-let checkboxesId = new Array();
-
 $(document).ready(function () {
-    let checkboxes = document.querySelectorAll('input[type=checkbox]');
-    
-    for (const value of checkboxes.values()){
-        checkboxesId.push(value.id);
-    }
-
-    for (let checkboxName of checkboxesId ){
-        let checkboxValue = chrome.storage.sync.get([checkboxName], (result) => {
-                console.log(`Retrieved ${checkboxName} value: ` + result);
-            });
-        console.log(`checkbox value: ${checkboxValue}`);
-        document.getElementById(checkboxName).checked = checkboxValue;
-        $("#"+ checkboxName).prop('checked', checkboxValue);
-
-    }
-
     // ANIMATIONS BETWEEN WINDOW'S SECTIONS
     $("#aboutDiv").hide(
         function(){
@@ -104,6 +86,7 @@ $(document).ready(function () {
     $(".arrow").click(function () {
 
         if ($("#settingDiv").is(":visible")) {
+            configure_links(only_variable=true);
             $("#settingDiv").hide(
                 function(){
                     $('#settingDiv').animate({
@@ -138,34 +121,90 @@ $(document).ready(function () {
         $("#landpageDiv").fadeIn(500);
     });
 
+    // LINK REFERENCING
+    $('body').on('click', 'a, button.href, tr.tableBigTr', function(){
+        browser.tabs.create({url: $(this).attr('href')});
+        return false;
+    });
+
     // FORM TOGGLE
-    $('input[type="checkbox"]').click(function () {
-        if ($(this).attr("id") == "saveUPC") {
-            $(".upcLog").toggle('swing');
-        }
+    $('input[name="itic_copilot.save_upcnet_credentials"]').click(
+        function () {enable_disable_credentials(do_not_save=false);}
+    );
+
+    $('#reset_settings_btn').click( function () {
+        itic_copilot.settings.reset().then(load_settings).then(() => $('#settings_reset_msg').fadeTo(200, 1).delay(5000).fadeTo(1000, 0));
     });
 
-    // MAKES ROW A HYPERLINK TO SITE
-    $(".tableBigTr").click(function() {
-        window.open($(this).data("href"));
+    $('input[type="checkbox"]').click( function () {
+        itic_copilot.settings.set($(this).attr("name"), $(this).is(':checked'))
+        console.log("Saved " + $(this).attr("name") + ": " + $(this).is(':checked'));
     });
 
-    $(".tableSmallTd").click(function() {
-        window.open($(this).data("href"));
+    $('input[type="text"], input[type="password"], select').focusout( function () {
+        itic_copilot.settings.set($(this).attr("name"), $(this).val())
+        console.log("Saved " + $(this).attr("name") + ": " + $(this).val());
     });
 
-    // STORING VALUES IN LOCAL STORAGE BROWSER
-    function storeCheckboxes(){
-        for (const value of checkboxes.values()){
-            let valueID = value.id;
-            checkboxesId.push(valueID);
-            chrome.storage.sync.set({valueID : String(document.getElementById(value.id).checked)}, () => {
-                console.log(`${value.id} is set to ` + String(document.getElementById(value.id).checked));
-                });
-        }
-    };
-           
-    window.addEventListener('change', storeCheckboxes);
+    load_settings();
+    configure_links();
 });
 
+function load_settings () {
+    return new Promise((resolve, reject) => {
+        itic_copilot.settings.getAll().then(function (settings) {
+            $.each(settings, function(key, value) {
+                if ($('[name="' + key + '"]').length == 0) return;
 
+                if ($('[name="' + key + '"]').attr('type') == 'checkbox') {
+                    $('input[name="' + key + '"]').prop( "checked", value );
+                }
+                else { // text, password or select
+                    $('[name="' + key + '"]').val(value);
+                }
+            });
+            console.log("Settings updated!")
+
+            setTimeout(function () {enable_disable_credentials(do_not_save=true);}, 100); 
+            resolve();
+        });
+    });
+}
+
+function enable_disable_credentials (do_not_save = false) {
+    save_credentials = $('input[name="itic_copilot.save_upcnet_credentials"]').is(':checked');
+
+    $('input[name="upcnet.username"],input[name="upcnet.password"],input[name="upcnet.autologin"]').attr('disabled', !save_credentials);
+    $('#autologin_slider').toggleClass('disabled', !save_credentials);
+
+    if (do_not_save) return;
+
+    // Saving or deleting credentials
+    usr = save_credentials ? $('input[name="upcnet.username"]').val() : "";
+    pwd = save_credentials ? $('input[name="upcnet.password"]').val() : "";
+
+    itic_copilot.settings.set("upcnet.username", usr);
+    itic_copilot.settings.set("upcnet.password", pwd);
+}
+
+function configure_links (only_variable=false) {
+    $.getJSON(browser.extension.getURL('/config/links.json'), function(links) {
+        // Setting up gmail url
+        itic_copilot.settings.get("upcnet.gmail_url").then(function (value) {
+            $('a[key="upcnet.gmail_url"]').attr('href', value);
+        })
+
+        // Setting up course guides language
+        itic_copilot.settings.get("course_guides.language").then(function (value) {
+            $('a[key="course_guides"]').attr('href', links["course_guides_"+value]);
+        });
+
+        if(only_variable) return;
+
+        // Setting up all constant links
+        $('a[type="constant"], tr[type="constant"').each(function () {
+            $(this).attr('href', links[$(this).attr('key')]);
+        });
+        $('button[name="new_schedule"]').attr('href', links["new_schedule"]);
+    });
+}
