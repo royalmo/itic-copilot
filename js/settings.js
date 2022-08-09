@@ -22,9 +22,8 @@
     const USR_KEY = 'upcnet.username';
     const PTP_KEY = 'upcnet.password'; // Virtual key (isn't in storage)
     const ENC_KEY = 'upcnet.encrypted';
-    const AUTH_KEY= 'upcnet.authorisation';
 
-    const NO_SYNC_KEYS = [USR_KEY, ENC_KEY, AUTH_KEY];
+    const NO_SYNC_KEYS = [USR_KEY, ENC_KEY];
 
     itic_copilot.settings = {};
 
