@@ -37,7 +37,16 @@
         }
     }
 
+    // If we are not in a possible edit page, we exit
     if (typeof submenu_paragraph === "undefined") return;
+
+    // If edit is disabled by settings, we exit too
+    itic_copilot.settings.get("escriny.edit_files").then( value => {
+        if (value) escriny_render_edit_menu(); // TODO better name/way (?)
+    });
+
+// I put the indentation here because it will most likely continue from before.
+function escriny_render_edit_menu() {
 
     startstr = submenu_paragraph.html();
     // Adding url to current view
@@ -167,5 +176,7 @@
 
             });
         });
-    })
+    });
+} // End function escriny_render_edit_menu
+
 })();
