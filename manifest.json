@@ -41,6 +41,7 @@
                 "include/turndown.js",
                 "include/fnon.min.js",
                 "js/basics.js",
+                "js/settings.js",
                 "js/fnon_controller.js",
                 "js/ocw/html_replacer.js",
                 "js/ocw/tree.js",
