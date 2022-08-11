@@ -125,31 +125,34 @@ function escriny_render_edit_menu() {
 
             if (file_contents_loaded) return;
 
-            $.ajax({
-                url: file_url,
-                method: 'get',
-                cache: false,
-                headers: {
-                    "Authorization" : "Basic " + itic_copilot.get_user_auth()
-                },
-                success: function(result) {
-                    editor.setValue(result);
-                    editor.navigateFileStart();
-                    file_contents_loaded = true;
-                    editor.getSession().getUndoManager().reset();
-                },
-                error: function() {
-                    itic_copilot.fnon.alert('An error occurred while fetching the url.', 'Error');
+            itic_copilot.get_basic_auth().then( auth => {
 
-                    // Showing back old menu
-                    $('#copilot_current_link').hide();
-                    $('#copilot_current_phar').show();
-                    $('#copilot_edit_link').show();
-                    $('#copilot_edit_phar').hide();
+                $.ajax({
+                    url: file_url,
+                    method: 'get',
+                    cache: false,
+                    headers: {
+                        "Authorization" : "Basic " + auth
+                    },
+                    success: function(result) {
+                        editor.setValue(result);
+                        editor.navigateFileStart();
+                        file_contents_loaded = true;
+                        editor.getSession().getUndoManager().reset();
+                    },
+                    error: function() {
+                        itic_copilot.fnon.alert('An error occurred while fetching the url.', 'Error');
 
-                    $('#original_content').show();
-                    $('#editor_content').hide();
-                }
+                        // Showing back old menu
+                        $('#copilot_current_link').hide();
+                        $('#copilot_current_phar').show();
+                        $('#copilot_edit_link').show();
+                        $('#copilot_edit_phar').hide();
+
+                        $('#original_content').show();
+                        $('#editor_content').hide();
+                    }
+                });
             });
         });
 
@@ -161,19 +164,21 @@ function escriny_render_edit_menu() {
             "Continue", "Cancel", (result)=>{
                 if (!result) return;
 
-                // SVNJS 0.1.0
-                var svn = new SVN(itic_copilot.get_user_auth(), repository_url);
-                // SVNJS 0.2.0
-                // var svn = new svnjs.Client(prompt("Username:"), prompt("Password:"), repository_url);
-                
-                svn.add(file_path, editor.getValue());
-                svn.commit(commit_message, function () {
-                    editor.getSession().getUndoManager().reset();
-                    editor.focus();
-                    $('#new_commit_msg').val("");
-                    itic_copilot.fnon.alert("The commit has been uploaded successfully.<br/>Be aware that the content may take several minutes to be updated on the web.", "Commit completed");
-                });
+                itic_copilot.get_user_auth().then( auth => {
 
+                    // SVNJS 0.1.0
+                    var svn = new SVN(auth, repository_url);
+                    // SVNJS 0.2.0
+                    // var svn = new svnjs.Client(prompt("Username:"), prompt("Password:"), repository_url);
+                    
+                    svn.add(file_path, editor.getValue());
+                    svn.commit(commit_message, function () {
+                        editor.getSession().getUndoManager().reset();
+                        editor.focus();
+                        $('#new_commit_msg').val("");
+                        itic_copilot.fnon.alert("The commit has been uploaded successfully.<br/>Be aware that the content may take several minutes to be updated on the web.", "Commit completed");
+                    });
+                });
             });
         });
     });

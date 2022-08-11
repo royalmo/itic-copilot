@@ -48,13 +48,31 @@ itic_copilot = {};
     })();
 
     current_authentification = null
-    // Basic asdffalsdjkfa3
-    itic_copilot.get_user_auth = function(force = false) {
+    // Basic auth used in SVNJS
+    itic_copilot.get_basic_auth = function(force = false) {
         if (current_authentification !== null && !force)
-            return current_authentification;
+            return Promise.resolve(current_authentification);
 
-        current_authentification = btoa(prompt("username") + ':' + prompt("password"))
-        return current_authentification;
+        return new Promise((resolve, reject) => {
+
+            // Checking settings
+            Promise.all([
+                itic_copilot.settings.get("itic_copilot.save_upcnet_credentials"),
+                itic_copilot.settings.get("upcnet.username"),
+                itic_copilot.settings.getPTP()
+            ]).then( results => {
+                // Checking if user is saving credentials and has some ids
+                if ( (!force) && results[0] && results[1] && results[2] )
+                    current_authentification = btoa(results[1] + ':' + results[2]);
+                else {
+                    usr = prompt('Introduce your username');
+                    pwd = prompt('Introduce your password');
+                    current_authentification = btoa(usr + ':' + pwd);
+                }
+
+                resolve(current_authentification);
+            });
+        });
     }
 
     // Translations
