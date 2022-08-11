@@ -62,15 +62,20 @@ itic_copilot = {};
                 itic_copilot.settings.getPTP()
             ]).then( results => {
                 // Checking if user is saving credentials and has some ids
-                if ( (!force) && results[0] && results[1] && results[2] )
+                if ( (!force) && results[0] && results[1] && results[2] ) {
                     current_authentification = btoa(results[1] + ':' + results[2]);
-                else {
-                    usr = prompt('Introduce your username');
-                    pwd = prompt('Introduce your password');
-                    current_authentification = btoa(usr + ':' + pwd);
+                    resolve(current_authentification);
+                    return;
                 }
-
-                resolve(current_authentification);
+                itic_copilot.fnon.prompt("Introduce your username:", "Getting credentials")
+                .then( (usr) => {
+                    itic_copilot.fnon.prompt("Introduce the password for <i>" + usr + "</i>:",
+                        "Getting credentials", is_password=true)
+                    .then( (pwd) => {
+                        current_authentification = btoa(usr + ':' + pwd);
+                        resolve(current_authentification);
+                    });
+                });
             });
         });
     }
