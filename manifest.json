@@ -41,6 +41,7 @@
                 "include/turndown.js",
                 "include/fnon.min.js",
                 "js/basics.js",
+                "js/settings.js",
                 "js/fnon_controller.js",
                 "js/ocw/html_replacer.js",
                 "js/ocw/tree.js",
@@ -62,6 +63,7 @@
                 "include/ace/ace.js",
                 "include/svnjs.min.js",
                 "js/basics.js",
+                "js/settings.js",
                 "js/fnon_controller.js",
                 "js/escriny/editor.js"
                 ],

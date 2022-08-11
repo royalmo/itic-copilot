@@ -69,6 +69,26 @@ itic_copilot.fnon = {};
         Fnon.Alert.Warning(message, title, okey, function() {clearTimeout(alert_timeout);});
     }
 
+    itic_copilot.fnon.prompt = function (message, title, is_password=false) {
+        promptmsg = '<p>'+message+'</p><input id="itic_copilot_fnon_prompt" type="'
+                    + (is_password ? 'password' : 'text') + '" />';
+        return new Promise((resolve, reject) => {
+            Fnon.Alert.Warning(promptmsg, title, "Continue", () => {
+                resolve($('#itic_copilot_fnon_prompt').val())
+            });
+
+            // Focusing and binding enter key
+            $('body').on('keypress', '#itic_copilot_fnon_prompt', function(args) {
+                if (args.keyCode == 13) {
+                    $(".f__btn").first().click();
+                    return false;
+                }
+            });
+
+            setTimeout( () => { $('#itic_copilot_fnon_prompt').focus(); }, 500);
+        });
+    }
+
     itic_copilot.fnon.confirm = function (title, message, yes_str, no_str, callback) {
         Fnon.Ask.Danger(message, title, yes_str, no_str, callback);
     }

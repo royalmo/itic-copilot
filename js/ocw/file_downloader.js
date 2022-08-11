@@ -323,6 +323,11 @@ This file contains the methods needed to download a group of files (foler, subje
 
 })();
 
-// For the moment this functionality is always active.
-itic_copilot.ocw.show_links(); // TODO replace
+// TODO change this part into a more intuitive file (?)
+
+// Showing links depending of user's settings.
+itic_copilot.settings.get('ocw.show_links').then( value => {
+    itic_copilot.ocw.toggle_links(value);
+});
+
 itic_copilot.ocw.link_download_buttons();
