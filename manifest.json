@@ -71,6 +71,22 @@
                 "include/fnon.min.css"
             ],
             "run_at": "document_end"
+        },
+
+        {
+            "matches": ["*://sso.upc.edu/CAS/login?*"],
+            "all_frames": true,
+            "js": [
+                "include/browser-polyfill.min.js",
+                "include/jquery-3.4.1.min.js",
+                "js/basics.js",
+                "js/settings.js",
+                "js/autologger.js",
+                "js/upc_autologin.js"
+                ],
+            "css": [
+            ],
+            "run_at": "document_end"
         }
     ]
 }
