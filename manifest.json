@@ -74,7 +74,7 @@
         },
 
         {
-            "matches": ["*://sso.upc.edu/CAS/login?*"],
+            "matches": ["*://sso.upc.edu/CAS/login?*", "*://sso.upc.edu/SAML2/SSOService.php*"],
             "all_frames": true,
             "js": [
                 "include/browser-polyfill.min.js",
