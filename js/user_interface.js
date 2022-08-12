@@ -201,8 +201,14 @@ function configure_links (only_variable=false) {
 
         if(only_variable) return;
 
+        // Setting up schedule link (can vary, but only at page load)
+        itic_copilot.settings.get('subjects').then( subjects => {
+            val = subjects.length == 0 ? links["new_schedule_with_alert"] : browser.extension.getURL('/html/load_schedule.html');
+            $('a[key="schedule"]').attr('href', val);
+        })
+
         // Setting up all constant links
-        $('a[type="constant"], tr[type="constant"').each(function () {
+        $('a[type="constant"], tr[type="constant"]').each(function () {
             $(this).attr('href', links[$(this).attr('key')]);
         });
         $('button[name="new_schedule"]').attr('href', links["new_schedule"]);

@@ -21,24 +21,34 @@
     $('td[align="right"]').children().attr('style', 'background:white;color:#bddbfa;');
     $('td[align="right"]').after('<td align="right"><input type="button" class="boto copilot_save_btn" value="Guardar horari i veure"></td>');
 
+    if ( window.location.href.endsWith('&show_alert=true&setup=true') ) {
+        itic_copilot.fnon.alert(
+            "Let iTIC Copilot save your subjects in order to display the schedule.<br/>You can always modify your subjects in the settings menu.",
+            "Select your subjects"
+        );
+    }
+
     $('.copilot_save_btn').click(function () {
+
+        var subjects = [];
+
+        $('input[type="checkbox"]:checked').each( (i, ch) => {
+            full_code = $(ch).val();
+            subj_code = full_code.split('_')[4];
+            group = full_code.split('_')[8];
+
+            // Example: ['330215', '8668__10949__330215__Q1__10', '10']
+            subjects.push([subj_code, full_code, group]);
+        });
+
+        if (subjects.length == 0) return;
+
         itic_copilot.fnon.confirm(
             "Save schedule",
             "Do you want iTIC Copilot to save this schedule?",
             "Yes", "Cancel",
             function (result) {
                 if (!result) return;
-
-                var subjects = [];
-
-                $('input[type="checkbox"]:checked').each( (i, ch) => {
-                    full_code = $(ch).val();
-                    subj_code = full_code.split('_')[4];
-                    group = full_code.split('_')[8];
-
-                    // Example: ['330215', '8668__10949__330215__Q1__10', '10']
-                    subjects.push([subj_code, full_code, group]);
-                });
 
                 itic_copilot.settings.set('subjects', subjects);
 
