@@ -14,7 +14,7 @@
   
 ----
 <p align="center">
-  <em>Made by <a href="https://github.com/royalmo">royalmo</a> (Eric Roy). Logo made by <a href="https://github.com/PepitoGrillo7281">PepitoGrillo7281</a> (Josep Sucarrats). Translations by <a href="https://github.com/aidavede">aidavede</a> (Aida Vers). Issues & Feedback by <a href="https://github.com/FlyingKoala01">FlyingKoala01</a> (Isaac Iglesias).</em>
+  <em>Made by <a href="https://github.com/royalmo">royalmo</a> (Eric Roy). Logo made by <a href="https://github.com/PepitoGrillo7281">PepitoGrillo7281</a> (Josep Sucarrats). Translations by <a href="https://github.com/aidavede">aidavede</a> (Aida Vers). UI & Feedback by <a href="https://github.com/FlyingKoala01">FlyingKoala01</a> (Isaac Iglesias).</em>
 </p>
 
 
