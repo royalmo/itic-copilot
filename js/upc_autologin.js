@@ -20,7 +20,7 @@
     failed_login = $('.error_msg').length // 1 if failed, 0 if not
 
     // Adding the two checkboxes
-    $('.remember_button_cl').after('<div style="font-style:italic;"><p><label style="display:unset;font-size:12px;color:var(--color-base);"><input name="copilot_remember_credentials" type="checkbox"/> Let iTIC Copilot remember your credentials</label></p><p><label style="display:unset;font-size:12px;color:var(--color-base);"><input name="copilot_autologin" type="checkbox"/> Auto-login when a login page appears</label></p></div>');
+    $('.remember_button_cl').after('<div style="font-style:italic;"><p><label style="display:unset;font-size:12px;color:var(--color-base);"><input name="copilot_remember_credentials" type="checkbox"/> ' + t('autologger_remember_credentials') + '</label></p><p><label style="display:unset;font-size:12px;color:var(--color-base);"><input name="copilot_autologin" type="checkbox"/> ' + t('autologger_enable_autologin') + '</label></p></div>');
 
     usr_input = $('#edit-name');
     pwd_input = $('#edit-pass');

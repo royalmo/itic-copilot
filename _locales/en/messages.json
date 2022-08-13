@@ -143,6 +143,34 @@
         "description" : "A yes/okey/confirm/accept message."
     },
 
+    "autologger_remember_credentials" : {
+        "message" : "Let iTIC Copilot remember your credentials",
+        "description" : "Option that will appear on the login page."
+    },
+    "autologger_enable_autologin" : {
+        "message" : "Auto-login when a login page appears",
+        "description" : "Option that will appear on the login page."
+    },
+
+    "itic_copilot_credentials_title" : {
+        "message" : "Getting credentials",
+        "description" : "Title of the credentials request pop-up."
+    },
+    "itic_copilot_credentials_username" : {
+        "message" : "Introduce your username:",
+        "description" : "Username text of the credentials request pop-up."
+    },
+    "itic_copilot_credentials_password" : {
+        "message" : "Introduce the password for $USER$:",
+        "description" : "Password text of the credentials request pop-up.",
+        "placeholders" : {
+            "user" : {
+                "content" : "$1",
+                "example" : "eric.roy"
+            }
+        }
+    },
+
 
 
     "log_copilot_name" : {
