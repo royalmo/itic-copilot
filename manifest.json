@@ -74,6 +74,24 @@
         },
 
         {
+            "matches": ["*://epsem.upc.edu/thor/PG/Grups.php?*"],
+            "all_frames": true,
+            "js": [
+                "include/browser-polyfill.min.js",
+                "include/jquery-3.4.1.min.js",
+                "include/fnon.min.js",
+                "js/basics.js",
+                "js/settings.js",
+                "js/fnon_controller.js",
+                "js/timetables/selector.js"
+                ],
+            "css": [
+                "include/fnon.min.css"
+            ],
+            "run_at": "document_end"
+        },
+
+        {
             "matches": ["*://sso.upc.edu/CAS/login?*", "*://sso.upc.edu/SAML2/SSOService.php*"],
             "all_frames": true,
             "js": [
