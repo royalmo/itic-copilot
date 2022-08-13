@@ -17,6 +17,7 @@
 
 (function () {
     const SYNC_SETTINGS_KEY = 'itic_copilot.sync_settings';
+    const SAVE_CREDENTIALS_KEY = 'itic_copilot.save_upcnet_credentials';
     const DEFAULT_SETTINGS_PATH = browser.extension.getURL('/config/default_settings.json');
 
     const USR_KEY = 'upcnet.username';
@@ -97,7 +98,7 @@
         });
     };
 
-    itic_copilot.settings.getAll = function (include_passwod_placeholder=true) {
+    itic_copilot.settings.getAll = function (include_PTP=true) {
         return new Promise((resolve, reject) => {
             Promise.all([
                 load_default_settings(),
@@ -112,8 +113,12 @@
                 // Merging settings
                 var all_settings = { ...results[0], ...results[1], ...results[2] };
 
-                if (include_passwod_placeholder && all_settings[USR_KEY]) {
-                    all_settings[PTP_KEY] = "************";
+                // Removing credentials if user asked to not save them (should not be saved but well)
+                if (!all_settings[SAVE_CREDENTIALS_KEY])
+                    NO_SYNC_KEYS.forEach(e => delete all_settings[e]);
+
+                if (include_PTP && all_settings[ENC_KEY]) {
+                    all_settings[PTP_KEY] = decrypt(all_settings[ENC_KEY]);
                 }
 
                 resolve(all_settings);
@@ -125,7 +130,11 @@
     itic_copilot.settings.getPTP = function () {
         return new Promise((resolve, reject) => {
             itic_copilot.settings.get(ENC_KEY).then( (value) => {
-                resolve(decrypt(value));
+                if (value)
+                    resolve(decrypt(value));
+
+                else // password is not set
+                    resolve('');
             });
         });
     }
@@ -161,7 +170,7 @@
             }
 
             itic_copilot.settings.get(SYNC_SETTINGS_KEY).then( (sync) => {
-                var st = sync ? syncstorage : localstorage;
+                var st = (sync && !NO_SYNC_KEYS.includes(key)) ? syncstorage : localstorage;
                 st.set(data).then(resolve);
             });
         });
