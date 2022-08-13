@@ -101,6 +101,48 @@
         "description" : "Message shown when the subject/quadrimester/folder that we want to download is empty."
     },
 
+    "schedule_loader_redirecting" : {
+        "message" : "Redirecting...",
+        "description" : "Title of the schedule load page."
+    },
+    "schedule_loader_information" : {
+        "message" : "Your schedule is being loaded. This will take less than 2 seconds ...",
+        "description" : "Information of the schedule load page."
+    },
+
+    "schedule_picker_save_btn" : {
+        "message" : "Save and see schedule",
+        "description" : "Button clicked once a schedule is selected."
+    },
+    "schedule_picker_setup_title" : {
+        "message" : "Select your subjects",
+        "description" : "Title of the alert describing what to do."
+    },
+    "schedule_picker_setup_info" : {
+        "message" : "Let iTIC Copilot save your subjects in order to display the schedule.<br/>You can always modify your subjects in the settings menu.",
+        "description" : "Text of the alert describing what to do. DO NOT remove the <br/>, nor put spaces in between."
+    },
+    "schedule_picker_confirm_title" : {
+        "message" : "Save schedule",
+        "description" : "Title for schedule save confirm dialog."
+    },
+    "schedule_picker_confirm_text" : {
+        "message" : "Do you want iTIC Copilot to save this schedule?",
+        "description" : "Text for schedule save confirm dialog."
+    },
+    "schedule_picker_done_text" : {
+        "message" : "Your schedule has been saved. Click on the button below to see it.",
+        "description" : "Once a schedule is saved, info message."
+    },
+    "schedule_picker_see_schedule" : {
+        "message" : "See schedule",
+        "description" : "Once a schedule is saved, button to see it."
+    },
+    "schedule_picker_yes" : {
+        "message" : "Yes",
+        "description" : "A yes/okey/confirm/accept message."
+    },
+
 
 
     "log_copilot_name" : {
