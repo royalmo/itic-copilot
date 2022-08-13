@@ -171,6 +171,61 @@
         }
     },
 
+    "escriny_edit_text" : {
+        "message" : "Edit",
+        "description" : "Title of the edit file section."
+    },
+    "escriny_fetching_error" : {
+        "message" : "An error occurred while fetching the url.",
+        "description" : "Explanation of an ajax error."
+    },
+    "escriny_commit_title" : {
+        "message" : "Commit",
+        "description" : "Commit title (usually doesn't have a translation)."
+    },
+    "escriny_commit_confirm_text" : {
+        "message" : "Do you wish to commit $COMMITMSG$?",
+        "description" : "Commit confirmation text.",
+        "placeholders" : {
+            "commitmsg" : {
+                "content" : "$1",
+                "example" : "'a commit message, hello!'"
+            }
+        }
+    },
+    "escriny_confirm_continue" : {
+        "message" : "Continue",
+        "description" : "A continue/ok/confirm string."
+    },
+    "escriny_commit_completed_title" : {
+        "message" : "Commit completed",
+        "description" : "Title of the success pop-up."
+    },
+    "escriny_commit_completed_text" : {
+        "message" : "The commit has been uploaded successfully.<br/>Be aware that the content may take several minutes to be updated on the web.",
+        "description" : "Text of the success pop-up. DO NOT touch the '<br/>' nor put spaces in between."
+    },
+    "escriny_commit_message_placeholder" : {
+        "message" : "Commit message ...",
+        "description" : "Placeholder of the input area in the commit message."
+    },
+    "escriny_show_advanced_settings" : {
+        "message" : "Show advanced settings.",
+        "description" : "Button to show advanced settings."
+    },
+    "escriny_hide_advanced_settings" : {
+        "message" : "Hide advanced settings.",
+        "description" : "Button to hide advanced settings."
+    },
+    "escriny_load_file_placeholder" : {
+        "message" : "Loading file contents...",
+        "description" : "Placeholder for when the file is bein loaded."
+    },
+    "escriny_load_file_error" : {
+        "message" : "Could not load file contents. Reload the page to retry.",
+        "description" : "Error message for when the file could not be loaded."
+    },
+
 
 
     "log_copilot_name" : {
