@@ -99,5 +99,326 @@
     "ocw_downloader_empty_subject_msg" : {
         "message" : "No hi ha cap fitxer per a descarregar!",
         "description" : "Message shown when the subject/quadrimester/folder that we want to download is empty."
+    },
+
+    "schedule_loader_redirecting" : {
+        "message" : "Redirigint...",
+        "description" : "Title of the schedule load page."
+    },
+    "schedule_loader_information" : {
+        "message" : "S'està carregant el teu horari. Aquesta acció tardarà menys de 2 segons ...",
+        "description" : "Information of the schedule load page."
+    },
+
+    "schedule_picker_save_btn" : {
+        "message" : "Guardar horari i veure",
+        "description" : "Button clicked once a schedule is selected."
+    },
+    "schedule_picker_setup_title" : {
+        "message" : "Selecciona les teves assignatures",
+        "description" : "Title of the alert describing what to do."
+    },
+    "schedule_picker_setup_info" : {
+        "message" : "Deixa que iTIC Copilot guardi les teves assignatures per a poder mostrar-te l'horari personalitzat.<br/>Sempre podràs modificar les teves assignatures en la secció d'ajustaments.",
+        "description" : "Text of the alert describing what to do. DO NOT remove the <br/>, nor put spaces in between."
+    },
+    "schedule_picker_confirm_title" : {
+        "message" : "Guarda l'horari",
+        "description" : "Title for schedule save confirm dialog."
+    },
+    "schedule_picker_confirm_text" : {
+        "message" : "Vols que iTIC Copilot guardi aquest horari?",
+        "description" : "Text for schedule save confirm dialog."
+    },
+    "schedule_picker_done_text" : {
+        "message" : "S'ha guardat el teu horari. Clica en el botó de sota per a veure'l.",
+        "description" : "Once a schedule is saved, info message."
+    },
+    "schedule_picker_see_schedule" : {
+        "message" : "Visualitza el teu horari",
+        "description" : "Once a schedule is saved, button to see it."
+    },
+    "schedule_picker_yes" : {
+        "message" : "Sí",
+        "description" : "A yes/okey/confirm/accept message."
+    },
+
+    "autologger_remember_credentials" : {
+        "message" : "Permet que iTIC Copilot recordi les teves credencials",
+        "description" : "Option that will appear on the login page."
+    },
+    "autologger_enable_autologin" : {
+        "message" : "Entra automàticament quan s'obri una pàgina d'inici de sessió",
+        "description" : "Option that will appear on the login page."
+    },
+
+    "itic_copilot_credentials_title" : {
+        "message" : "Identificació",
+        "description" : "Title of the credentials request pop-up."
+    },
+    "itic_copilot_credentials_username" : {
+        "message" : "Introdueix el teu nom d'usuari:",
+        "description" : "Username text of the credentials request pop-up."
+    },
+    "itic_copilot_credentials_password" : {
+        "message" : "Introdueix la contrassenya de $USER$:",
+        "description" : "Password text of the credentials request pop-up.",
+        "placeholders" : {
+            "user" : {
+                "content" : "$1",
+                "example" : "eric.roy"
+            }
+        }
+    },
+
+    "escriny_edit_text" : {
+        "message" : "Editar",
+        "description" : "Title of the edit file section."
+    },
+    "escriny_fetching_error" : {
+        "message" : "Ha succeït un error mentre es carregava l'enllaç.",
+        "description" : "Explanation of an ajax error."
+    },
+    "escriny_commit_title" : {
+        "message" : "Commit",
+        "description" : "Commit title (usually doesn't have a translation)."
+    },
+    "escriny_commit_confirm_text" : {
+        "message" : "Vols fer un commit de $COMMITMSG$?",
+        "description" : "Commit confirmation text.",
+        "placeholders" : {
+            "commitmsg" : {
+                "content" : "$1",
+                "example" : "'a commit message, hello!'"
+            }
+        }
+    },
+    "escriny_confirm_continue" : {
+        "message" : "Continuar",
+        "description" : "A continue/ok/confirm string."
+    },
+    "escriny_commit_completed_title" : {
+        "message" : "Commit completat",
+        "description" : "Title of the success pop-up."
+    },
+    "escriny_commit_completed_text" : {
+        "message" : "S'ha completat correctament el commit.<br/>Tingues present que el contingut de la web pot tardar diversos minuts a actualitzar-se.",
+        "description" : "Text of the success pop-up. DO NOT touch the '<br/>' nor put spaces in between."
+    },
+    "escriny_commit_message_placeholder" : {
+        "message" : "Missatge pel commit ...",
+        "description" : "Placeholder of the input area in the commit message."
+    },
+    "escriny_show_advanced_settings" : {
+        "message" : "Mostrar opcions avançades.",
+        "description" : "Button to show advanced settings."
+    },
+    "escriny_hide_advanced_settings" : {
+        "message" : "Amagar opcions avançades.",
+        "description" : "Button to hide advanced settings."
+    },
+    "escriny_load_file_placeholder" : {
+        "message" : "Carregant el fitxer...",
+        "description" : "Placeholder for when the file is bein loaded."
+    },
+    "escriny_load_file_error" : {
+        "message" : "No s'ha pogut carregar l'arxiu. Recarrega la pàgina per a tornar-ho a intentar.",
+        "description" : "Error message for when the file could not be loaded."
+    },
+
+    "ui_landpage_links_title" : {
+        "message" : "Enllaços d'interès",
+        "description" : "Title of the links section in the user interface."
+    },
+    "ui_landpage_links_description" : {
+        "message" : "Ves als següents llocs web per a descobrir el potencial de l'extensió!",
+        "description" : "Text (or description) of the links section in the user interface."
+    },
+    "ui_landpage_links_atenea" : {
+        "message" : "Atenea",
+        "description" : "Atenea link name (no need to translate)."
+    },
+    "ui_landpage_links_ocw" : {
+        "message" : "OpenCourseWare",
+        "description" : "OCW link name (no need to translate)."
+    },
+    "ui_landpage_links_escriny" : {
+        "message" : "Escriny",
+        "description" : "Escriny link name (no need to translate)."
+    },
+    "ui_landpage_links_overleaf" : {
+        "message" : "Overleaf",
+        "description" : "Overleaf link name (no need to translate)."
+    },
+    "ui_landpage_links_calendar" : {
+        "message" : "Calendari",
+        "description" : "Link name of the course calendar."
+    },
+    "ui_landpage_links_schedule" : {
+        "message" : "Horari",
+        "description" : "Link name of the current schedule."
+    },
+    "ui_landpage_links_course_guides" : {
+        "message" : "Guies docents",
+        "description" : "Link name of the course guides."
+    },
+    "ui_landpage_links_gmail" : {
+        "message" : "Gmail UPC",
+        "description" : "Link name of UPC's Gmail."
+    },
+    "ui_landpage_links_e_secretaria" : {
+        "message" : "E-Secretaria",
+        "description" : "E-secretaria link name (no need to translate)."
+    },
+    "ui_landpage_links_easter_egg" : {
+        "message" : "???",
+        "description" : "Do not translate."
+    },
+
+    "ui_settings_title" : {
+        "message" : "Ajustaments",
+        "description" : "Settings button and title name."
+    },
+    "ui_about_title" : {
+        "message" : "Informació",
+        "description" : "About section title and button name."
+    },
+
+    "ui_settings_reload_hint" : {
+        "message" : "Recarrega les pàgines obertes per a aplicar els canvis.",
+        "description" : "Disclaimer on top of the settings menu."
+    },
+    "ui_settings_general_title" : {
+        "message" : "General",
+        "description" : "Title of the general section on the settings menu."
+    },
+    "ui_settings_save_upc_credentials" : {
+        "message" : "Guardar les credencials UPC",
+        "description" : "Option to save upc credentials in the settings menu."
+    },
+    "ui_settings_username" : {
+        "message" : "Nom d'usari:",
+        "description" : "Username prompt."
+    },
+    "ui_settings_password" : {
+        "message" : "Contrassenya:",
+        "description" : "Password prompt."
+    },
+    "ui_settings_username_placeholder" : {
+        "message" : "nom.cognom",
+        "description" : "Format of the upc username. 'name' and 'surname' can be trnanslated."
+    },
+    "ui_settings_password_disclaimer" : {
+        "message" : "No guardarem <b>MAI</b> les contrassenyes al núvol ni les compartirem.",
+        "description" : "Disclaimer for passwords policy. Please keep the <b> and </b> keys."
+    },
+    "ui_settings_sync_settings" : {
+        "message" : "Sincronitzar els ajustaments",
+        "description" :"Option to permit settings sync among devices."
+    },
+    "ui_settings_new" : {
+        "message" : "NOVETAT!",
+        "description" : "Disclaimer for when a setting is new."
+    },
+    "ui_settings_autologin" : {
+        "message" : "Auto-login a les webs UPC",
+        "description" : "Option to allow auto-login on some pages."
+    },
+    "ui_settings_autologin_hint" : {
+        "message" : "ha d'estar habilitat per a disposar de l'auto-login.",
+        "description" : "Some settings must be enabled... the beginning of the sentence is missing on purpose."
+    },
+    "ui_settings_comming_soon" : {
+        "message" : "Més opcions poperament!",
+        "description" : "Placeholder for when there aren't any options."
+    },
+    "ui_settings_escriny_edit_files" : {
+        "message" : "Editar fitxers al navegador amb commits",
+        "description" : "Option to permit the edition of files on the escriny website."
+    },
+    "ui_settings_reset_schedule" : {
+        "message" : "Canviar horaris",
+        "description" : "Button used to choose another set of subjects."
+    },
+    "ui_settings_reset_schedule_hint" : {
+        "message" : "Cliqueu en aquest botó per a escollir un altre grup d'assignatures",
+        "description" : "Text of the button used to choose another set of subjects."
+    },
+    "ui_settings_cg_language" : {
+        "message" : "Idioma preferit:",
+        "description" : "Text prompting the prefered language."
+    },
+    "ui_settings_cg_cat" : {
+        "message" : "Català",
+        "description" : "Name of the catalan language."
+    },
+    "ui_settings_cg_esp" : {
+        "message" : "Castellà",
+        "description" : "Name of the spanish language."
+    },
+    "ui_settings_cg_ing" : {
+        "message" : "Anglès",
+        "description" : "Name of the english language."
+    },
+    "ui_settings_advanced_title" : {
+        "message" : "Avançat",
+        "description" : "Title of the advanced settings section."
+    },
+    "ui_settings_easter_eggs" : {
+        "message" : "Sorpreses",
+        "description" : "Option to enable or disable easter eggs."
+    },
+    "ui_settings_gmail_url" : {
+        "message" : "Enllaç de Gmail:",
+        "description" : "Text prompting the gmail url in the settings menu."
+    },
+    "ui_settings_restore" : {
+        "message" : "Recuperar la configuració inicial",
+        "description" : "Button used to restore all the settings to its default values."
+    },
+    "ui_settings_restore_done" : {
+        "message" : "Fet!",
+        "description" : "Done message showing when settings are reset."
+    },
+
+    "ui_about_made_by" : {
+        "message" : "Fet per ",
+        "description" : "Made by $NAME$"
+    },
+    "ui_about_collab_by" : {
+        "message" : "Interfície per ",
+        "description" : "UI/Interface by $NAME$."
+    },
+    "ui_about_liscence_title" : {
+        "message" : "Llicència",
+        "description" : "Title of the liscence section in the about page."
+    },
+    "ui_about_liscence_text" : {
+        "message" : "Aquesta extensió forma part d'un projecte de codi obert, amb la llicència GNU General Public Liscence V3 (GPL3). Es pot trobar més informació",
+        "description" : "This text is continued in the 'ui_about_liscence_link' key."
+    },
+    "ui_about_liscence_link" : {
+        "message" : "aquí",
+        "description" : "Continuation of the 'ui_about_liscence_link' text. Here is where the user will be able to click."
+    },
+    "ui_about_privacy_title" : {
+        "message" : "Informació de privacitat",
+        "description" : "Title of the privacy section in the about page."
+    },
+    "ui_about_privacy_text" : {
+        "message" : "Tal i com podeu comprovar amb els vostres ulls (perquè és un projecte de codi obert), no fem res amb les vostres dades. Es poden guardar contrassenyes sota demanda, però sempre en el propi ordinador (no les rebrem mai).",
+        "description" : "Text of the privacy section in the about page."
+    },
+    "ui_about_contribute_title" : {
+        "message" : "Com puc contribuir?",
+        "description" : "Contribution title on the about page."
+    },
+    "ui_about_contribute_text" : {
+        "message" : "Es poden reportar errors, enviar suggeriments o contribuir d'altres maneres a iTIC Copilot a través del",
+        "description" : "This text is continued in the 'ui_about_contribute_link' key."
+    },
+    "ui_about_contribute_link" : {
+        "message" : "repositori de GitHub",
+        "description" : "This text is the continuation of 'ui_about_contribute_text'. here will be the link to click."
     }
 }

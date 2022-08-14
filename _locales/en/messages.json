@@ -119,7 +119,7 @@
         "description" : "Title of the alert describing what to do."
     },
     "schedule_picker_setup_info" : {
-        "message" : "Let iTIC Copilot save your subjects in order to display the schedule.<br/>You can always modify your subjects in the settings menu.",
+        "message" : "Let iTIC Copilot save your subjects in order to display the schedule.<br/>You will always be able to modify your subjects in the settings menu.",
         "description" : "Text of the alert describing what to do. DO NOT remove the <br/>, nor put spaces in between."
     },
     "schedule_picker_confirm_title" : {
