@@ -21,4 +21,7 @@ function localizeHtmlPage()
     }
 }
 
-localizeHtmlPage();
+// $(document).ready() equivalent:
+document.addEventListener("DOMContentLoaded", function(event) { 
+    localizeHtmlPage();
+});
