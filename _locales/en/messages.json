@@ -324,6 +324,10 @@
         "message" : "Auto-login on UPCnet",
         "description" : "Option to allow auto-login on some pages."
     },
+    "ui_settings_ocw_show_embedded" : {
+        "message" : "Show embedded links",
+        "description" : "Option to show embedded links on the OCW page."
+    },
     "ui_settings_autologin_hint" : {
         "message" : "must be enabled to perform auto-login.",
         "description" : "Some settings must be enabled... the beginning of the sentence is missing on purpose."

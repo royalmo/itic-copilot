@@ -114,10 +114,13 @@ h2 {
 }
 
 .navDiv {
-    position: absolute;
-    bottom: 0;
-    left: 25%;
+    margin: 0 auto;
+    width: 50%;
     border-spacing: 10px;
+}
+
+.tdButton button {
+    width: 90px;
 }
 
 .tableBig,
@@ -204,7 +207,7 @@ button {
     border-color: #0d6efd;
 }
 
-.tdButton button:hover {
+.tdButton button:hover, .centeredButton:hover {
     color: black;
     background-color: #bdd5f1;
     border-color: black;
@@ -296,16 +299,12 @@ input:checked + .slider:before {
 #upc_credentials {
     position: relative;
     left: 50px;
-    width: 80px;
+    width: 200px;
 }
 
 .gmailForm{
     position: relative;
     left: 40px;
-}
-
-#gmailURL{
-    width: 150px;
 }
 
 #password,

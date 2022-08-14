@@ -324,6 +324,10 @@
         "message" : "Auto-login a les webs UPC",
         "description" : "Option to allow auto-login on some pages."
     },
+    "ui_settings_ocw_show_embedded" : {
+        "message" : "Veure enllaços ecastats",
+        "description" : "Option to show embedded links on the OCW page."
+    },
     "ui_settings_autologin_hint" : {
         "message" : "ha d'estar habilitat per a disposar de l'auto-login.",
         "description" : "Some settings must be enabled... the beginning of the sentence is missing on purpose."
@@ -406,7 +410,7 @@
         "description" : "Title of the privacy section in the about page."
     },
     "ui_about_privacy_text" : {
-        "message" : "Tal i com podeu comprovar amb els vostres ulls (perquè és un projecte de codi obert), no fem res amb les vostres dades. Es poden guardar contrassenyes sota demanda, però sempre en el propi ordinador (no les rebrem mai).",
+        "message" : "Tal i com podeu comprovar amb els vostres ulls (perquè és un projecte de codi obert), no fem res amb les vostres dades. Es poden guardar contrassenyes, però sempre en el propi ordinador.",
         "description" : "Text of the privacy section in the about page."
     },
     "ui_about_contribute_title" : {

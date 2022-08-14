@@ -227,7 +227,7 @@
     },
 
     "ui_landpage_links_title" : {
-        "message" : "Enlaces de interès",
+        "message" : "Enlaces de interés",
         "description" : "Title of the links section in the user interface."
     },
     "ui_landpage_links_description" : {
@@ -324,6 +324,10 @@
         "message" : "Auto-login en las webs UPC",
         "description" : "Option to allow auto-login on some pages."
     },
+    "ui_settings_ocw_show_embedded" : {
+        "message" : "Ver enlaces encastados",
+        "description" : "Option to show embedded links on the OCW page."
+    },
     "ui_settings_autologin_hint" : {
         "message" : "tiene que estar habilitado para usar el auto-login.",
         "description" : "Some settings must be enabled... the beginning of the sentence is missing on purpose."
@@ -406,7 +410,7 @@
         "description" : "Title of the privacy section in the about page."
     },
     "ui_about_privacy_text" : {
-        "message" : "Como podéis comprobar con vuestros própios ojos (porque es un proyecto de código abierto), no hacemos nada con vuestros datos. Se pueden guardar contraseñas bajo demanda, pero siempre en vuestro propio ordenador (no las recibiremos nunca).",
+        "message" : "Como podéis comprobar con vuestros própios ojos (porque es código abierto), no hacemos nada con vuestros datos. Se pueden guardar contraseñas, pero siempre en vuestro propio ordenador.",
         "description" : "Text of the privacy section in the about page."
     },
     "ui_about_contribute_title" : {
