@@ -67,10 +67,13 @@ itic_copilot = {};
                     resolve(current_authentification);
                     return;
                 }
-                itic_copilot.fnon.prompt("Introduce your username:", "Getting credentials")
+                itic_copilot.fnon.prompt(
+                    t('itic_copilot_credentials_username'),
+                    t('itic_copilot_credentials_title'))
                 .then( (usr) => {
-                    itic_copilot.fnon.prompt("Introduce the password for <i>" + usr + "</i>:",
-                        "Getting credentials", is_password=true)
+                    itic_copilot.fnon.prompt(
+                        t('itic_copilot_credentials_password', "<i>" + usr + "</i>:"),
+                        t('itic_copilot_credentials_title'), is_password=true)
                     .then( (pwd) => {
                         current_authentification = btoa(usr + ':' + pwd);
                         resolve(current_authentification);

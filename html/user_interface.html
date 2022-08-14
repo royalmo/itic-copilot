@@ -29,15 +29,15 @@
       <img src=" ../assets/user_interface/itic-logo-no-line-resized.png" style="width: 280px; height: auto; position: absolute; top: 20%; left: 3%">
       </div>
     <div class="bodyPopup" style="top: 15%; height: 85%;">
-      <h1 class="title">Links of Interest</h1>
-      <p>Go to these sites to see the extension's potential!</p>
+      <h1 class="title">__MSG_ui_landpage_links_title__</h1>
+      <p>__MSG_ui_landpage_links_description__</p>
       <table class="tableBig">
         <tr class="tableBigTr" type="constant" key="atenea">
-          <td class="tableBigTd" colspan="3"><p class="tableText">Atenea</p></td>
+          <td class="tableBigTd" colspan="3"><p class="tableText">__MSG_ui_landpage_links_atenea__</p></td>
           <td class="tableBigTd"><img class="imgLogo" src="../assets/user_interface/upc_logo.png"></td>
         </tr>
         <tr class="tableBigTr" type="constant" key="ocw">
-          <td class="tableBigTd"  colspan="3"><p class="tableText">OpenCourseWare</p></td>
+          <td class="tableBigTd"  colspan="3"><p class="tableText">__MSG_ui_landpage_links_ocw__</p></td>
           <td class="tableBigTd"><img class="imgLogo" src="../assets/user_interface/ocw_logo.png"></td>
         </tr>
       </table>
@@ -45,25 +45,25 @@
       <table class="tableSmall">
         <tr class="tableSmallTr" >
           <td class="tableSmallTd tooltip">
-            <span class="tooltiptext">Escriny</span>
+            <span class="tooltiptext">__MSG_ui_landpage_links_escriny__</span>
             <a type="constant" key="escriny">
               <img class="imgLogoSmall" src="../assets/user_interface/open_project_logo.png">
             </a>
           </td>
           <td class="tableSmallTd tooltip">
-            <span class="tooltiptext">Overleaf</span>
+            <span class="tooltiptext">__MSG_ui_landpage_links_overleaf__</span>
             <a type="constant" key="overleaf">
               <img class="imgLogoSmall" src="../assets/user_interface/overleaf_logo.png">
             </a>
           </td>
           <td class="tableSmallTd tooltip">
-            <span class="tooltiptext">Calendar</span>
+            <span class="tooltiptext">__MSG_ui_landpage_links_calendar__</span>
             <a type="constant" key="calendar">
               <img class="imgLogoSmall" src="../assets/user_interface/calendar_icon.png">
             </a>
           </td>
           <td class="tableSmallTd tooltip">
-            <span class="tooltiptext">Schedule</span>
+            <span class="tooltiptext">__MSG_ui_landpage_links_schedule__</span>
             <a type="variable" key="schedule">
               <img class="imgLogoSmall" src="../assets/user_interface/clock_icon.png">
             </a>
@@ -72,26 +72,26 @@
         </tr>
         <tr class="tableSmallTr">
           <td class="tableSmallTd tooltip" style="padding-left: 0px">
-            <span class="tooltiptext">Course guides</span>
+            <span class="tooltiptext">__MSG_ui_landpage_links_course_guides__</span>
             <a type="variable" key="course_guides">
               <img class="imgLogoSmall" src="../assets/user_interface/guides_icon.png">
             </a>
           </td>
           <td class="tableSmallTd tooltip">
-            <span class="tooltiptext">UPC's Gmail</span>
+            <span class="tooltiptext">__MSG_ui_landpage_links_gmail__</span>
             <a type="variable" key="upcnet.gmail_url">
               <img class="imgLogoSmall" src="../assets/user_interface/gmail_icon.png">
             </a>
           </td>
           <td class="tableSmallTd tooltip">
-            <span class="tooltiptext">E-Secretaria</span>
+            <span class="tooltiptext">__MSG_ui_landpage_links_e_secretaria__</span>
             <a type="constant" key="e_secretaria">
               <img class="imgLogoSmall" src="../assets/user_interface/esecretaria_icon.png">
             </a>
           </td>
           <td class="tableSmallTd tooltip">
             <a type="constant" key="easter_egg">
-              <span class="tooltiptext">???</span>
+              <span class="tooltiptext">__MSG_ui_landpage_links_easter_egg__</span>
               <img class="imgLogoSmall" src="../assets/user_interface/hehexd_icon.png">
             </a>
           </td>
@@ -100,8 +100,12 @@
 
       <table class="navDiv">
         <tr>
-          <td class="tdButton"><button class="settingButton">Settings</button></td>
-          <td class="tdButton"><button class="aboutButton">About</button></td>
+          <td class="tdButton">
+            <button class="settingButton">__MSG_ui_settings_title__</button>
+          </td>
+          <td class="tdButton">
+            <button class="aboutButton">__MSG_ui_about_title__</button>
+          </td>
         </tr>
       </table>
     </div>
@@ -110,7 +114,7 @@
   <!-- SETTINGS -->
   <div id="settingDiv" style="display: none; overflow: scroll; overflow-x: hidden;">
     <div class="titleDiv">
-      <h1 class="title">Settings</h1>
+      <h1 class="title">__MSG_ui_settings_title__</h1>
 
       <div class="arrowDiv">
         <i class="arrow left"></i>
@@ -118,11 +122,11 @@
     </div>
     <div class="bodyPopup" style="top: 10%;">
 
-      <p  class="subTextCheckbox"><i>Reload current pages to apply changes.</i></p>
+      <p  class="subTextCheckbox"><i>__MSG_ui_settings_reload_hint__</i></p>
 
-      <h2>General</h2>
+      <h2>__MSG_ui_settings_general_title__</h2>
       <div class="switch">
-        <p class="textCheckbox">Save UPC credentials</p>
+        <p class="textCheckbox">__MSG_ui_settings_save_upc_credentials__</p>
         <label>
           <input type="checkbox" autocomplete="off" name="itic_copilot.save_upcnet_credentials">
           <span class="slider round"></span>
@@ -130,17 +134,17 @@
       </div>
 
       <form id="upc_credentials">
-        <label for="username">Username:</label>
-        <input type="text" name="upcnet.username" placeholder="jean.baptiste.fourier"><br/>
+        <label for="username">__MSG_ui_settings_username__</label>
+        <input type="text" name="upcnet.username" placeholder="__MSG_ui_settings_username_placeholder__"><br/>
         <br/>
-        <label for="password">Password:</label>
+        <label for="password">__MSG_ui_settings_password__</label>
         <input type="password" name="upcnet.password" placeholder="****************"><br/>
         <br/>
       </form>
-      <p  class="subTextCheckbox"><i>Passwords will be <b>NEVER</b> stored in plain text, nor shared or synced.</i></p>
+      <p  class="subTextCheckbox"><i>__MSG_ui_settings_password_disclaimer__</i></p>
       
       <div class="switch">
-        <p class="textCheckbox">Sync settings</p>
+        <p class="textCheckbox">__MSG_ui_settings_sync_settings__</p>
         <label>
           <input type="checkbox" autocomplete="off" name="itic_copilot.sync_settings">
           <span class="slider round"></span>
@@ -148,19 +152,19 @@
       </div>
 
       <div class="switch">
-        <p class="textCheckbox"><b class="new">NEW!</b> Auto-login on UPCnet</p>
+        <p class="textCheckbox"><b class="new">__MSG_ui_settings_new__</b> __MSG_ui_settings_autologin__</p>
         <label>
           <input type="checkbox" autocomplete="off" name="upcnet.autologin">
           <span id="autologin_slider" class="slider round disabled"></span>
         </label>
       </div>
-      <p class="subTextCheckbox" style="color: grey;display:none"><i>Save UPC credentials</i> must be enabled to perform auto-login.</p>
+      <p class="subTextCheckbox" style="color: grey;display:none"><i>__MSG_ui_settings_save_upc_credentials__</i> __MSG_ui_settings_autologin_hint__</p>
       
-      <h2>Atenea</h2>
+      <h2>__MSG_ui_landpage_links_atenea__</h2>
       
-      <p><i>More features coming soon!</i></p>
+      <p><i>__MSG_ui_settings_comming_soon__</i></p>
 
-      <h2>OpenCourseWare</h2>
+      <h2>__MSG_ui_landpage_links_ocw__</h2>
       <div class="switch">
         <p class="textCheckbox">Show embedded links</p>
         <label>
@@ -169,10 +173,10 @@
         </label>
       </div>
 
-      <h2>Escriny</h2>
+      <h2>__MSG_ui_landpage_links_escriny__</h2>
 
       <div class="switch">
-        <p class="textCheckbox"><b class="new">NEW!</b> Edit files online with commits</p>
+        <p class="textCheckbox"><b class="new">__MSG_ui_settings_new__</b> __MSG_ui_settings_escriny_edit_files__</p>
         <label>
           <input type="checkbox" autocomplete="off" name="escriny.edit_files">
           <span class="slider round"></span>
@@ -182,29 +186,29 @@
       <p style="line-height: 4px;"><br/></p>
     
       <div class="hidden">
-      <h2>Overleaf</h2>
-      <p><i>More features coming soon!</i></p>
+      <h2>__MSG_ui_landpage_links_overleaf__</h2>
+      <p><i>__MSG_ui_settings_comming_soon__</i></p>
       </div>
 
-      <h2>Timetables</h2>
-      <p><i>Click this button to choose another set of subjects</i></p>
-      <button type="button" name="new_schedule" class="centeredButton href" href="">Reset timetables</button>
+      <h2>__MSG_ui_landpage_links_schedule__</h2>
+      <p><i>__MSG_ui_settings_reset_schedule_hint__</i></p>
+      <button type="button" name="new_schedule" class="centeredButton href" href="">__MSG_ui_settings_reset_schedule__</button>
   
-      <h2>Course guides</h2>
-      <p>Prefered language:
+      <h2>__MSG_ui_landpage_links_course_guides__</h2>
+      <p>__MSG_ui_settings_cg_language__
         <select name="course_guides.language" style="position: relative; left: 15%;">
-            <option value="cat">Catalan</option>
-            <option value="esp">Spanish</option>
-            <option value="ing">English</option>
+            <option value="cat">__MSG_ui_settings_cg_cat__</option>
+            <option value="esp">__MSG_ui_settings_cg_esp__</option>
+            <option value="ing">__MSG_ui_settings_cg_ing__</option>
         </select>
       </p>
 
-      <h2>Calendar</h2>
-      <p><i>More features coming soon!</i></p>
+      <h2>__MSG_ui_landpage_links_calendar__</h2>
+      <p><i>__MSG_ui_settings_comming_soon__</i></p>
   
-      <h2>Advanced</h2>
+      <h2>__MSG_ui_settings_advanced_title__</h2>
       <div class="switch">
-        <p class="textCheckbox">Easter Eggs</p>
+        <p class="textCheckbox">__MSG_ui_settings_easter_eggs__</p>
         <label>
           <input type="checkbox" autocomplete="off" name="itic_copilot.easter_eggs">
           <span class="slider round"></span>
@@ -212,12 +216,12 @@
       </div>
 
       <form class="gmailForm">
-        <label for="gmailLink">Gmail URL:</label>
+        <label for="gmailLink">__MSG_ui_settings_gmail_url__</label>
         <input type="text" name="upcnet.gmail_url"><br/>
       </form><br/>
 
-      <button type="button" id="reset_settings_btn" class="centeredButton">Restore default settings</button>
-      <p class="centeredButton" id="settings_reset_msg" style="opacity:0%;text-align:center;line-height:2;"><em>Done!</em></p>
+      <button type="button" id="reset_settings_btn" class="centeredButton">__MSG_ui_settings_restore__</button>
+      <p class="centeredButton" id="settings_reset_msg" style="opacity:0%;text-align:center;line-height:2;"><em>__MSG_ui_settings_restore_done__</em></p>
       <i style="opacity:0%;">.</i>
 
     </div>
@@ -228,7 +232,7 @@
   <!-- ABOUT -->
   <div id="aboutDiv" style="display: none">
     <div class="titleDiv">
-      <h1 class="title">About</h1>
+      <h1 class="title">__MSG_ui_about_title__</h1>
       <div class="arrowDiv">
         <i class="arrow left"></i>
       </div>
@@ -242,29 +246,21 @@
         <i>UI by <a href="https://github.com/FlyingKoala01">Isaac Iglesias</a></i>
       </p>
     
-      <h2 id="aboutSubTitle">License</h2>
-      <p>
-        This extension is part of an open
-        source project, liscenced with the
-        GNU General Public Liscence V3
-        (GPL3). See more details of it <a href="https://github.com/royalmo/itic-copilot/blob/main/LICENSE">here</a>.
+      <h2 id="aboutSubTitle">__MSG_ui_about_liscence_title__</h2>
+      <p>__MSG_ui_about_liscence_text__
+        <a href="https://github.com/royalmo/itic-copilot/blob/main/LICENSE">__MSG_ui_about_liscence_link__</a>.
       </p>
-      <h2 id="aboutSubTitle">Privacy Note</h2>
-      <p>
-        As you can verify with your own eyes (because it's an Open Source project),
-        we don't do anything with your data. Passwords or other preferences may
-        be saved by request, but only locally (we don't receive anything from you).
-      </p>
-      <h2 id="aboutSubTitle">What to contribute?</h2>
-      <p>
-        You can report bugs, suggestions, or
-        contribute to the iTIC Copilot extension
-        by going in the <a href="https://github.com/royalmo/itic-copilot">GitHub repository</a>.
+      <h2 id="aboutSubTitle">__MSG_ui_about_privacy_title__</h2>
+      <p>__MSG_ui_about_privacy_text__</p>
+      <h2 id="aboutSubTitle">__MSG_ui_about_contribute_title__</h2>
+      <p>__MSG_ui_about_contribute_text__
+        <a href="https://github.com/royalmo/itic-copilot">__MSG_ui_about_contribute_link__</a>.
       </p>
       </div>
   </div>
 
   <script src="/include/browser-polyfill.min.js"></script>
+  <script src="/include/localize.js"></script>
   <script src="/include/jquery-3.4.1.min.js"></script>
   <script src="/js/basics.js"></script>
   <script src="/js/settings.js"></script>

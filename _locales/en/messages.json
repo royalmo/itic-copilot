@@ -101,6 +101,328 @@
         "description" : "Message shown when the subject/quadrimester/folder that we want to download is empty."
     },
 
+    "schedule_loader_redirecting" : {
+        "message" : "Redirecting...",
+        "description" : "Title of the schedule load page."
+    },
+    "schedule_loader_information" : {
+        "message" : "Your schedule is being loaded. This will take less than 2 seconds ...",
+        "description" : "Information of the schedule load page."
+    },
+
+    "schedule_picker_save_btn" : {
+        "message" : "Save and see schedule",
+        "description" : "Button clicked once a schedule is selected."
+    },
+    "schedule_picker_setup_title" : {
+        "message" : "Select your subjects",
+        "description" : "Title of the alert describing what to do."
+    },
+    "schedule_picker_setup_info" : {
+        "message" : "Let iTIC Copilot save your subjects in order to display the schedule.<br/>You can always modify your subjects in the settings menu.",
+        "description" : "Text of the alert describing what to do. DO NOT remove the <br/>, nor put spaces in between."
+    },
+    "schedule_picker_confirm_title" : {
+        "message" : "Save schedule",
+        "description" : "Title for schedule save confirm dialog."
+    },
+    "schedule_picker_confirm_text" : {
+        "message" : "Do you want iTIC Copilot to save this schedule?",
+        "description" : "Text for schedule save confirm dialog."
+    },
+    "schedule_picker_done_text" : {
+        "message" : "Your schedule has been saved. Click on the button below to see it.",
+        "description" : "Once a schedule is saved, info message."
+    },
+    "schedule_picker_see_schedule" : {
+        "message" : "See schedule",
+        "description" : "Once a schedule is saved, button to see it."
+    },
+    "schedule_picker_yes" : {
+        "message" : "Yes",
+        "description" : "A yes/okey/confirm/accept message."
+    },
+
+    "autologger_remember_credentials" : {
+        "message" : "Let iTIC Copilot remember your credentials",
+        "description" : "Option that will appear on the login page."
+    },
+    "autologger_enable_autologin" : {
+        "message" : "Auto-login when a login page appears",
+        "description" : "Option that will appear on the login page."
+    },
+
+    "itic_copilot_credentials_title" : {
+        "message" : "Getting credentials",
+        "description" : "Title of the credentials request pop-up."
+    },
+    "itic_copilot_credentials_username" : {
+        "message" : "Introduce your username:",
+        "description" : "Username text of the credentials request pop-up."
+    },
+    "itic_copilot_credentials_password" : {
+        "message" : "Introduce the password for $USER$:",
+        "description" : "Password text of the credentials request pop-up.",
+        "placeholders" : {
+            "user" : {
+                "content" : "$1",
+                "example" : "eric.roy"
+            }
+        }
+    },
+
+    "escriny_edit_text" : {
+        "message" : "Edit",
+        "description" : "Title of the edit file section."
+    },
+    "escriny_fetching_error" : {
+        "message" : "An error occurred while fetching the url.",
+        "description" : "Explanation of an ajax error."
+    },
+    "escriny_commit_title" : {
+        "message" : "Commit",
+        "description" : "Commit title (usually doesn't have a translation)."
+    },
+    "escriny_commit_confirm_text" : {
+        "message" : "Do you wish to commit $COMMITMSG$?",
+        "description" : "Commit confirmation text.",
+        "placeholders" : {
+            "commitmsg" : {
+                "content" : "$1",
+                "example" : "'a commit message, hello!'"
+            }
+        }
+    },
+    "escriny_confirm_continue" : {
+        "message" : "Continue",
+        "description" : "A continue/ok/confirm string."
+    },
+    "escriny_commit_completed_title" : {
+        "message" : "Commit completed",
+        "description" : "Title of the success pop-up."
+    },
+    "escriny_commit_completed_text" : {
+        "message" : "The commit has been uploaded successfully.<br/>Be aware that the content may take several minutes to be updated on the web.",
+        "description" : "Text of the success pop-up. DO NOT touch the '<br/>' nor put spaces in between."
+    },
+    "escriny_commit_message_placeholder" : {
+        "message" : "Commit message ...",
+        "description" : "Placeholder of the input area in the commit message."
+    },
+    "escriny_show_advanced_settings" : {
+        "message" : "Show advanced settings.",
+        "description" : "Button to show advanced settings."
+    },
+    "escriny_hide_advanced_settings" : {
+        "message" : "Hide advanced settings.",
+        "description" : "Button to hide advanced settings."
+    },
+    "escriny_load_file_placeholder" : {
+        "message" : "Loading file contents...",
+        "description" : "Placeholder for when the file is bein loaded."
+    },
+    "escriny_load_file_error" : {
+        "message" : "Could not load file contents. Reload the page to retry.",
+        "description" : "Error message for when the file could not be loaded."
+    },
+
+    "ui_landpage_links_title" : {
+        "message" : "Links of Interest",
+        "description" : "Title of the links section in the user interface."
+    },
+    "ui_landpage_links_description" : {
+        "message" : "Go to these sites to see the extension's potential!",
+        "description" : "Text (or description) of the links section in the user interface."
+    },
+    "ui_landpage_links_atenea" : {
+        "message" : "Atenea",
+        "description" : "Atenea link name (no need to translate)."
+    },
+    "ui_landpage_links_ocw" : {
+        "message" : "OpenCourseWare",
+        "description" : "OCW link name (no need to translate)."
+    },
+    "ui_landpage_links_escriny" : {
+        "message" : "Escriny",
+        "description" : "Escriny link name (no need to translate)."
+    },
+    "ui_landpage_links_overleaf" : {
+        "message" : "Overleaf",
+        "description" : "Overleaf link name (no need to translate)."
+    },
+    "ui_landpage_links_calendar" : {
+        "message" : "Calendar",
+        "description" : "Link name of the course calendar."
+    },
+    "ui_landpage_links_schedule" : {
+        "message" : "Schedule",
+        "description" : "Link name of the current schedule."
+    },
+    "ui_landpage_links_course_guides" : {
+        "message" : "Course guides",
+        "description" : "Link name of the course guides."
+    },
+    "ui_landpage_links_gmail" : {
+        "message" : "UPC's Gmail",
+        "description" : "Link name of UPC's Gmail."
+    },
+    "ui_landpage_links_e_secretaria" : {
+        "message" : "E-Secretaria",
+        "description" : "E-secretaria link name (no need to translate)."
+    },
+    "ui_landpage_links_easter_egg" : {
+        "message" : "???",
+        "description" : "Do not translate."
+    },
+
+    "ui_settings_title" : {
+        "message" : "Settings",
+        "description" : "Settings button and title name."
+    },
+    "ui_about_title" : {
+        "message" : "About",
+        "description" : "About section title and button name."
+    },
+
+    "ui_settings_reload_hint" : {
+        "message" : "Reload current pages to apply changes.",
+        "description" : "Disclaimer on top of the settings menu."
+    },
+    "ui_settings_general_title" : {
+        "message" : "General",
+        "description" : "Title of the general section on the settings menu."
+    },
+    "ui_settings_save_upc_credentials" : {
+        "message" : "Save UPC credentials",
+        "description" : "Option to save upc credentials in the settings menu."
+    },
+    "ui_settings_username" : {
+        "message" : "Username:",
+        "description" : "Username prompt."
+    },
+    "ui_settings_password" : {
+        "message" : "Password:",
+        "description" : "Password prompt."
+    },
+    "ui_settings_username_placeholder" : {
+        "message" : "name.surname",
+        "description" : "Format of the upc username. 'name' and 'surname' can be trnanslated."
+    },
+    "ui_settings_password_disclaimer" : {
+        "message" : "Passwords will be <b>NEVER</b> stored in plain text, nor shared or synced.",
+        "description" : "Disclaimer for passwords policy. Please keep the <b> and </b> keys."
+    },
+    "ui_settings_sync_settings" : {
+        "message" : "Sync settings",
+        "description" : "Option to permit settings sync among devices."
+    },
+    "ui_settings_new" : {
+        "message" : "NEW!",
+        "description" : "Disclaimer for when a setting is new."
+    },
+    "ui_settings_autologin" : {
+        "message" : "Auto-login on UPCnet",
+        "description" : "Option to allow auto-login on some pages."
+    },
+    "ui_settings_autologin_hint" : {
+        "message" : "must be enabled to perform auto-login.",
+        "description" : "Some settings must be enabled... the beginning of the sentence is missing on purpose."
+    },
+    "ui_settings_comming_soon" : {
+        "message" : "More features coming soon!",
+        "description" : "Placeholder for when there aren't any options."
+    },
+    "ui_settings_escriny_edit_files" : {
+        "message" : "Edit files online with commits",
+        "description" : "Option to permit the edition of files on the escriny website."
+    },
+    "ui_settings_reset_schedule" : {
+        "message" : "Reset timetables",
+        "description" : "Button used to choose another set of subjects."
+    },
+    "ui_settings_reset_schedule_hint" : {
+        "message" : "Click this button to choose another set of subjects",
+        "description" : "Text of the button used to choose another set of subjects."
+    },
+    "ui_settings_cg_language" : {
+        "message" : "Prefered language:",
+        "description" : "Text prompting the prefered language."
+    },
+    "ui_settings_cg_cat" : {
+        "message" : "Catalan",
+        "description" : "Name of the catalan language."
+    },
+    "ui_settings_cg_esp" : {
+        "message" : "Spanish",
+        "description" : "Name of the spanish language."
+    },
+    "ui_settings_cg_ing" : {
+        "message" : "English",
+        "description" : "Name of the english language."
+    },
+    "ui_settings_advanced_title" : {
+        "message" : "Advanced",
+        "description" : "Title of the advanced settings section."
+    },
+    "ui_settings_easter_eggs" : {
+        "message" : "Easter Eggs",
+        "description" : "Option to enable or disable easter eggs."
+    },
+    "ui_settings_gmail_url" : {
+        "message" : "Gmail URL:",
+        "description" : "Text prompting the gmail url in the settings menu."
+    },
+    "ui_settings_restore" : {
+        "message" : "Restore default settings",
+        "description" : "Button used to restore all the settings to its default values."
+    },
+    "ui_settings_restore_done" : {
+        "message" : "Done!",
+        "description" : "Done message showing when settings are reset."
+    },
+
+    "ui_about_made_by" : {
+        "message" : "Made by ",
+        "description" : "Made by $NAME$"
+    },
+    "ui_about_collab_by" : {
+        "message" : "UI by ",
+        "description" : "UI/Interface by $NAME$."
+    },
+    "ui_about_liscence_title" : {
+        "message" : "License",
+        "description" : "Title of the liscence section in the about page."
+    },
+    "ui_about_liscence_text" : {
+        "message" : "This extension is part of an open source project, liscenced with the GNU General Public Liscence V3 (GPL3). See more details of it",
+        "description" : "This text is continued in the 'ui_about_liscence_link' key."
+    },
+    "ui_about_liscence_link" : {
+        "message" : "here",
+        "description" : "Continuation of the 'ui_about_liscence_link' text. Here is where the user will be able to click."
+    },
+    "ui_about_privacy_title" : {
+        "message" : "Privacy Note",
+        "description" : "Title of the privacy section in the about page."
+    },
+    "ui_about_privacy_text" : {
+        "message" : "As you can verify with your own eyes (because it's an Open Source project), we don't do anything with your data. Passwords or other preferences may be saved by request, but only locally (we don't receive anything from you).",
+        "description" : "Text of the privacy section in the about page."
+    },
+    "ui_about_contribute_title" : {
+        "message" : "What to contribute?",
+        "description" : "Contribution title on the about page."
+    },
+    "ui_about_contribute_text" : {
+        "message" : "You can report bugs, suggestions, or contribute to the iTIC Copilot extension by going in the",
+        "description" : "This text is continued in the 'ui_about_contribute_link' key."
+    },
+    "ui_about_contribute_link" : {
+        "message" : "GitHub repository",
+        "description" : "This text is the continuation of 'ui_about_contribute_text'. here will be the link to click."
+    },
+
+
 
 
     "log_copilot_name" : {
@@ -179,5 +501,22 @@
                 "example" : "Circuits i Sistemes Lineals.zip"
             }
         }
+    },
+
+    "log_settings_saved" : {
+        "message" : "Saved $NAME$: $VALUE$",
+        "placeholders" : {
+            "name" : {
+                "content" : "$1",
+                "example" : "upcnet.save_password"
+            },
+            "value" : {
+                "content" : "$2",
+                "example" : "false"
+            }
+        }
+    },
+    "log_settings_loaded" : {
+        "message" : "Settings loaded!"
     }
 }

@@ -62,7 +62,7 @@ function escriny_render_edit_menu() {
 
     // Adding | Editar
     splitted = startstr.split('(');
-    startstr = splitted[0] + '| <i id="copilot_edit_phar" style="display:none">Editar</i><a id="copilot_edit_link">Editar</a> (' + splitted[1];
+    startstr = splitted[0] + '| <i id="copilot_edit_phar" style="display:none">' + t('escriny_edit_text') + '</i><a id="copilot_edit_link">' + t('escriny_edit_text') + '</a> (' + splitted[1];
 
     // | <a id="copilot_delete_link">Eliminar</a>
 
@@ -72,7 +72,24 @@ function escriny_render_edit_menu() {
     original_content = $('#original_content');
 
     // Adding editor content
-    $('#content').html($('#content').html() + '<div id="editor_content" style="display:none;"><div class="toolbar-input-group"><input type="text" id="new_commit_msg" style="width:50%" placeholder="Commit message ..."/><button class="button" style="margin:0" id="commit_btn">Commit</button></div><p style="display:none;font-size:12px"><i><a href="javascript:void(0)" id="copilot_edit_settings_show">Show advanced settings.</a><a href="javascript:void(0)" id="copilot_edit_settings_hide" style="display:none">Hide advanced settings.</a></i></p><div style="display:none" id="copilot_advanced_settings_div"><p> CR CRLF LF </p></div><br/><div id="editor" style="width:100% max-width:300px;height:700px;outline: solid 2px darkgrey;">' + "Loading file contents..." + '</div></div><div id="editor_content_loading><p>Loading file contents ...</p><p>Could not load file contents. Reload the page to retry.</p></div>');
+    $('#content').html($('#content').html()
+        + '<div id="editor_content" style="display:none;"><div class="toolbar-input-group">'
+        + '<input type="text" id="new_commit_msg" style="width:50%" placeholder="'
+        + t('escriny_commit_message_placeholder')
+        + '"/><button class="button" style="margin:0" id="commit_btn">'
+        + t('escriny_commit_title')
+        + '</button></div><p style="display:none;font-size:12px"><i><a href="javascript:void(0)" id="copilot_edit_settings_show">'
+        + t('escriny_show_advanced_settings')
+        + '</a><a href="javascript:void(0)" id="copilot_edit_settings_hide" style="display:none">'
+        + t('escriny_hide_advanced_settings')
+        + '</a></i></p><div style="display:none" id="copilot_advanced_settings_div"><p> CR CRLF LF </p>'
+        + '</div><br/><div id="editor" style="width:100% max-width:300px;height:700px;outline: solid 2px darkgrey;">'
+        + t('escriny_load_file_placeholder')
+        + '</div></div><div id="editor_content_loading><p>'
+        + t('escriny_load_file_placeholder')
+        + '</p><p>'
+        + t('escriny_load_file_error')
+        + '</p></div>');
 
     // ACE init
     var editor = ace.edit("editor");
@@ -141,7 +158,10 @@ function escriny_render_edit_menu() {
                         editor.getSession().getUndoManager().reset();
                     },
                     error: function() {
-                        itic_copilot.fnon.alert('An error occurred while fetching the url.', 'Error');
+                        itic_copilot.fnon.alert(
+                            t('escriny_fetching_error'),
+                            t('ocw_downloader_error')
+                        );
 
                         // Showing back old menu
                         $('#copilot_current_link').hide();
@@ -160,8 +180,12 @@ function escriny_render_edit_menu() {
             commit_message = $('#new_commit_msg').val();
             if (commit_message == "") return;
 
-            itic_copilot.fnon.confirm("Commit", "Do you wish to commit <i>"+commit_message+"</i>?",
-            "Continue", "Cancel", (result)=>{
+            itic_copilot.fnon.confirm(
+                t('escriny_commit_title'),
+                t('escriny_commit_confirm_text', "<i>"+commit_message+"</i>"),
+                t('escriny_confirm_continue'),
+                t('ocw_downloader_cancel'),
+            (result)=>{
                 if (!result) return;
 
                 itic_copilot.get_user_auth().then( auth => {
@@ -176,7 +200,10 @@ function escriny_render_edit_menu() {
                         editor.getSession().getUndoManager().reset();
                         editor.focus();
                         $('#new_commit_msg').val("");
-                        itic_copilot.fnon.alert("The commit has been uploaded successfully.<br/>Be aware that the content may take several minutes to be updated on the web.", "Commit completed");
+                        itic_copilot.fnon.alert(
+                            t('escriny_commit_completed_text'),
+                            t('escriny_commit_completed_title')
+                        );
                     });
                 });
             });

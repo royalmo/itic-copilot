@@ -19,12 +19,12 @@
     if (! window.location.href.endsWith('&setup=true') ) return;
     
     $('td[align="right"]').children().attr('style', 'background:white;color:#bddbfa;');
-    $('td[align="right"]').after('<td align="right"><input type="button" class="boto copilot_save_btn" value="Guardar horari i veure"></td>');
+    $('td[align="right"]').after('<td align="right"><input type="button" class="boto copilot_save_btn" value="' + t('schedule_picker_save_btn') + '"></td>');
 
     if ( window.location.href.endsWith('&show_alert=true&setup=true') ) {
         itic_copilot.fnon.alert(
-            "Let iTIC Copilot save your subjects in order to display the schedule.<br/>You can always modify your subjects in the settings menu.",
-            "Select your subjects"
+            t('schedule_picker_setup_title'),
+            t('schedule_picker_setup_info')
         );
     }
 
@@ -44,18 +44,18 @@
         if (subjects.length == 0) return;
 
         itic_copilot.fnon.confirm(
-            "Save schedule",
-            "Do you want iTIC Copilot to save this schedule?",
-            "Yes", "Cancel",
+            t('schedule_picker_confirm_title'),
+            t('schedule_picker_confirm_text'),
+            t('schedule_picker_yes'), t('ocw_downloader_cancel'),
             function (result) {
                 if (!result) return;
 
                 itic_copilot.settings.set('subjects', subjects);
 
                 itic_copilot.fnon.alert(
-                    "Your schedule has been saved. Click on the button below to see it.",
-                    "Done!",
-                    "See schedule",
+                    t('schedule_picker_done_text'),
+                    t('ocw_downloader_done'),
+                    t('schedule_picker_see_schedule'),
                     autoremove=false
                 );
 
