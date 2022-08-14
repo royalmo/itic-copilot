@@ -304,5 +304,22 @@
                 "example" : "Circuits i Sistemes Lineals.zip"
             }
         }
+    },
+
+    "log_settings_saved" : {
+        "message" : "Saved $NAME$: $VALUE$",
+        "placeholders" : {
+            "name" : {
+                "content" : "$1",
+                "example" : "upcnet.save_password"
+            },
+            "value" : {
+                "content" : "$2",
+                "example" : "false"
+            }
+        }
+    },
+    "log_settings_loaded" : {
+        "message" : "Settings loaded!"
     }
 }

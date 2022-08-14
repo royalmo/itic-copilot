@@ -137,13 +137,15 @@ $(document).ready(function () {
     });
 
     $('input[type="checkbox"]').click( function () {
-        itic_copilot.settings.set($(this).attr("name"), $(this).is(':checked'))
-        console.log("Saved " + $(this).attr("name") + ": " + $(this).is(':checked'));
+        itic_copilot.settings.set($(this).attr("name"), $(this).is(':checked'));
+
+        itic_copilot.log('settings_saved', [$(this).attr("name"), $(this).is(':checked')]);
     });
 
     $('input[type="text"], input[type="password"], select').focusout( function () {
-        itic_copilot.settings.set($(this).attr("name"), $(this).val())
-        console.log("Saved " + $(this).attr("name") + ": " + $(this).val());
+        itic_copilot.settings.set($(this).attr("name"), $(this).val());
+
+        itic_copilot.log('settings_saved', [$(this).attr("name"), $(this).val()]);
     });
 
     load_settings();
@@ -163,7 +165,7 @@ function load_settings () {
                     $('[name="' + key + '"]').val(value);
                 }
             });
-            console.log("Settings updated!")
+            itic_copilot.log('settings_loaded');
 
             setTimeout(function () {enable_disable_credentials(do_not_save=true);}, 100); 
             resolve();
