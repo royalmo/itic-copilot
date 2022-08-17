@@ -122,5 +122,11 @@
             ],
             "run_at": "document_end"
         }
-    ]
+    ],
+
+    "browser_specific_settings": {
+        "gecko": {
+            "id" : "{f821a73c-6f40-4a4b-aab8-5cd48c1bbfa8}"
+        }
+    }
 }

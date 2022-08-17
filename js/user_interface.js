@@ -190,7 +190,7 @@ function enable_disable_credentials (do_not_save = false) {
 }
 
 function configure_links (only_variable=false) {
-    $.getJSON(browser.extension.getURL('/config/links.json'), function(links) {
+    $.getJSON(browser.runtime.getURL('/config/links.json'), function(links) {
         // Setting up gmail url
         itic_copilot.settings.get("upcnet.gmail_url").then(function (value) {
             $('a[key="upcnet.gmail_url"]').attr('href', value);
@@ -205,7 +205,7 @@ function configure_links (only_variable=false) {
 
         // Setting up schedule link (can vary, but only at page load)
         itic_copilot.settings.get('subjects').then( subjects => {
-            val = subjects.length == 0 ? links["new_schedule_with_alert"] : browser.extension.getURL('/html/load_schedule.html');
+            val = subjects.length == 0 ? links["new_schedule_with_alert"] : browser.runtime.getURL('/html/load_schedule.html');
             $('a[key="schedule"]').attr('href', val);
         })
 

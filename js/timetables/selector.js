@@ -23,8 +23,8 @@
 
     if ( window.location.href.endsWith('&show_alert=true&setup=true') ) {
         itic_copilot.fnon.alert(
-            t('schedule_picker_setup_title'),
-            t('schedule_picker_setup_info')
+            t('schedule_picker_setup_info'),
+            t('schedule_picker_setup_title')
         );
     }
 
