@@ -98,6 +98,8 @@
         </tr>
       </table>
 
+      <br/>
+
       <table class="navDiv">
         <tr>
           <td class="tdButton">
@@ -158,7 +160,7 @@
           <span id="autologin_slider" class="slider round disabled"></span>
         </label>
       </div>
-      <p class="subTextCheckbox" style="color: grey;display:none"><i>__MSG_ui_settings_save_upc_credentials__</i> __MSG_ui_settings_autologin_hint__</p>
+      <p class="subTextCheckbox" style="color: grey;"><i>__MSG_ui_settings_save_upc_credentials__</i> __MSG_ui_settings_autologin_hint__</p>
       
       <h2>__MSG_ui_landpage_links_atenea__</h2>
       
@@ -166,7 +168,7 @@
 
       <h2>__MSG_ui_landpage_links_ocw__</h2>
       <div class="switch">
-        <p class="textCheckbox">Show embedded links</p>
+        <p class="textCheckbox">__MSG_ui_settings_ocw_show_embedded__</p>
         <label>
           <input type="checkbox" autocomplete="off" name="ocw.show_links">
           <span class="slider round"></span>
@@ -217,7 +219,8 @@
 
       <form class="gmailForm">
         <label for="gmailLink">__MSG_ui_settings_gmail_url__</label>
-        <input type="text" name="upcnet.gmail_url"><br/>
+        <br/>
+        <input type="text" style="width: 210px;" name="upcnet.gmail_url"><br/>
       </form><br/>
 
       <button type="button" id="reset_settings_btn" class="centeredButton">__MSG_ui_settings_restore__</button>
@@ -241,9 +244,9 @@
     <div class="bodyPopup">
       <img src=" ../assets/user_interface/itic-logo-no-line.png" style="width:150px;height:auto;margin-left:25%;margin-top:-10px;">
       <p style="text-align: center;">
-        <i>Made by <a href="https://github.com/royalmo">Eric Roy</a></i>
+        <i>__MSG_ui_about_made_by__<a href="https://github.com/royalmo">Eric Roy</a></i>
         <br/>
-        <i>UI by <a href="https://github.com/FlyingKoala01">Isaac Iglesias</a></i>
+        <i>__MSG_ui_about_collab_by__<a href="https://github.com/FlyingKoala01">Isaac Iglesias</a></i>
       </p>
     
       <h2 id="aboutSubTitle">__MSG_ui_about_liscence_title__</h2>
