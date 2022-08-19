@@ -4,7 +4,7 @@
         "short_name" : "MBE",
         "upc_code" : 330212,
         "ocw_name" : null,
-        "quatrimester" : 1,
+        "semester" : 1,
         "optional" : false
     },
     "330213" : {
@@ -12,7 +12,7 @@
         "short_name" : "FIS",
         "upc_code" : 330213,
         "ocw_name" : "f",
-        "quadrimester" : 1,
+        "semester" : 1,
         "optional" : false
     },
     "330214" : {
@@ -20,7 +20,7 @@
         "short_name" : "INFO",
         "upc_code" : 330214,
         "ocw_name" : "inf",
-        "quadrimester" : 1,
+        "semester" : 1,
         "optional" : false
     },
     "330215" : {
@@ -28,7 +28,7 @@
         "short_name" : "ISD",
         "upc_code" : 330215,
         "ocw_name" : "isd",
-        "quadrimester" : 1,
+        "semester" : 1,
         "optional" : false
     },
     "330216" : {
@@ -36,7 +36,7 @@
         "short_name" : "FMT",
         "upc_code" : 330216,
         "ocw_name" : "fmt",
-        "quadrimester" : 1,
+        "semester" : 1,
         "optional" : false
     },
 
@@ -45,7 +45,7 @@
         "short_name" : "EST",
         "upc_code" : 330217,
         "ocw_name" : "est",
-        "quadrimester" : 2,
+        "semester" : 2,
         "optional" : false
     },
     "330218" : {
@@ -53,7 +53,7 @@
         "short_name" : "TC1",
         "upc_code" : 330218,
         "ocw_name" : "tc1",
-        "quadrimester" : 2,
+        "semester" : 2,
         "optional" : false
     },
     "330219" : {
@@ -61,7 +61,7 @@
         "short_name" : "TP",
         "upc_code" : 330219,
         "ocw_name" : "tecpro",
-        "quadrimester" : 2,
+        "semester" : 2,
         "optional" : false
     },
     "330220" : {
@@ -69,7 +69,7 @@
         "short_name" : "SD",
         "upc_code" : 330220,
         "ocw_name" : "sd",
-        "quadrimester" : 2,
+        "semester" : 2,
         "optional" : false
     },
     "330221" : {
@@ -77,7 +77,7 @@
         "short_name" : "TC",
         "upc_code" : 330221,
         "ocw_name" : "tcir",
-        "quadrimester" : 2,
+        "semester" : 2,
         "optional" : false
     },
 
@@ -86,7 +86,7 @@
         "short_name" : "MAE",
         "upc_code" : 330222,
         "ocw_name" : "mae",
-        "quadrimester" : 3,
+        "semester" : 3,
         "optional" : false
     },
     "330223" : {
@@ -94,7 +94,7 @@
         "short_name" : "TC2",
         "upc_code" : 330223,
         "ocw_name" : "tc2",
-        "quadrimester" : 3,
+        "semester" : 3,
         "optional" : false
     },
     "330224" : {
@@ -102,7 +102,7 @@
         "short_name" : "DP",
         "upc_code" : 330224,
         "ocw_name" : "dp",
-        "quadrimester" : 3,
+        "semester" : 3,
         "optional" : false
     },
     "330225" : {
@@ -110,7 +110,7 @@
         "short_name" : "EMP",
         "upc_code" : 330225,
         "ocw_name" : "emp",
-        "quadrimester" : 3,
+        "semester" : 3,
         "optional" : false
     },
     "330226" : {
@@ -118,7 +118,7 @@
         "short_name" : "CSL",
         "upc_code" : 330226,
         "ocw_name" : "csl",
-        "quadrimester" : 3,
+        "semester" : 3,
         "optional" : false
     },
 
@@ -127,7 +127,7 @@
         "short_name" : "SA",
         "upc_code" : 330227,
         "ocw_name" : "sa",
-        "quadrimester" : 4,
+        "semester" : 4,
         "optional" : false
     },
     "330228" : {
@@ -135,7 +135,7 @@
         "short_name" : "PBN",
         "upc_code" : 330228,
         "ocw_name" : "pbn",
-        "quadrimester" : 4,
+        "semester" : 4,
         "optional" : false
     },
     "330229" : {
@@ -143,7 +143,7 @@
         "short_name" : "AC",
         "upc_code" : 330229,
         "ocw_name" : "ac",
-        "quadrimester" : 4,
+        "semester" : 4,
         "optional" : false
     },
     "330230" : {
@@ -151,7 +151,7 @@
         "short_name" : "CSRF",
         "upc_code" : 330230,
         "ocw_name" : "csr",
-        "quadrimester" : 4,
+        "semester" : 4,
         "optional" : false
     },
     "330231" : {
@@ -159,7 +159,7 @@
         "short_name" : "SS",
         "upc_code" : 330231,
         "ocw_name" : "ss",
-        "quadrimester" : 4,
+        "semester" : 4,
         "optional" : false
     },
 
@@ -168,7 +168,7 @@
         "short_name" : "PCTR",
         "upc_code" : 330232,
         "ocw_name" : "pctr",
-        "quadrimester" : 5,
+        "semester" : 5,
         "optional" : false
     },
     "330233" : {
@@ -176,7 +176,7 @@
         "short_name" : "GiOP",
         "upc_code" : 330233,
         "ocw_name" : "gop",
-        "quadrimester" : 5,
+        "semester" : 5,
         "optional" : false
     },
     "330234" : {
@@ -184,7 +184,7 @@
         "short_name" : "SO",
         "upc_code" : 330234,
         "ocw_name" : "so",
-        "quadrimester" : 5,
+        "semester" : 5,
         "optional" : false
     },
     "330235" : {
@@ -192,7 +192,7 @@
         "short_name" : "XC",
         "upc_code" : 330235,
         "ocw_name" : "xcom",
-        "quadrimester" : 5,
+        "semester" : 5,
         "optional" : false
     },
     "330236" : {
@@ -200,7 +200,7 @@
         "short_name" : "PDS",
         "upc_code" : 330236,
         "ocw_name" : "pds",
-        "quadrimester" : 5,
+        "semester" : 5,
         "optional" : false
     },
 
@@ -209,7 +209,7 @@
         "short_name" : "SE",
         "upc_code" : 330237,
         "ocw_name" : "se",
-        "quadrimester" : 6,
+        "semester" : 6,
         "optional" : false
     },
     "330238" : {
@@ -217,7 +217,7 @@
         "short_name" : "ES",
         "upc_code" : 330238,
         "ocw_name" : "es",
-        "quadrimester" : 6,
+        "semester" : 6,
         "optional" : false
     },
     "330239" : {
@@ -225,7 +225,7 @@
         "short_name" : "ASI",
         "upc_code" : 330239,
         "ocw_name" : "asi",
-        "quadrimester" : 6,
+        "semester" : 6,
         "optional" : false
     },
     "330240" : {
@@ -233,7 +233,7 @@
         "short_name" : "SEC",
         "upc_code" : 330240,
         "ocw_name" : "sec",
-        "quadrimester" : 6,
+        "semester" : 6,
         "optional" : false
     },
 
@@ -242,7 +242,7 @@
         "short_name" : "IS",
         "upc_code" : 330241,
         "ocw_name" : "is",
-        "quadrimester" : 7,
+        "semester" : 7,
         "optional" : false
     },
     "330242" : {
@@ -250,7 +250,7 @@
         "short_name" : "SAR",
         "upc_code" : 330242,
         "ocw_name" : "sar",
-        "quadrimester" : 7,
+        "semester" : 7,
         "optional" : false
     },
 
@@ -259,7 +259,7 @@
         "short_name" : "UI",
         "upc_code" : 330244,
         "ocw_name" : "iu",
-        "quadrimester" : 7,
+        "semester" : 7,
         "optional" : true
     },
     "330247" : {
@@ -267,7 +267,7 @@
         "short_name" : "BD",
         "upc_code" : 330247,
         "ocw_name" : "bd",
-        "quadrimester" : 7,
+        "semester" : 7,
         "optional" : true
     },
     "330246" : {
@@ -275,7 +275,7 @@
         "short_name" : "ME",
         "upc_code" : 330246,
         "ocw_name" : "me",
-        "quadrimester" : 7,
+        "semester" : 7,
         "optional" : true
     },
     "330119" : {
@@ -283,7 +283,7 @@
         "short_name" : "SC",
         "upc_code" : 330119,
         "ocw_name" : null,
-        "quadrimester" : 7,
+        "semester" : 7,
         "optional" : true
     },
     "330120" : {
@@ -291,7 +291,7 @@
         "short_name" : "SSCI",
         "upc_code" : 330120,
         "ocw_name" : null,
-        "quadrimester" : 7,
+        "semester" : 7,
         "optional" : true
     },
 
@@ -300,7 +300,7 @@
         "short_name" : "ANG",
         "upc_code" : 330102,
         "ocw_name" : null,
-        "quadrimester" : 7,
+        "semester" : 7,
         "optional" : true
     },
     "330094" : {
@@ -308,7 +308,7 @@
         "short_name" : "RE",
         "upc_code" : 330094,
         "ocw_name" : null,
-        "quadrimester" : 7,
+        "semester" : 7,
         "optional" : true
     },
     "330099" : {
@@ -316,7 +316,7 @@
         "short_name" : "GQSQ",
         "upc_code" : 330099,
         "ocw_name" : null,
-        "quadrimester" : 7,
+        "semester" : 7,
         "optional" : true
     }
 }
