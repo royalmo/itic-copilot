@@ -188,7 +188,7 @@ function escriny_render_edit_menu() {
             (result)=>{
                 if (!result) return;
 
-                itic_copilot.get_user_auth().then( auth => {
+                itic_copilot.get_basic_auth().then( auth => {
 
                     // SVNJS 0.1.0
                     var svn = new SVN(auth, repository_url);

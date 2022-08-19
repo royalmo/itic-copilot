@@ -18,7 +18,7 @@
 (function () {
     const SYNC_SETTINGS_KEY = 'itic_copilot.sync_settings';
     const SAVE_CREDENTIALS_KEY = 'itic_copilot.save_upcnet_credentials';
-    const DEFAULT_SETTINGS_PATH = browser.extension.getURL('/config/default_settings.json');
+    const DEFAULT_SETTINGS_PATH = browser.runtime.getURL('/config/default_settings.json');
 
     const USR_KEY = 'upcnet.username';
     const PTP_KEY = 'upcnet.password'; // Virtual key (isn't in storage)
@@ -105,6 +105,9 @@
                 localstorage.get(),
                 syncstorage.get()
             ]).then(results => {
+                // Removing possible false sync settings.
+                NO_SYNC_KEYS.forEach(e => delete results[2][e]);
+
                 // Swap storage order if sync is disabled.
                 if ( (SYNC_SETTINGS_KEY in results[2]) && (! results[2][SYNC_SETTINGS_KEY]) ) {
                     [results[1], results[2]] = [results[2], results[1]];
