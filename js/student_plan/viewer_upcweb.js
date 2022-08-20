@@ -15,5 +15,21 @@
  * this program. If not, see http://www.gnu.org/licenses/.
 */
 
+(function () {
+    scroll_to_plan = window.location.href.endsWith('#plan');
 
-console.log('hello');
+    if (scroll_to_plan) {
+        $(document).ready( function () {
+            var select = $('a[href="#collapse-images-collapse-curriculum"]');
+
+            $('#collapse-images-collapse-curriculum')
+            .attr('style', '').attr('aria-expanded', 'true')
+            .addClass('in');
+            select.attr('aria-expanded', 'true').attr('class', '');
+
+            var offTop = select.offset().top - 100;
+            //$(document).scrollTop(offTop); does nothing in Chrome ...
+            window.scrollTo({top: offTop, behavior: 'smooth'});
+        });
+    }
+})();
