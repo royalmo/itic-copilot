@@ -344,8 +344,8 @@
         "message" : "Canviar horaris",
         "description" : "Button used to choose another set of subjects."
     },
-    "ui_settings_reset_schedule_hint" : {
-        "message" : "Cliqueu en aquest botó per a escollir un altre grup d'assignatures",
+    "ui_settings_no_schedule_hint" : {
+        "message" : "No tens cap assignatura guardada. Clica en aquest botó per a escollir un grup d'assignatures.",
         "description" : "Text of the button used to choose another set of subjects."
     },
     "ui_settings_cg_language" : {
@@ -383,6 +383,10 @@
     "ui_settings_restore_done" : {
         "message" : "Fet!",
         "description" : "Done message showing when settings are reset."
+    },
+    "ui_settings_saved_subjects" : {
+        "message" : "Assignatures guardades",
+        "description" : "Title of the list of saved subjects."
     },
 
     "ui_about_made_by" : {
@@ -424,5 +428,14 @@
     "ui_about_contribute_link" : {
         "message" : "repositori de GitHub",
         "description" : "This text is the continuation of 'ui_about_contribute_text'. here will be the link to click."
+    },
+
+    "ui_opt_subject_acronym" : {
+        "message" : "OPT",
+        "description" : "Acronym for 'option', for when a subject is not mandatory."
+    },
+    "ui_groups_name" : {
+        "message" : "Grups",
+        "description" : "It will be displayed like this: Groups: 11, 12, 13."
     }
 }

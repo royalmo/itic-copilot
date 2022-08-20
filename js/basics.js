@@ -131,9 +131,9 @@ itic_copilot = {};
     // Pretty-prints a subject line.
     itic_copilot.subject_line = function(subject) {
         return ( subject.optional ?
-        ('<b class="quatrimester" style="color:' + QUATRIMESTER_COLORS[0] + '">[OPT]</b>') : 
+        ('<b class="quatrimester" style="color:' + QUATRIMESTER_COLORS[0] + '">[' + t('ui_opt_subject_acronym') + ']</b>') : 
         ('<b class="quatrimester" style="color:' + QUATRIMESTER_COLORS[subject.semester] + '">[Q' + subject.semester + ']</b>') )
-        + ' ' + subject.full_name + ' <i class="grouplist">Grups: ' + subject.groups.join(', ');
+        + ' ' + subject.full_name + ' <i class="grouplist">' + t('ui_groups_name') + ': ' + subject.groups.join(', ') + '.';
     }
 
     // Translations

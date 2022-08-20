@@ -222,13 +222,13 @@ function configure_links (only_variable=false) {
 function render_subjects(subjects) {
     if (subjects.length == 0) return;
 
-    $('.subjects-list').show();
+    $('#subject-list').show();
     $('#no-subjects-placeholder').hide();
 
     itic_copilot.parse_subjects(subjects).then( (parsed_subjects) => {
         // Inserting subjects
         $.each(parsed_subjects, function(i, subject) {
-            $('ul.subjects-list').append('<li>' + itic_copilot.subject_line(subject) + '</li>');
+            $('#subject-list').append('<li>' + itic_copilot.subject_line(subject) + '</li>');
         });
     });
 }
