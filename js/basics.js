@@ -83,6 +83,59 @@ itic_copilot = {};
         });
     }
 
+    // Where subjects is a list of DB subjects
+    // (i.e. [['330215', '8668__10949__330215__Q1__10', '10'], ...]),
+    // it returns them in a ready-to-read way:
+    // [{full_name: "... (see config/subjects.json)", groups: [11, 12]}]
+    itic_copilot.parse_subjects = function (subjects) {
+        return new Promise ( (resolve, reject) => {
+            $.getJSON(browser.runtime.getURL('config/subjects.json'), (subject_info) => {
+                var data = {};
+
+                $.each(subjects, (i, subject) => {
+                    var subject_code = subject[0];
+                    var group = subject[2];
+
+                    if (! (subject_code in data)) {
+                        data[subject_code] = structuredClone(subject_info[subject_code]);
+                        data[subject_code].groups = [group];
+                        return;
+                    }
+
+                    if (group == 10) return;
+
+                    if (data[subject_code].groups.length == 1
+                        && data[subject_code].groups[0] == '10') {
+
+                        data[subject_code].groups = [group];
+                    } else {
+                        data[subject_code].groups.push(group);
+                    }
+                });
+                resolve(Object.values(data));
+            });
+        });
+    }
+
+    const QUATRIMESTER_COLORS = [
+        '#3c7b23', // OPT
+        '#8ad56d', // Q1
+        '#7cd05b', // Q2
+        '#6dcb49', // ...
+        '#5fc438',
+        '#56b233',
+        '#4ea02e',
+        '#458d28'  // Q7
+    ]              // Q8 only has OPT
+
+    // Pretty-prints a subject line.
+    itic_copilot.subject_line = function(subject) {
+        return ( subject.optional ?
+        ('<b class="quatrimester" style="color:' + QUATRIMESTER_COLORS[0] + '">[' + t('ui_opt_subject_acronym') + ']</b>') : 
+        ('<b class="quatrimester" style="color:' + QUATRIMESTER_COLORS[subject.semester] + '">[Q' + subject.semester + ']</b>') )
+        + ' ' + subject.full_name + ' <i class="grouplist">' + t('ui_groups_name') + ': ' + subject.groups.join(', ') + '.';
+    }
+
     // Translations
     itic_copilot.t = browser.i18n.getMessage;
 

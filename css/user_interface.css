@@ -369,3 +369,8 @@ input:checked + .slider:before {
     visibility: visible;
     opacity: 1;
 }
+
+.grouplist {
+    color:darkgrey;
+    font-size:75%;
+}

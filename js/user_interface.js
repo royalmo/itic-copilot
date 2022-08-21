@@ -167,6 +167,8 @@ function load_settings () {
             });
             itic_copilot.log('settings_loaded');
 
+            render_subjects(settings.subjects);
+
             setTimeout(function () {enable_disable_credentials(do_not_save=true);}, 100); 
             resolve();
         });
@@ -214,5 +216,19 @@ function configure_links (only_variable=false) {
             $(this).attr('href', links[$(this).attr('key')]);
         });
         $('button[name="new_schedule"]').attr('href', links["new_schedule"]);
+    });
+}
+
+function render_subjects(subjects) {
+    if (subjects.length == 0) return;
+
+    $('#subject-list').show();
+    $('#no-subjects-placeholder').hide();
+
+    itic_copilot.parse_subjects(subjects).then( (parsed_subjects) => {
+        // Inserting subjects
+        $.each(parsed_subjects, function(i, subject) {
+            $('#subject-list').append('<li>' + itic_copilot.subject_line(subject) + '</li>');
+        });
     });
 }
