@@ -439,6 +439,27 @@
         "description" : "It will be displayed like this: Groups: 11, 12, 13."
     },
 
+    "course_guides_button" : {
+        "message" : "Course guide",
+        "description" : "Links to each subject's course guide."
+    },
+    "course_guides_change_subjects" : {
+        "message" : "Change subjects",
+        "description" : "Button for when we need to change the subjects."
+    },
+    "course_guides_no_subjects" : {
+        "message" : "You don't have any saved subjects. Select your subjects in the button below.",
+        "description" : "Disclaimer encouraging the user to select some subjects."
+    },
+    "course_guides_your_subjects" : {
+        "message" : "Your subjects",
+        "description" : "Title of the 'your subjects' section."
+    },
+    "course_guides_by" : {
+        "message" : "by",
+        "description" : "For the small text 'by iTIC Copilot'. Maybe it shouldn't be translated."
+    },
+
 
 
 

@@ -47,6 +47,18 @@ itic_copilot = {};
         return "Windows";
     })();
 
+    // Load + localize
+    itic_copilot.load_partial = function(relative_path) {
+        return new Promise( (resolve, reject) => {
+            $.ajax(browser.runtime.getURL(relative_path)).done( (content) => { 
+                resolve(content.replace(/__MSG_(\w+)__/g, function(match, v1)
+                {
+                    return v1 ? browser.i18n.getMessage(v1) : "";
+                }));
+            });
+        });
+    };
+
     current_authentification = null
     // Basic auth used in SVNJS
     itic_copilot.get_basic_auth = function(force = false) {
@@ -133,7 +145,7 @@ itic_copilot = {};
         return ( subject.optional ?
         ('<b class="quatrimester" style="color:' + QUATRIMESTER_COLORS[0] + '">[' + t('ui_opt_subject_acronym') + ']</b>') : 
         ('<b class="quatrimester" style="color:' + QUATRIMESTER_COLORS[subject.semester] + '">[Q' + subject.semester + ']</b>') )
-        + ' ' + subject.full_name + ' <i class="grouplist">' + t('ui_groups_name') + ': ' + subject.groups.join(', ') + '.';
+        + ' ' + subject.full_name + ' <i class="grouplist">' + t('ui_groups_name') + ': ' + subject.groups.join(', ') + '.</i>';
     }
 
     // Translations

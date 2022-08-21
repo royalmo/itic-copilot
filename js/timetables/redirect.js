@@ -19,7 +19,7 @@ $(document).ready(function () {
     form = $('#form');
 
     // Adding action URL
-    $.getJSON(browser.runtime.getURL('/config/links.json'), function(links) {
+    $.getJSON(browser.runtime.getURL('config/links.json'), function(links) {
         form.attr('action', links['see_schedule']);
 
         // Adding current subjects

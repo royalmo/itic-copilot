@@ -1,0 +1,57 @@
+<!-- /*
+ * Copyright (C) 2022 Eric Roy
+ *
+ * This program is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published by the Free
+ * Software Foundation, either version 3 of the License, or (at your option)
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+ * more details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * this program. If not, see http://www.gnu.org/licenses/.
+*/ -->
+
+<!-- Partial used in the course guides menu -->
+
+<div style="border:1px solid darkgray; background-color: #f2f5f6;">
+    <div style="margin:20px">
+        <h2 style="font-weight: 500;">__MSG_course_guides_your_subjects__
+            <span style="font-size:14px; font-style:italic;color:gray;">
+                __MSG_course_guides_by__
+                <a style="color:gray;" href="https://github.com/royalmo/itic-copilot">
+                    iTIC Copilot
+                </a>
+            </span>
+        </h2>
+
+        <p id="your-subjects-placeholder">
+            __MSG_course_guides_no_subjects__
+        </p>
+
+        <table style="width: 100%;display: none;" id="your-subjects-table">
+        </table>
+
+        <br/>
+
+        <button class="itic_copilot_btn"
+        onclick="location.href='https://epsem.upc.edu/thor/PG/Grups.php?t=14&setup=true';">
+            __MSG_course_guides_change_subjects__
+        </button>
+    </div>
+</div>
+
+<style>
+    .itic_copilot_btn {
+        border: 2px solid grey;
+    }
+    .itic_copilot_btn:hover {
+        background-color: lightgray;
+    }
+    .grouplist { display:none; }
+</style>
+
+<br/>
