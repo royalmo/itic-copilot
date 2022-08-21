@@ -437,5 +437,26 @@
     "ui_groups_name" : {
         "message" : "Grups",
         "description" : "It will be displayed like this: Groups: 11, 12, 13."
+    },
+
+    "course_guides_button" : {
+        "message" : "Guia docent",
+        "description" : "Links to each subject's course guide."
+    },
+    "course_guides_change_subjects" : {
+        "message" : "Canviar assignatures",
+        "description" : "Button for when we need to change the subjects."
+    },
+    "course_guides_no_subjects" : {
+        "message" : "No tens cap assignatura guardada. Escull les teves assignatures clicant al següent botó.",
+        "description" : "Disclaimer encouraging the user to select some subjects."
+    },
+    "course_guides_your_subjects" : {
+        "message" : "Les teves assignatures",
+        "description" : "Title of the 'your subjects' section."
+    },
+    "course_guides_by" : {
+        "message" : "by",
+        "description" : "For the small text 'by iTIC Copilot'. Maybe it shouldn't be translated."
     }
 }

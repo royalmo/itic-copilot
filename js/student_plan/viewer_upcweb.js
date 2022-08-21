@@ -15,7 +15,7 @@
  * this program. If not, see http://www.gnu.org/licenses/.
 */
 
-(function () {
+(async function () {
     scroll_to_plan = window.location.href.endsWith('#plan');
 
     if (scroll_to_plan) {
@@ -32,4 +32,27 @@
             window.scrollTo({top: offTop, behavior: 'smooth'});
         });
     }
+
+    content = await itic_copilot.load_partial('html/course_guides.html')
+    $('#collapse-images-collapse-curriculum').prepend(content);
+
+    subjects = await itic_copilot.settings.get('subjects').then(s =>
+        itic_copilot.parse_subjects(s)
+    );
+
+    lang = await itic_copilot.settings.get('course_guides.language');
+
+    if (subjects.length == 0) return;
+
+    tablecontent = "";
+
+    $.each(subjects, (i, subject) => {
+        tablecontent += "<tr><td>" + itic_copilot.subject_line(subject)
+        + '<a target="_blank" href="https://www.upc.edu/content/grau/guiadocent/pdf/'
+        + lang + '/' + subject.upc_code + '" style="font-size:80%;font-style:italic;">'
+        + t('course_guides_button') + "</a></td></tr>";
+    });
+
+    $('#your-subjects-placeholder').hide();
+    $('#your-subjects-table').show().append(tablecontent);
 })();
