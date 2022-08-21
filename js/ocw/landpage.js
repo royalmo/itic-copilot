@@ -43,7 +43,7 @@
             tablecontent += '<tr class="ocwnotfound"><td>'
             + itic_copilot.subject_line(subject)
             + '<i style="font-size:80%;color:#007bb1;">'
-            + 'Subject not available in OCW' // TODO + t('ocw_replacer_not_available')
+            + t('ocw_replacer_not_available')
             + "</i></td></tr>";
         }
     });
