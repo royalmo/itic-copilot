@@ -121,6 +121,41 @@
             "css": [
             ],
             "run_at": "document_end"
+        },
+
+        {
+            "matches": [
+                "*://www.epsem.upc.edu/ca/estudis/graus/grau-en-enginyeria-de-sistemes-tic",
+                "*://www.epsem.upc.edu/es/estudios/grados/grado-en-ingenieria-en-sistemas-tic*"
+            ],
+            "all_frames": true,
+            "js": [
+                "include/browser-polyfill.min.js",
+                "include/jquery-3.4.1.min.js",
+                "js/basics.js",
+                "js/settings.js",
+                "js/student_plan/viewer_epsem.js"
+                ],
+            "css": [
+            ],
+            "run_at": "document_end"
+        },
+
+        {
+            "matches": [
+                "*://www.upc.edu/en/bachelors/ict-systems-engineering-manresa-epsem"
+            ],
+            "all_frames": true,
+            "js": [
+                "include/browser-polyfill.min.js",
+                "include/jquery-3.4.1.min.js",
+                "js/basics.js",
+                "js/settings.js",
+                "js/student_plan/viewer_upcweb.js"
+                ],
+            "css": [
+            ],
+            "run_at": "document_end"
         }
     ],
 
