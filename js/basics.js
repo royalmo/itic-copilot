@@ -47,6 +47,18 @@ itic_copilot = {};
         return "Windows";
     })();
 
+    // Load + localize
+    itic_copilot.load_partial = function(relative_path) {
+        return new Promise( (resolve, reject) => {
+            $.ajax(browser.runtime.getURL(relative_path)).done( (content) => { 
+                resolve(content.replace(/__MSG_(\w+)__/g, function(match, v1)
+                {
+                    return v1 ? browser.i18n.getMessage(v1) : "";
+                }));
+            });
+        });
+    };
+
     current_authentification = null
     // Basic auth used in SVNJS
     itic_copilot.get_basic_auth = function(force = false) {

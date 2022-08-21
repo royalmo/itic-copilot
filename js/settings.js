@@ -18,7 +18,7 @@
 (function () {
     const SYNC_SETTINGS_KEY = 'itic_copilot.sync_settings';
     const SAVE_CREDENTIALS_KEY = 'itic_copilot.save_upcnet_credentials';
-    const DEFAULT_SETTINGS_PATH = browser.runtime.getURL('/config/default_settings.json');
+    const DEFAULT_SETTINGS_PATH = browser.runtime.getURL('config/default_settings.json');
 
     const USR_KEY = 'upcnet.username';
     const PTP_KEY = 'upcnet.password'; // Virtual key (isn't in storage)

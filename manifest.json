@@ -27,6 +27,11 @@
         "default_popup": "html/user_interface.html"
     },
 
+    "web_accessible_resources": [
+        "html/*.html",
+        "config/*.json"
+    ],
+
     "content_scripts" : 
     [
         {
