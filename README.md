@@ -27,7 +27,7 @@
 ## What is it?
 
 <p>
-  <img src="https://user-images.githubusercontent.com/49844173/158698760-a9dcbb61-3f0d-4b67-9af2-ef7eed17cdd1.png" alt="Logo iTIC" width=25%" />
+  <img src="https://user-images.githubusercontent.com/49844173/158698760-a9dcbb61-3f0d-4b67-9af2-ef7eed17cdd1.png" alt="Logo iTIC" width=25% />
 </p>
 
 I'm studying an ICT Systems Engineering degree (called also iTIC). During the degree I've found that some tools that we needed to use were a little bit hard to understand at first, or they weren't just as productive as they could be.
