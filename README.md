@@ -54,6 +54,7 @@ This extension makes the browsing experience of iTIC students much, much easier.
 
 ### Better navigation in the OpenCourseWare
 
+- We have added a customizable landing page, so you can access your favourite subjects easily.
 - It disables the 'forced download' when accessing some files. Specially, the PDF's, that with the extension are opened with the browser.
 - It has a 'download subject' option, that creates a `.zip` file with all the resources of a subject, to make massive downloads easier.
 - The same occurs when downloading a folder inside a subject, or when downloading an entire quatrimester.
@@ -61,19 +62,25 @@ This extension makes the browsing experience of iTIC students much, much easier.
 
 ### Escriny (iTIC's OpenProject) productivity
 
-Work in progress. For the moment, there's nothing here.
+- We have created a Subversion web client. This means that you can edit, create, and delete files and folders from Escriny's website! Isn't that a dream?
+- We have also added a custom landing page, with your private projects (those are the ones that you will usually work on).
 
 ### Atenea (iTIC's Moodle) productivity
 
 Work in progress. For the moment, there's nothing here.
 
-### Other websites
+### Subject saver
 
-Work in progress. For the moment, there's nothing here.
+You can save your subjects and groups. This will make some features available:
+
+- You can see your updated timetable with a single click (you don't have to select the groups each time).
+- You can easily access your subject's course guides, with a small menu we created.
+- The OpenCourseWare's landing page has a more precise information.
 
 ## Usage
 
-For the moment, there isn't any user interface, so just head into some of the iTIC websites (like the [OCW](https://ocwitic.epsem.upc.edu)) and look for the new buttons nested in the rendered website.
+The extension has a nice User Interface, in witch settings can be changed, and the main websites visited through the degree are available.
+Just open it and check every link!
 
 ## Manual instalation
 
