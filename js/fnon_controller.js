@@ -21,7 +21,7 @@ itic_copilot.fnon = {};
 
     __html_template = '<p style="font-size:20px;color:#2841b5;" align="center"><strong>{0}</strong></p> <br/>\
                     <div id="fnon_content"></div> <br/>\
-                    <a class="fnon_kill_wait" style="color:red;background:lightyellow;" href="#"><strong><em>' + 
+                    <a class="fnon_kill_wait" style="color:red;background:lightyellow;"href="javascript:void(0)"><strong><em>' + 
                     t("ocw_downloader_cancel") + '</strong></em></a>';
 
     __wait_active = false;

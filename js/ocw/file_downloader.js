@@ -26,6 +26,8 @@ This file contains the methods needed to download a group of files (foler, subje
     LINK_TEMPLATE_LINUX   = '[Desktop Entry]\nEncoding=UTF-8\nName={1}\nType=Link\nURL={0}'
     LINK_TEMPLATE_MACOS   = '<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">\n<plist version="1.0">\n<dict>\n    <key>URL</key>\n    <string>{0}</string>\n</dict>\n</plist>\n';
 
+    // Exporting the function so it can be used in landpage.js
+    itic_copilot.ocw.download_folder_recursive = download_folder_recursive;
 
     itic_copilot.ocw.link_download_buttons = function() {
         $(function() {
