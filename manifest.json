@@ -162,6 +162,21 @@
             "css": [
             ],
             "run_at": "document_end"
+        },
+
+        {
+            "matches": ["*://escriny.epsem.upc.edu/"],
+            "all_frames": true,
+            "js": [
+                "include/browser-polyfill.min.js",
+                "include/jquery-3.4.1.min.js",
+                "js/basics.js",
+                "js/settings.js",
+                "js/escriny/landpage.js"
+                ],
+            "css": [
+            ],
+            "run_at": "document_end"
         }
     ],
 

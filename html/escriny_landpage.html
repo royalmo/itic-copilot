@@ -1,0 +1,52 @@
+<!-- /*
+ * Copyright (C) 2022 Eric Roy
+ *
+ * This program is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published by the Free
+ * Software Foundation, either version 3 of the License, or (at your option)
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+ * more details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * this program. If not, see http://www.gnu.org/licenses/.
+*/ -->
+
+<!-- Partial used in escriny's landing page -->
+
+<h3 class="widget-box--header">
+    <i class="icon-star" aria-hidden="true"></i>
+    <span class="widget-box--header-title">
+        __MSG_escriny_your_projects__
+        <i class="smallgray">
+            __MSG_course_guides_by__
+            <a style="color:gray" href="https://github.com/royalmo/itic-copilot">
+                iTIC Copilot
+            </a>
+        </i>
+    </span>
+</h3>
+
+<p class="widget-box--additional-info">__MSG_escriny_your_projects_description__</p>
+
+<p id="copilot_private_repos_placeholder" class="smallgray">__MSG_escriny_your_projects_loading__</p>
+
+<p id="copilot_no_repos" class="smallgray" style="display: none;">__MSG_escriny_your_projects_none__</p>
+
+<ul id="copilot_private_repos" class="widget-box--arrow-links" style="display: none;">
+</ul>
+
+<style>
+    .smallgray {
+        font-style: italic;
+        font-size: 12px;
+        color: gray;
+    }
+</style>
+
+<iframe src="https://escriny.epsem.upc.edu/projects?sortBy=%5B%5B%22is_public%22%2C%22asc%22%5D%5D"
+   style="display:none;" title="private projects viewer" id="private_projects_iframe">
+</iframe>

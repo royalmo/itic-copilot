@@ -468,6 +468,23 @@
         "description" : "For the small text 'by iTIC Copilot'. Maybe it shouldn't be translated."
     },
 
+    "escriny_your_projects" : {
+        "message" : "Your projects",
+        "description" : "Title for the private projects section on escriny's landing page."
+    },
+    "escriny_your_projects_description" : {
+        "message" : "Private repositories you have access to.",
+        "description" : "Small description for private projects section on escriny's landing page."
+    },
+    "escriny_your_projects_loading" : {
+        "message" : "Loading ...",
+        "description" : "Placeholder for when some content is being loaded."
+    },
+    "escriny_your_projects_none" : {
+        "message" : "You still haven't got any private projects.",
+        "description" : "Placeholder for when there isn't any private projects yet."
+    },
+
 
 
 

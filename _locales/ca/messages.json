@@ -466,5 +466,22 @@
     "course_guides_by" : {
         "message" : "by",
         "description" : "For the small text 'by iTIC Copilot'. Maybe it shouldn't be translated."
+    },
+
+    "escriny_your_projects" : {
+        "message" : "Els teus projectes",
+        "description" : "Title for the private projects section on escriny's landing page."
+    },
+    "escriny_your_projects_description" : {
+        "message" : "Repositoris privats als quals hi tens accés.",
+        "description" : "Small description for private projects section on escriny's landing page."
+    },
+    "escriny_your_projects_loading" : {
+        "message" : "Carregant ...",
+        "description" : "Placeholder for when some content is being loaded."
+    },
+    "escriny_your_projects_none" : {
+        "message" : "Encara no tens projectes privats.",
+        "description" : "Placeholder for when there isn't any private projects yet."
     }
 }
