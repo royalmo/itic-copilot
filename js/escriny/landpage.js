@@ -16,34 +16,24 @@
 */
 
 (async function () {
-
-    const PRIVATE_PROJECTS_REPO = 'https://escriny.epsem.upc.edu/projects?sortBy=%5B%5B%22is_public%22%2C%22asc%22%5D%5D';
-
     var content = await itic_copilot.load_partial('html/escriny_landpage.html');
 
     $('.homescreen--links, .widget-box.news, .widget-box.upsale').remove();
     $('.widget-box.new_features').html(content);
 
-    $.ajax({
-        url: PRIVATE_PROJECTS_REPO,
-        //cache: false,
-        beforeSend: function(request) {
-            request.setRequestHeader("Cache-Control", "max-age=0");
-            request.setRequestHeader("Sec-Fetch-Dest", "document");
-            request.setRequestHeader("Sec-Fetch-Mode", "navigate");
-            request.setRequestHeader("Sec-Fetch-User", "?1");
-            request.setRequestHeader("Upgrade-Insecure-Requests", "1");
-            request.setRequestHeader("X-Requested-With", "");
-          },
-        method: 'get'
-    }).done( (data) => {
+    $('#private_projects_iframe').on("load", function() {
+
+        // Getting iframe data
+        var iframe = document.getElementById('private_projects_iframe');
+        var data = iframe.contentDocument || iframe.contentWindow.document;
+
         $('#copilot_private_repos_placeholder').hide();
 
         // Parsing
         var tbody= jQuery(data).find("tbody");
 
         // Checking if there is at leas one private repo
-        if (tbody.firstChild().find('.icon-context.icon-checkmark').length == 1) {
+        if (tbody.first().find('.icon-context.icon-checkmark').length == 1) {
             $('#copilot_no_repos').show();
             return;
         }
