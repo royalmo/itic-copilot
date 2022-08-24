@@ -16,8 +16,8 @@
 */
 
 (async function () {
-    if (window.location.href != "https://ocwitic.epsem.upc.edu/"  // TODO '#'
-    || (! await itic_copilot.settings.get('ocw.show_landpage'))) return;
+    if (! (/https?:\/\/(www\.)?ocwitic\.epsem\.upc\.edu(\/$|(\/#)|\/\?|$)/gm.test(window.location.href)
+    && await itic_copilot.settings.get('ocw.show_landpage'))) return;
 
     content = await itic_copilot.load_partial('html/ocw_landpage.html')
     $('#main-container').html(content);
