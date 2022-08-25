@@ -19,12 +19,15 @@
     if (! await itic_copilot.settings.get('itic_copilot.easter_eggs')) return;
 
     // 5% chance
-    if (Math.random() > 0.05) return;
+    // if (Math.random() > 0.05) return;
 
     const allInBody = document.querySelectorAll('*');
     for (const element of allInBody) {
         element.style.marginLeft = Math.floor(Math.random() * 30 - 5) + "px";
         element.style.marginTop = Math.floor(Math.random() * 10) + "px";
+        element.style.color = '#' + Math.floor(Math.random()*16777215).toString(16);
+        // This one was a little bit too much xD
+        // element.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
     }
 
     $('img[src="https://ocwitic.epsem.upc.edu/@@site-logo/logo.png"]')
