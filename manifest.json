@@ -29,7 +29,8 @@
 
     "web_accessible_resources": [
         "html/*.html",
-        "config/*.json"
+        "config/*.json",
+        "assets/*"
     ],
 
     "content_scripts" : 
@@ -51,7 +52,8 @@
                 "js/ocw/html_replacer.js",
                 "js/ocw/tree.js",
                 "js/ocw/file_downloader.js",
-                "js/ocw/landpage.js"
+                "js/ocw/landpage.js",
+                "js/ocw/easter_egg.js"
                 ],
             "css": [
                 "include/fnon.min.css"
