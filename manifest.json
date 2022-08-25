@@ -177,6 +177,21 @@
             "css": [
             ],
             "run_at": "document_end"
+        },
+        {
+            "matches": ["*://epsem.upc.edu/thor/PG/Horari.php"],
+            "all_frames": true,
+            "js": [
+                "include/browser-polyfill.min.js",
+                "include/jquery-3.4.1.min.js",
+                "include/fnon.min.js",
+                "js/basics.js",
+                "js/settings.js",
+                "js/timetables/easter_egg.js"
+                ],
+            "css": [
+            ],
+            "run_at": "document_end"
         }
     ],
 
