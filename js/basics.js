@@ -151,6 +151,27 @@ itic_copilot = {};
     // Translations
     itic_copilot.t = browser.i18n.getMessage;
 
+    // https://stackoverflow.com/a/61511955/9643618
+    itic_copilot.waitForElm = function(selector) {
+        return new Promise(resolve => {
+            if (document.querySelector(selector)) {
+                return resolve(document.querySelector(selector));
+            }
+    
+            const observer = new MutationObserver(mutations => {
+                if (document.querySelector(selector)) {
+                    resolve(document.querySelector(selector));
+                    observer.disconnect();
+                }
+            });
+    
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true
+            });
+        });
+    }
+
 })();
 
 // We make translations easier to read.
