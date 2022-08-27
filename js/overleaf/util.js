@@ -17,7 +17,8 @@
 
 (async function () {
     // We do nothing in the projects menu.
-    if (window.location.href.endsWith('/project/')) return;
+    if (window.location.href.endsWith('/project/')
+        || window.location.href.endsWith('/detached')) return;
 
     // Waiting for page load (it could be any elemment)
     await itic_copilot.waitForElm('.formatting-btn');
@@ -26,4 +27,6 @@
     $('.formatting-btn').click(function () {
         $('.symbol-palette-overlay').remove();
     });
+
+    
 })();
