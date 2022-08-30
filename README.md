@@ -34,6 +34,16 @@ I'm studying an ICT Systems Engineering degree (called also iTIC). During the de
 
 That's why I created a browser extension that could, at least, try to make the navigation experience better. It is available on all the browsers that let users publish their extensions without having to be rich.
 
+### Screenshots
+
+<p>
+  <img src="https://user-images.githubusercontent.com/49844173/186610518-3de8a1cb-f065-42b5-adf2-f6c88851f29c.PNG" alt="Slide 1" width=45% />
+  <img src="https://user-images.githubusercontent.com/49844173/186610537-f7260a55-fa98-44ae-999a-ff955bc73e31.PNG" alt="Slide 2" width=45% />
+  <img src="https://user-images.githubusercontent.com/49844173/186610553-95c65eb7-8d23-458e-afec-caa36d198b6f.PNG" alt="Slide 3" width=30% />
+  <img src="https://user-images.githubusercontent.com/49844173/186610560-89110751-153d-4db4-bb00-c07b4d7037f1.PNG" alt="Slide 4" width=30% />
+  <img src="https://user-images.githubusercontent.com/49844173/186610567-7de1be6d-c0ca-41a1-a2f5-eec489e2913a.PNG" alt="Slide 5" width=30% />
+</p>
+
 ### Extension's public description
 
 If you are an ICT Systems Student at EPSEM, the iTIC Copilot browser extension is a "must have".
