@@ -16,6 +16,8 @@
 */
 
 (async function () {
+    if (! await itic_copilot.settings.get('escriny.show_landpage')) return;
+
     var content = await itic_copilot.load_partial('html/escriny_landpage.html');
 
     $('.homescreen--links, .widget-box.news, .widget-box.upsale').remove();

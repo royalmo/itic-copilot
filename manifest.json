@@ -1,7 +1,7 @@
 {
     "name": "__MSG_extension_name__",
     "description": "__MSG_extension_description__",
-    "version": "1.7.1",
+    "version": "1.8.1",
     "manifest_version": 2,
     "author" : "Eric Roy",
     "default_locale" : "en",
@@ -20,7 +20,9 @@
     },
 
     "permissions": [
-        "storage"
+        "storage",
+        "*://*.upc.edu/*",
+        "*://www.overleaf.com/*"
     ],
 
     "browser_action": {
@@ -29,7 +31,8 @@
 
     "web_accessible_resources": [
         "html/*.html",
-        "config/*.json"
+        "config/*.json",
+        "assets/*"
     ],
 
     "content_scripts" : 
@@ -51,7 +54,8 @@
                 "js/ocw/html_replacer.js",
                 "js/ocw/tree.js",
                 "js/ocw/file_downloader.js",
-                "js/ocw/landpage.js"
+                "js/ocw/landpage.js",
+                "js/ocw/easter_egg.js"
                 ],
             "css": [
                 "include/fnon.min.css"
@@ -172,7 +176,23 @@
                 "include/jquery-3.4.1.min.js",
                 "js/basics.js",
                 "js/settings.js",
-                "js/escriny/landpage.js"
+                "js/escriny/landpage.js",
+                "js/escriny/easter_egg.js"
+                ],
+            "css": [
+            ],
+            "run_at": "document_end"
+        },
+        {
+            "matches": ["*://epsem.upc.edu/thor/PG/Horari.php"],
+            "all_frames": true,
+            "js": [
+                "include/browser-polyfill.min.js",
+                "include/jquery-3.4.1.min.js",
+                "include/fnon.min.js",
+                "js/basics.js",
+                "js/settings.js",
+                "js/timetables/easter_egg.js"
                 ],
             "css": [
             ],

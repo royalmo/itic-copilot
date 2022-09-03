@@ -348,6 +348,10 @@
         "message" : "Editar fitxers al navegador amb commits",
         "description" : "Option to permit the edition of files on the escriny website."
     },
+    "ui_settings_escriny_show_landpage" : {
+        "message" : "Mostrar inici personalitzat",
+        "description" : "Option to show a customized landing page on escriny's website."
+    },
     "ui_settings_reset_schedule" : {
         "message" : "Canviar horaris",
         "description" : "Button used to choose another set of subjects."
