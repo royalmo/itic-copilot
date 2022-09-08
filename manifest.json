@@ -205,6 +205,8 @@
             "js": [
                 "include/browser-polyfill.min.js",
                 "include/jquery-3.4.1.min.js",
+                "include/jszip.min.js",
+                "include/jszip-utils.min.js",
                 "js/basics.js",
                 "js/settings.js",
                 "js/overleaf/util.js"

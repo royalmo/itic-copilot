@@ -30,7 +30,23 @@
 
     $('.online-users').after('<div class="toolbar-item"><button id="copilot_escriny_commit" class="btn btn-full-height"><i class="fa fa-upload fa-fw"></i><p class="toolbar-label">Commit on escriny</p></button></div>');
 
-    $('#copilot_escriny_commit').click( function () {
+    $('#copilot_escriny_commit').click(async function () {
+
+        data = await new JSZip.external.Promise(function (resolve, reject) {
+            JSZipUtils.getBinaryContent( window.location.href + '/download/zip', function(err, data) {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(data);
+                }
+            });
+        })
+        zip = await JSZip.loadAsync(data);
+
+        texts = zip.file(/^.+\.tex$/);
+        tex = await texts[0].async("string");
+
+        console.log(tex);
 
     });
 })();
