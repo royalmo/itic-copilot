@@ -207,11 +207,15 @@
                 "include/jquery-3.4.1.min.js",
                 "include/jszip.min.js",
                 "include/jszip-utils.min.js",
+                "include/fnon.min.js",
+                "include/svnjs.min.js",
                 "js/basics.js",
                 "js/settings.js",
+                "js/fnon_controller.js",
                 "js/overleaf/util.js"
                 ],
             "css": [
+                "include/fnon.min.css"
             ],
             "run_at": "document_end"
         }
