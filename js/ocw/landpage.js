@@ -72,6 +72,8 @@
 
         // Creating File Tree
         tree = new itic_copilot.tree.OcwTree(link, subject_name);
-        itic_copilot.ocw.download_folder_recursive(tree.root);
+        itic_copilot.ocw.download_folder_recursive(tree.root).then(
+            itic_copilot.ocw.download_folder_continuation
+        );
     })
 })();
