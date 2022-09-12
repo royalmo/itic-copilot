@@ -33,6 +33,10 @@ p {
     margin-left: 10%;
 }
 
+p.subtitle {
+    font-size: 11.5px;
+}
+
 h2 {
     margin-left: 10%;
     font-size: 1.0rem;
