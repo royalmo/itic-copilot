@@ -34,10 +34,12 @@
 
     $.each(subjects, (i, subject) => {
         if (subject.ocw_name) {
-            tablecontent += '<tr class="ocwsubject" subj="'
-            + subject.ocw_name + '"><td>' + itic_copilot.subject_line(subject)
-            + '<a href="javascript:void(0)" style="font-size:80%;font-style:italic;">'
-            + t('ocw_replacer_download_all') + "</a></td></tr>";
+            tablecontent += '<tr class="ocwsubject"><td><a ' +
+            'class="copilot_landpage_link" ' + 
+            'href="https://ocwitic.epsem.upc.edu/assignatures/' + 
+            subject.ocw_name + '">' + itic_copilot.subject_line(subject) +
+            '<button onclick="return false;" class="download_subject_landpage">'
+            + t('ocw_replacer_download_all') + "</button></a></td></tr>";
         }
         else {
             tablecontent += '<tr class="ocwnotfound"><td>'
@@ -51,16 +53,8 @@
     $('#your-subjects-placeholder').hide();
     $('#your-subjects-table').show().append(tablecontent);
 
-    $('.ocwsubject').click(function(e) {
-        subj_ocw_code = $(e.target).closest("tr").attr('subj');
-        link = "https://ocwitic.epsem.upc.edu/assignatures/" + subj_ocw_code;
-
-        if (e.target.localName != 'a') { // View subject
-            window.location.href = link;
-            return;
-        }
-
-        // Download subject
+    $('.download_subject_landpage').click(function(e) {
+        link = $(e.target).parent().attr('href');
 
         // https://stackoverflow.com/a/8851526/9643618
         subject_name = $(e.target).parent().clone().children()
