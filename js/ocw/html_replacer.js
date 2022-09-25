@@ -26,7 +26,9 @@ itic_copilot.ocw = {};
     for (i = 0; i<links.length; i++) {
 
         // Removing fored download
-        if (links[i].href.includes("@@download")) {
+        if (links[i].href.includes("@@download") &&
+        !links[i].children[0].src.endsWith("++resource++mimetype.icons/text.png")) {
+            console.log(links[i].children[0].src);
             links[i].parentElement.innerHTML = links[i].parentElement.innerHTML
             + '<a class="copilot_file_view" href="'
             + links[i].href.replace("@@download", "@@display-file")
@@ -50,7 +52,8 @@ itic_copilot.ocw = {};
         if (!spans[i].classList.contains('summary')) continue;
 
         // Extra view links to file (on menu)
-        if (spans[i].children[0].classList.contains('contenttype-file')) {
+        if (spans[i].children[0].classList.contains('contenttype-file') &&
+        !spans[i].children[0].children[0].src.endsWith("++resource++mimetype.icons/text.png")) {
             spans[i].innerHTML = spans[i].innerHTML
             + '<a class="copilot_file_view" href = "'
             + spans[i].children[0].href.replace('/view', '')
