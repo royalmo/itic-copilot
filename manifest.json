@@ -197,6 +197,20 @@
             "css": [
             ],
             "run_at": "document_end"
+        },
+        {
+            "matches": ["*://atenea.upc.edu/*"],
+            "all_frames": true,
+            "js": [
+                "include/browser-polyfill.min.js",
+                "include/jquery-3.4.1.min.js",
+                "js/basics.js",
+                "js/settings.js",
+                "js/atenea/session_extender.js"
+                ],
+            "css": [
+            ],
+            "run_at": "document_end"
         }
     ],
 

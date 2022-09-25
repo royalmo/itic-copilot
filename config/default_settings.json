@@ -6,6 +6,8 @@
     "upcnet.username" : null,
     "upcnet.encrypted" : null,
 
+    "atenea.extend_session" : true,
+
     "ocw.show_links" : true,
     "ocw.show_landpage" : true,
 
