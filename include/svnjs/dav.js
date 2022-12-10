@@ -479,7 +479,7 @@ Dav.prototype = {
         var date = new Date();
         var time = this._getTime();
         txtnode.style.color = color;
-        txtnode.innerHTML = time + ' ==> ' + str;
+        txtnode.textContent = time + ' ==> ' + str;
         Dav.console.appendChild(txtnode);
     },
     _getTime: function () {
@@ -527,7 +527,7 @@ Dav.prototype = {
         'font-size:12px;height:', h, 'px;display:none;'
     ].join('');
     var btn = document.createElement('button');
-    btn.innerHTML = 'Hide';
+    btn.textContent = 'Hide';
     div.appendChild(btn);
     btn.onclick = function () {
         div.style.display = 'none';

@@ -56,7 +56,7 @@ itic_copilot.fnon = {};
     }
 
     itic_copilot.fnon.update_wait = function (content) {
-        document.getElementById('fnon_content').innerHTML = '<p style="font-size:16px;color:#1f7dde;" align="center"><em>' + content + '</em></p>';
+        document.getElementById('fnon_content').textContent = '<p style="font-size:16px;color:#1f7dde;" align="center"><em>' + content + '</em></p>';
     }
 
     itic_copilot.fnon.alert = function (message, title, okey=t("ocw_downloader_close"), autoremove=true) {

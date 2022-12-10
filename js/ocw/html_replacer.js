@@ -29,7 +29,7 @@ itic_copilot.ocw = {};
         if (links[i].href.includes("@@download") &&
         !links[i].children[0].src.endsWith("++resource++mimetype.icons/text.png")) {
             console.log(links[i].children[0].src);
-            links[i].parentElement.innerHTML = links[i].parentElement.innerHTML
+            links[i].parentElement.textContent = links[i].parentElement.innerHTML
             + '<a class="copilot_file_view" href="'
             + links[i].href.replace("@@download", "@@display-file")
             + '" style="display:none;color:grey;font-size:10px">[<em>'
@@ -39,7 +39,7 @@ itic_copilot.ocw = {};
         // Add download to all if we are seeing a folder
         if (links[i].classList.contains('navTreeCurrentItem')
         && links[i].classList.contains('contenttype-folder')) {
-            document.getElementById('viewlet-below-content-title').innerHTML +=
+            document.getElementById('viewlet-below-content-title').textContent +=
             '<p><a class="copilot_download_folder" style="display:none;'
             + 'color:#007bb1;font-size:13px;" href="javascript:void(0)"> [<em>'
             + t('ocw_replacer_download_all') + '</em>]</a></p><br/>';
@@ -54,7 +54,7 @@ itic_copilot.ocw = {};
         // Extra view links to file (on menu)
         if (spans[i].children[0].classList.contains('contenttype-file') &&
         !spans[i].children[0].children[0].src.endsWith("++resource++mimetype.icons/text.png")) {
-            spans[i].innerHTML = spans[i].innerHTML
+            spans[i].textContent = spans[i].innerHTML
             + '<a class="copilot_file_view" href = "'
             + spans[i].children[0].href.replace('/view', '')
             + '" style="display:none;color:grey;font-size:10px">[<em>'
@@ -63,7 +63,7 @@ itic_copilot.ocw = {};
 
         // Download entire subject (on menu)
         if (spans[i].children[0].classList.contains('contenttype-assignatura')) {
-            spans[i].innerHTML = spans[i].innerHTML
+            spans[i].textContent = spans[i].innerHTML
             + '<a class="copilot_download_subject" style="display:none;'
             + 'color:#2F4F4F; font-size:10px;" href="javascript:void(0)"> [<em>'
             + t('ocw_replacer_download_all') + '</em>]</a>';
@@ -76,7 +76,7 @@ itic_copilot.ocw = {};
     for (i = 0; i<subjects.length; i++) {
         if (! subjects[i].classList.contains('doormatSectionBody')) continue;
 
-        subjects[i].innerHTML = subjects[i].innerHTML
+        subjects[i].textContent = subjects[i].innerHTML
         + '<a class="copilot_download_subject" style="display:none;'
         + 'color:#2F4F4F; font-size:10px;" href="javascript:void(0)"> [<em>' 
         + t('ocw_replacer_download_all') + '</em>]</a>';
@@ -88,7 +88,7 @@ itic_copilot.ocw = {};
     for (i = 0; i<quadrimesters.length; i++) {
         if (!quadrimesters[i].classList.contains('doormatSectionHeader')) continue;
 
-        quadrimesters[i].innerHTML = quadrimesters[i].innerHTML
+        quadrimesters[i].textContent = quadrimesters[i].innerHTML
         + '<a class="copilot_download_quadrimester" style="display:none;'
         + 'color:#bfbbb2;font-size:10px;" href="javascript:void(0)"> [<em>'
         + t('ocw_replacer_download_all') + '</em>]</a>';

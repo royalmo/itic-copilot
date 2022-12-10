@@ -16,7 +16,7 @@ function localizeHtmlPage()
 
         if(valNewH != valStrH)
         {
-            obj.innerHTML = valNewH;
+            obj.textContent = valNewH;
         }
     }
 }
