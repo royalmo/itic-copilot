@@ -65,11 +65,10 @@
         });
 
         $('.f__btn[data-evt="tr"]').click(async function () {
-            console.log(repository_id);
             repository_url = 'https://escriny.epsem.upc.edu/svn/' + repository_id;
             auth = await itic_copilot.get_basic_auth();
             // SVNJS 0.1.0
-            var svn = new SVN(auth, repository_url);
+            var svn = new SVN(auth, repository_url, backgroundAjax=true);
             svn.add(file_path, file_contents);
             svn.commit(commit_message, function () {
                 itic_copilot.fnon.alert(

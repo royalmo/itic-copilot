@@ -1,6 +1,7 @@
-var Dav = function (auth, base) {
+var Dav = function (auth, base, backgroundAjax) {
     this.auth = 'Basic ' + auth;
     this.base = base;
+    this.backgroundAjax = backgroundAjax;
     this.host = this.base.split('/', 3).join('/');
 };
 
@@ -57,6 +58,26 @@ Dav.prototype = {
 
     request : function (options) {
         var self = this;
+
+        // Without this it fails in firefox
+        if (!options.path.startsWith(self.host))
+            options.path = self.host + options.path;
+
+        if (self.backgroundAjax) {
+            chrome.runtime.sendMessage({
+                contentScriptQuery: "SVNJSrequest",
+                options: options, self: self
+            })
+            .then(response => {
+                console.log(response);
+                var stat = response.status.toString();
+                var cont = response.body;
+                var statstr = STATUS_CODES[stat];
+                options.handler && options.handler(stat, statstr, cont);
+            });
+            return;
+        }
+
         var xhr = self._getXMLHttp();
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4) {
@@ -68,10 +89,6 @@ Dav.prototype = {
                 xhr = null;
             }
         };
-
-        // Without this it fails in firefox
-        if (!options.path.startsWith(self.host))
-            options.path = self.host + options.path;
 
         xhr.open(options.type, options.path, true);
         if (!options.noAuth) {

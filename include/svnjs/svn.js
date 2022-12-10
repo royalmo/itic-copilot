@@ -1,6 +1,6 @@
-this.SVN = function (auth, base) {
+this.SVN = function (auth, base, backgroundAjax=false) {
     //var auth = btoa(usname + ':' + passwd);
-    this.dav = new Dav(auth, base);
+    this.dav = new Dav(auth, base, backgroundAjax);
     this.handlers = [];
 };
 this.SVN.prototype = {
