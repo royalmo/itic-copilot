@@ -1,8 +1,8 @@
 {
     "name": "__MSG_extension_name__",
     "description": "__MSG_extension_description__",
-    "version": "1.8.3",
-    "manifest_version": 2,
+    "version": "1.9",
+    "manifest_version": 3,
     "author" : "Eric Roy",
     "default_locale" : "en",
 
@@ -14,25 +14,33 @@
     },
 
     "background": {
-        "scripts": [
-            "js/background.js"
-        ]
+        "service_worker": "js/background.js"
     },
 
     "permissions": [
-        "storage",
+        "storage"
+    ],
+
+    "host_permissions": [
         "*://*.upc.edu/*",
         "*://www.overleaf.com/*"
     ],
 
-    "browser_action": {
+    "action": {
         "default_popup": "html/user_interface.html"
     },
 
     "web_accessible_resources": [
-        "html/*.html",
-        "config/*.json",
-        "assets/*"
+        {
+            "resources": [
+                "html/*.html",
+                "config/*.json",
+                "assets/*"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
     ],
 
     "content_scripts" : 
