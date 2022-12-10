@@ -353,7 +353,7 @@
         "description" : "Option to show a customized landing page on escriny's website."
     },
     "ui_settings_overleaf_commit_to_escriny" : {
-        "message" : "Permitir commits del main.tex a escriny",
+        "message" : "Permitir commits de LaTeX a escriny",
         "description" : "Option to enable a 'Commit to escriny' button on overleaf's website."
     },
     "ui_settings_reset_schedule" : {
@@ -491,5 +491,38 @@
     "escriny_your_projects_none" : {
         "message" : "Todavía no tienes proyectos privados.",
         "description" : "Placeholder for when there isn't any private projects yet."
+    },
+
+    "overleaf_commit_to_escriny" : {
+        "message" : "Commit a Escriny",
+        "description" : "Button that appears on the header bar of overleaf's GUI."
+    },
+    "overleaf_no_tex_title" : {
+        "message" : "No hay archivo TEX",
+        "description" : "Title of an error when attempting to commit."
+    },
+    "overleaf_no_tex_description" : {
+        "message" : "No se ha encontrado ningún archivo .tex en este proyecto.",
+        "description" : "Description of the error when attempting to commit."
+    },
+    "overleaf_bad_auth_or_path" : {
+        "message" : "Ha ocurrido un error durante el commit. Comprueba los datos introducidos.",
+        "description" : "Error message when the first request fails."
+    },
+    "overleaf_repo_name_prompt" : {
+        "message" : "Nombre del repositorio de Escriny",
+        "description" : "Text for the repo name prompt on Overleaf."
+    },
+    "overleaf_file_path_prompt" : {
+        "message" : "Nombre y ubicación del archivo (si no existe se va a crear)",
+        "description" : "Text for the filename prompt on Overleaf."
+    },
+    "overleaf_commit_message_prompt" : {
+        "message" : "Mensaje para el commit (opcional)",
+        "description" : "Text for the commit message prompt on Overleaf."
+    },
+    "overleaf_example_text" : {
+        "message" : "Ejemplo",
+        "description" : "Small caption on every prompt on Overleaf showing examples."
     }
 }

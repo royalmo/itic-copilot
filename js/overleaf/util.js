@@ -30,13 +30,13 @@
         $('.symbol-palette-overlay').remove();
     });
 
-    $('.online-users').after('<div class="toolbar-item"><button id="copilot_escriny_commit" class="btn btn-full-height"><i class="fa fa-upload fa-fw"></i><p class="toolbar-label">Commit on escriny</p></button></div>');
+    $('.online-users').after('<div class="toolbar-item"><button id="copilot_escriny_commit" class="btn btn-full-height"><i class="fa fa-upload fa-fw"></i><p class="toolbar-label">' + t('overleaf_commit_to_escriny') +'</p></button></div>');
 
     $('#copilot_escriny_commit').click(async function () {
     
-        itic_copilot.fnon.confirm("Commit on Escriny",
+        itic_copilot.fnon.confirm(t("overleaf_commit_to_escriny"),
             await itic_copilot.load_partial("html/commit_menu.html"),
-            "Commit", "Cancel", function(){}
+            t("escriny_commit_title"), t("ocw_downloader_cancel"), function(){}
         );
 
         data = await new JSZip.external.Promise(function (resolve, reject) {
@@ -53,7 +53,7 @@
 
         if (texts.length == 0) {
             $('.f__btn').first().click();
-            itic_copilot.fnon.alert("No TEX file found on the project.", "No TEX file found");
+            itic_copilot.fnon.alert(t("overleaf_no_tex_description"), t("overleaf_no_tex_title"));
             return;
         }
 
@@ -78,9 +78,9 @@
                     t('escriny_commit_completed_title')
                 );
             },  function () {
-                itic_copilot.fnon.alert( // TODO make pretty errors
+                itic_copilot.fnon.alert(
                     t('log_ocw_error_download'),
-                    t('ocw_downloader_error')
+                    t('overleaf_bad_auth_or_path')
                 );
             });
         });
