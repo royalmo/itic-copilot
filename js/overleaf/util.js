@@ -75,6 +75,11 @@
                     t('escriny_commit_completed_text'),
                     t('escriny_commit_completed_title')
                 );
+            },  function () {
+                itic_copilot.fnon.alert( // TODO make pretty errors
+                    t('log_ocw_error_download'),
+                    t('ocw_downloader_error')
+                );
             });
         });
     });

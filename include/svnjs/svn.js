@@ -64,6 +64,9 @@ this.SVN.prototype = {
                 else
                     self.err && self.err();
             });
+        }, () => {
+            console.error("SVNJS: Wrong repository ID or credentials (401 Unauthorized).");
+            self.err && self.err();
         });
     },
     log: function () {
