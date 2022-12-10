@@ -17,6 +17,10 @@
         "service_worker": "js/background.js"
     },
 
+    "background_firefox": {
+        "scripts": ["js/background.js"]
+    },
+
     "permissions": [
         "storage"
     ],

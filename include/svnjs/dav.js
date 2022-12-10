@@ -66,10 +66,10 @@ Dav.prototype = {
         if (self.backgroundAjax) {
             chrome.runtime.sendMessage({
                 contentScriptQuery: "SVNJSrequest",
-                options: options, self: self
+                options: JSON.parse(JSON.stringify(options)),
+                self: JSON.parse(JSON.stringify(self))
             })
             .then(response => {
-                console.log(response);
                 var stat = response.status.toString();
                 var cont = response.body;
                 var statstr = STATUS_CODES[stat];
