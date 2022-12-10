@@ -352,6 +352,10 @@
         "message" : "Mostrar inici personalitzat",
         "description" : "Option to show a customized landing page on escriny's website."
     },
+    "ui_settings_overleaf_commit_to_escriny" : {
+        "message" : "Fes commits del main.tex a escriny",
+        "description" : "Option to enable a 'Commit to escriny' button on overleaf's website."
+    },
     "ui_settings_reset_schedule" : {
         "message" : "Canviar horaris",
         "description" : "Button used to choose another set of subjects."

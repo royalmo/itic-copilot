@@ -20,6 +20,8 @@
     if (window.location.href.endsWith('/project/')
         || window.location.href.endsWith('/detached')) return;
 
+    if (! await itic_copilot.settings.get("overleaf.commit_to_escriny")) return;
+
     // Waiting for page load (it could be any elemment)
     await itic_copilot.waitForElm('.formatting-btn');
 

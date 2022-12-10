@@ -352,6 +352,10 @@
         "message" : "Show a customized landpage",
         "description" : "Option to show a customized landing page on escriny's website."
     },
+    "ui_settings_overleaf_commit_to_escriny" : {
+        "message" : "Commit your main.tex file to Escriny",
+        "description" : "Option to enable a 'Commit to escriny' button on overleaf's website."
+    },
     "ui_settings_reset_schedule" : {
         "message" : "Reset timetables",
         "description" : "Button used to choose another set of subjects."
