@@ -12,6 +12,8 @@
     "escriny.edit_files" : true,
     "escriny.show_landpage" : true,
 
+    "overleaf.commit_to_escriny": true,
+
     "subjects" : [
     ],
 

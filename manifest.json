@@ -1,7 +1,7 @@
 {
     "name": "__MSG_extension_name__",
     "description": "__MSG_extension_description__",
-    "version": "1.9",
+    "version": "1.9.1",
     "manifest_version": 3,
     "author" : "Eric Roy",
     "default_locale" : "en",
@@ -15,6 +15,10 @@
 
     "background": {
         "service_worker": "js/background.js"
+    },
+
+    "background_firefox": {
+        "scripts": ["js/background.js"]
     },
 
     "permissions": [
@@ -79,7 +83,8 @@
                 "include/jquery-3.4.1.min.js",
                 "include/fnon.min.js",
                 "include/ace/ace.js",
-                "include/svnjs.min.js",
+                "include/svnjs/dav.js",
+                "include/svnjs/svn.js",
                 "js/basics.js",
                 "js/settings.js",
                 "js/fnon_controller.js",
@@ -203,6 +208,28 @@
                 "js/timetables/easter_egg.js"
                 ],
             "css": [
+            ],
+            "run_at": "document_end"
+        },
+
+        {
+            "matches": ["*://www.overleaf.com/project/*"],
+            "all_frames": true,
+            "js": [
+                "include/browser-polyfill.min.js",
+                "include/jquery-3.4.1.min.js",
+                "include/jszip.min.js",
+                "include/jszip-utils.min.js",
+                "include/fnon.min.js",
+                "include/svnjs/dav.js",
+                "include/svnjs/svn.js",
+                "js/basics.js",
+                "js/settings.js",
+                "js/fnon_controller.js",
+                "js/overleaf/util.js"
+                ],
+            "css": [
+                "include/fnon.min.css"
             ],
             "run_at": "document_end"
         }

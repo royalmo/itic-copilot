@@ -15,3 +15,42 @@
  * this program. If not, see http://www.gnu.org/licenses/.
 */
 
+chrome.runtime.onMessage.addListener(
+    function(request, sender, sendResponse) {
+        console.log(request);
+        if (request.contentScriptQuery == "SVNJSrequest") {
+            SVNJSrequest(request.options, request.self)
+            .then(response => response.text().then(
+                text => {
+                    var parsedResponse = {
+                        status: response.status,
+                        body: text,
+                    };
+                    sendResponse(parsedResponse);
+                }))
+            .catch(error => console.warn(error));
+            return true;
+        }
+    }
+);
+
+function SVNJSrequest(options, self) {
+    requestHeaders = new Headers();
+    if (!options.noAuth)
+        requestHeaders.append("Authorization", self.auth);
+
+    if (options.headers) {
+        for(var key in options.headers) {
+            var val = options.headers[key];
+            requestHeaders.append(key, val);
+        }
+    }
+
+    return fetch(options.path, {
+        credentials: 'omit',
+        method: options.type,
+        cache: 'no-cache',
+        headers: requestHeaders,
+        body: options.content
+    });
+}

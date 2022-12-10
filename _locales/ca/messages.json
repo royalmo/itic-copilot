@@ -352,6 +352,10 @@
         "message" : "Mostrar inici personalitzat",
         "description" : "Option to show a customized landing page on escriny's website."
     },
+    "ui_settings_overleaf_commit_to_escriny" : {
+        "message" : "Fes commits de LaTeX a escriny",
+        "description" : "Option to enable a 'Commit to escriny' button on overleaf's website."
+    },
     "ui_settings_reset_schedule" : {
         "message" : "Canviar horaris",
         "description" : "Button used to choose another set of subjects."
@@ -487,5 +491,38 @@
     "escriny_your_projects_none" : {
         "message" : "Encara no tens projectes privats.",
         "description" : "Placeholder for when there isn't any private projects yet."
+    },
+
+    "overleaf_commit_to_escriny" : {
+        "message" : "Commit a Escriny",
+        "description" : "Button that appears on the header bar of overleaf's GUI."
+    },
+    "overleaf_no_tex_title" : {
+        "message" : "Fitxer TEX no trobat",
+        "description" : "Title of an error when attempting to commit."
+    },
+    "overleaf_no_tex_description" : {
+        "message" : "No s'ha trobat el fitxer .tex d'aquest projecte.",
+        "description" : "Description of the error when attempting to commit."
+    },
+    "overleaf_bad_auth_or_path" : {
+        "message" : "Ha succeït un error durant el commit. Comprova les dades que has introduït.",
+        "description" : "Error message when the first request fails."
+    },
+    "overleaf_repo_name_prompt" : {
+        "message" : "Nom del repositori d'Escriny",
+        "description" : "Text for the repo name prompt on Overleaf."
+    },
+    "overleaf_file_path_prompt" : {
+        "message" : "Nom i ubicació de l'arxiu (si no existeix es crearà)",
+        "description" : "Text for the filename prompt on Overleaf."
+    },
+    "overleaf_commit_message_prompt" : {
+        "message" : "Missatge de commit (opcional)",
+        "description" : "Text for the commit message prompt on Overleaf."
+    },
+    "overleaf_example_text" : {
+        "message" : "Exemple",
+        "description" : "Small caption on every prompt on Overleaf showing examples."
     }
 }

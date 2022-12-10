@@ -352,6 +352,10 @@
         "message" : "Show a customized landpage",
         "description" : "Option to show a customized landing page on escriny's website."
     },
+    "ui_settings_overleaf_commit_to_escriny" : {
+        "message" : "Commit your LaTeX file to Escriny",
+        "description" : "Option to enable a 'Commit to escriny' button on overleaf's website."
+    },
     "ui_settings_reset_schedule" : {
         "message" : "Reset timetables",
         "description" : "Button used to choose another set of subjects."
@@ -487,6 +491,39 @@
     "escriny_your_projects_none" : {
         "message" : "You still haven't got any private projects.",
         "description" : "Placeholder for when there isn't any private projects yet."
+    },
+
+    "overleaf_commit_to_escriny" : {
+        "message" : "Commit to Escriny",
+        "description" : "Button that appears on the header bar of overleaf's GUI."
+    },
+    "overleaf_no_tex_title" : {
+        "message" : "No TEX file found",
+        "description" : "Title of an error when attempting to commit."
+    },
+    "overleaf_no_tex_description" : {
+        "message" : "No TEX file found on the project.",
+        "description" : "Description of the error when attempting to commit."
+    },
+    "overleaf_bad_auth_or_path" : {
+        "message" : "An error occurred while commiting the file. Check your credentials and the repository name.",
+        "description" : "Error message when the first request fails."
+    },
+    "overleaf_repo_name_prompt" : {
+        "message" : "Escriny's repository name",
+        "description" : "Text for the repo name prompt on Overleaf."
+    },
+    "overleaf_file_path_prompt" : {
+        "message" : "File name and path (if file doesn't exist it will be created)",
+        "description" : "Text for the filename prompt on Overleaf."
+    },
+    "overleaf_commit_message_prompt" : {
+        "message" : "Commit message (optional)",
+        "description" : "Text for the commit message prompt on Overleaf."
+    },
+    "overleaf_example_text" : {
+        "message" : "Example",
+        "description" : "Small caption on every prompt on Overleaf showing examples."
     },
 
 
