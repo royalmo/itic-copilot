@@ -30,6 +30,6 @@
         // element.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
     }
 
-    $('img[src="https://ocwitic.epsem.upc.edu/@@site-logo/logo.png"]')
+    $('a#portal-logo img')
     .attr('src', browser.runtime.getURL('assets/easter_eggs/ocw_sistemes_toc.png'));
 })();
