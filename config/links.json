@@ -4,7 +4,7 @@
 
     "escriny" : "https://escriny.epsem.upc.edu/login?back_url=https%3A%2F%2Fescriny.epsem.upc.edu%2F",
     "overleaf" : "https://www.overleaf.com/project",
-    "calendar" : "https://www.epsem.upc.edu/ca/estudis/calendaris-academics/calendari-graus-curs-2022-23",
+    "calendar" : "https://www.epsem.upc.edu/ca/estudis/calendaris-academics/calendari-graus-curs-{YEAR_FIRST}-{YEAR_SECOND}",
 
     "new_schedule" : "https://epsem.upc.edu/thor/PG/Grups.php?t=14&setup=true",
     "new_schedule_with_alert" : "https://epsem.upc.edu/thor/PG/Grups.php?t=14&show_alert=true&setup=true",

@@ -211,6 +211,13 @@ function configure_links (only_variable=false) {
             $('a[key="schedule"]').attr('href', val);
         })
 
+        // Setting up calendar link for the current year
+        let [first, second] = year_digits();
+        $('a[key="calendar"]').attr('href',
+            links["calendar"].replace('{YEAR_FIRST}', first)
+            .replace('{YEAR_SECOND}', second)
+        );
+
         // Setting up all constant links
         $('a[type="constant"], tr[type="constant"]').each(function () {
             $(this).attr('href', links[$(this).attr('key')]);
@@ -232,3 +239,20 @@ function render_subjects(subjects) {
         });
     });
 }
+
+// First contribution from chatgpt
+function year_digits() {
+    const today = new Date();
+    const currentMonth = today.getMonth() + 1; // Adding 1 because getMonth() returns 0-based month (0 = January)
+
+    // Check if today is on or after September 1st
+    if (currentMonth >= 9) {
+        const currentYear = today.getFullYear();
+        const nextYear = (currentYear + 1) % 100;
+        return [currentYear, nextYear];
+    } else {
+        const previousYear = today.getFullYear() - 1;
+        const currentYear = today.getFullYear() % 100;
+        return [previousYear, currentYear];
+    }
+}  
