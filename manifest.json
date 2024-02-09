@@ -1,7 +1,7 @@
 {
     "name": "__MSG_extension_name__",
     "description": "__MSG_extension_description__",
-    "version": "1.10.0",
+    "version": "1.11.0",
     "manifest_version": 3,
     "author" : "Eric Roy",
     "default_locale" : "en",
@@ -97,7 +97,7 @@
         },
 
         {
-            "matches": ["*://epsem.upc.edu/thor/PG/Grups.php?*"],
+            "matches": ["*://thor.epsem.upc.edu/thor/PG/Grups.php?*"],
             "all_frames": true,
             "js": [
                 "include/browser-polyfill.min.js",
@@ -148,8 +148,8 @@
 
         {
             "matches": [
-                "*://www.epsem.upc.edu/ca/estudis/graus/grau-en-enginyeria-de-sistemes-tic",
-                "*://www.epsem.upc.edu/es/estudios/grados/grado-en-ingenieria-en-sistemas-tic*"
+                "*://*.epsem.upc.edu/ca/estudis/graus/grau-en-enginyeria-de-sistemes-tic",
+                "*://*.epsem.upc.edu/es/estudios/grados/grado-en-ingenieria-en-sistemas-tic*"
             ],
             "all_frames": true,
             "js": [
@@ -197,7 +197,7 @@
             "run_at": "document_end"
         },
         {
-            "matches": ["*://epsem.upc.edu/thor/PG/Horari.php"],
+            "matches": ["*://thor.epsem.upc.edu/thor/PG/Horari.php"],
             "all_frames": true,
             "js": [
                 "include/browser-polyfill.min.js",

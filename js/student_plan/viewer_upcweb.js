@@ -22,14 +22,12 @@
         $(document).ready( function () {
             var select = $('a[href="#collapse-images-collapse-curriculum"]');
 
-            $('#collapse-images-collapse-curriculum')
-            .attr('style', '').attr('aria-expanded', 'true')
-            .addClass('in');
-            select.attr('aria-expanded', 'true').attr('class', '');
-
             var offTop = select.offset().top - 100;
             //$(document).scrollTop(offTop); does nothing in Chrome ...
             window.scrollTo({top: offTop, behavior: 'smooth'});
+
+            select.attr('aria-expanded', 'true');
+            $('#collapse-images-collapse-curriculum').attr('aria-expanded', 'true').addClass('in');
         });
     }
 

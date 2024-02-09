@@ -6,14 +6,14 @@
     "overleaf" : "https://www.overleaf.com/project",
     "calendar" : "https://www.epsem.upc.edu/ca/estudis/calendaris-academics/calendari-graus-curs-{YEAR_FIRST}-{YEAR_SECOND}",
 
-    "new_schedule" : "https://epsem.upc.edu/thor/PG/Grups.php?t=14&setup=true",
-    "new_schedule_with_alert" : "https://epsem.upc.edu/thor/PG/Grups.php?t=14&show_alert=true&setup=true",
-    "see_schedule" : "https://epsem.upc.edu/thor/PG/Horari.php",
+    "new_schedule" : "https://thor.epsem.upc.edu/thor/PG/Grups.php?t=14&setup=true",
+    "new_schedule_with_alert" : "https://thor.epsem.upc.edu/thor/PG/Grups.php?t=14&show_alert=true&setup=true",
+    "see_schedule" : "https://thor.epsem.upc.edu/thor/PG/Horari.php",
 
     "course_guides_cat" : "https://www.epsem.upc.edu/ca/estudis/graus/grau-en-enginyeria-de-sistemes-tic#plan",
     "course_guides_esp" : "https://www.epsem.upc.edu/es/estudios/grados/grado-en-ingenieria-en-sistemas-tic#plan",
     "course_guides_ing" : "https://www.upc.edu/en/bachelors/ict-systems-engineering-manresa-epsem#plan",
 
-    "e_secretaria" : "https://sso.upc.edu/CAS/login?service=https://prisma-nou.upc.edu/apl/inicial.php",
+    "e_secretaria" : "https://sso.upc.edu/CAS/login?service=https://prisma-nou.upc.edu/apl/inicial.php%3Flogin%3Dhome_estudiants.php",
     "easter_egg" : "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 }
