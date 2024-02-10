@@ -121,3 +121,32 @@ A **Load unpacked** button will appear at the top left of the page after enablin
 
 
 That's it! You should be able to open OCW's files without downloading them. **Caution!** Make sure you don't delete the downloaded folder! Chrome loads the extension from there every time you open the browser.
+
+## Firefox installation
+
+To make the extension work in Firefox you need to modify the `manifest.json` file.
+
+```json
+    "background": {
+        "service_worker": "js/background.js"
+    },
+
+    "background_firefox": {
+        "scripts": ["js/background.js"]
+    },
+```
+
+Rename the background tags to be like this, so Firefox picks the correct one.
+
+```json
+    "background_chrome": {
+        "service_worker": "js/background.js"
+    },
+
+    "background": {
+        "scripts": ["js/background.js"]
+    },
+```
+
+That's the only non-compatible setting. All the rest is compatible among all
+browsers.
