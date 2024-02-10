@@ -20,11 +20,7 @@
 
     if (scroll_to_plan) {
         $(document).ready( function () {
-            $('a[href="#pla"]').parent().addClass('active');
-            $('a[href="#presentacio"]').parent().removeClass('active');
-
-            $('#pla').addClass('active');
-            $('#presentacio').removeClass('active');
+            $('#pla-tab').click();
 
             var offTop = $('#myTab').offset().top;
 
